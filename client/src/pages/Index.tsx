@@ -7,7 +7,7 @@ import HowItWorksStep from '@/components/HowItWorksStep';
 import LiveChat from '@/components/LiveChat';
 import heroImage from '@/assets/hero-elegant-premium.jpg';
 import dashboardImage from '@/assets/dashboard-analytics.jpg';
-import { Settings, DollarSign, Network, BarChart3, Search, Lightbulb, Play, CheckCircle, ArrowRight, Users, Globe, Clock, Shield, MapPin } from 'lucide-react';
+import { Settings, DollarSign, Network, BarChart3, Search, Lightbulb, Play, CheckCircle, ArrowRight, Users, Globe, Clock, Shield, MapPin, Package, TrendingDown } from 'lucide-react';
 const Index = () => {
   const icpSolutions = [{
     title: "For Ecommerce Brands",
@@ -50,111 +50,80 @@ const Index = () => {
     icon: <CheckCircle className="w-6 h-6" />
   }];
   const metrics = [{
-    value: "10M+",
-    label: "Shipments processed",
-    icon: <DollarSign className="w-5 h-5" />
+    value: "5M+",
+    label: "Shipments delivered per month",
+    icon: <Package className="w-5 h-5" />
   }, {
-    value: "99.5%",
-    label: "On-time delivery rate",
+    value: "99%",
+    label: "On-time delivery",
     icon: <Clock className="w-5 h-5" />
   }, {
     value: "15+",
-    label: "Countries covered",
+    label: "Countries delivered",
     icon: <Globe className="w-5 h-5" />
   }, {
-    value: "$50M+",
-    label: "In cost savings recovered",
-    icon: <Shield className="w-5 h-5" />
+    value: "$10M+",
+    label: "Cost saved per year",
+    icon: <TrendingDown className="w-5 h-5" />
   }];
   return (
     <div className="min-h-screen bg-background">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
+          {/* Enhanced Background with Subtle Pattern */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-secondary/95" />
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/50 rounded-full blur-2xl"></div>
+          </div>
           <div className="relative w-full max-w-6xl mx-auto px-6 text-center text-white">
-            <h1 className="text-6xl lg:text-8xl font-display font-bold mb-10 animate-fade-in leading-tight tracking-tight">
+            <div className="mb-4 animate-fade-in">
+              <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">Your Gateway to Seamless Cross-Border Logistics</span>
+            </div>
+            <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
               We Simplify
               <span className="block text-white bg-gradient-to-r from-white to-blue-100 bg-clip-text">Logistics in Southeast Asia</span>
             </h1>
-            <p className="text-xl lg:text-2xl text-white/95 mb-16 leading-relaxed max-w-4xl mx-auto animate-slide-up font-light">
+            <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
               Compare rates against market benchmarks, eliminate switching costs, and build customized supply chains. 
               We handle procurement, operations, and billing reconciliation completely.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20 animate-scale-in">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
               <Link to="/contact">
-                <button className="btn-accent text-lg px-10 py-4 rounded-full">
+                <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                   Start Your Assessment <ArrowRight className="ml-2 w-5 h-5 inline" />
                 </button>
               </Link>
               <Link to="/solutions">
-                <button className="bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white hover:text-primary text-lg px-10 py-4 rounded-full font-medium transition-all duration-200">
+                <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
                   Explore Solutions
                 </button>
               </Link>
             </div>
             
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 animate-fade-in max-w-5xl mx-auto">
-              {metrics.map((metric, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-md border border-white/30 rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300">
-                  <div className="flex justify-center mb-3 text-white">
-                    {metric.icon}
-                  </div>
-                  <div className="text-3xl font-bold font-display text-white mb-2">
-                    {metric.value}
-                  </div>
-                  <div className="text-sm text-white/90">
-                    {metric.label}
-                  </div>
+            
+            {/* Partner Trust Badges */}
+            <div className="text-center animate-fade-in">
+              <p className="text-white/60 text-sm mb-4">Trusted by industry leaders</p>
+              <div className="flex flex-wrap justify-center items-center gap-6 opacity-70">
+                <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
+                  <span className="text-white/80 font-medium text-sm">Global Entertainment Leader</span>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Trust Bar Section */}
-        <section className="py-20 bg-gradient-to-r from-gray-50 to-white">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="text-center">
-              <p className="text-lg text-gray-600 font-semibold mb-12 tracking-wide">Trusted by Global Leaders and High-Growth Brands</p>
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 lg:gap-12 items-center">
-                <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-200">
-                  <span className="text-xl font-bold text-gray-800 mb-1 group-hover:text-primary transition-colors">Disney</span>
-                  <span className="text-xs text-gray-500 uppercase tracking-wider">Entertainment</span>
+                <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
+                  <span className="text-white/80 font-medium text-sm">Fashion Marketplace Pioneer</span>
                 </div>
-                <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-200">
-                  <span className="text-xl font-bold text-gray-800 mb-1 group-hover:text-primary transition-colors">GOAT</span>
-                  <span className="text-xs text-gray-500 uppercase tracking-wider">Marketplace</span>
+                <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
+                  <span className="text-white/80 font-medium text-sm">International Luxury Brand</span>
                 </div>
-                <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-200">
-                  <span className="text-xl font-bold text-gray-800 mb-1 group-hover:text-primary transition-colors">Swarovski</span>
-                  <span className="text-xs text-gray-500 uppercase tracking-wider">Luxury</span>
-                </div>
-                <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-200">
-                  <span className="text-lg font-bold text-gray-800 mb-1 group-hover:text-primary transition-colors text-center leading-tight">Beyond The Vines</span>
-                  <span className="text-xs text-gray-500 uppercase tracking-wider">Retail</span>
-                </div>
-                <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-200">
-                  <span className="text-xl font-bold text-gray-800 mb-1 group-hover:text-primary transition-colors">Shopee</span>
-                  <span className="text-xs text-gray-500 uppercase tracking-wider">E-commerce</span>
-                </div>
-                <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-200">
-                  <span className="text-xl font-bold text-gray-800 mb-1 group-hover:text-primary transition-colors">Lazada</span>
-                  <span className="text-xs text-gray-500 uppercase tracking-wider">Marketplace</span>
-                </div>
-                <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-200">
-                  <span className="text-xl font-bold text-gray-800 mb-1 group-hover:text-primary transition-colors">Shein</span>
-                  <span className="text-xs text-gray-500 uppercase tracking-wider">Fashion</span>
-                </div>
-                <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-200">
-                  <span className="text-xl font-bold text-primary mb-1 group-hover:scale-110 transition-transform">500+</span>
-                  <span className="text-xs text-gray-500 uppercase tracking-wider">More Brands</span>
+                <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
+                  <span className="text-white/80 font-medium text-sm">500+ More Clients</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
 
         {/* ICP Segmentation Section */}
         <section id="icp-selection" className="py-20 bg-white">
@@ -269,7 +238,7 @@ const Index = () => {
                 <CardContent className="p-8">
                   <div className="grid md:grid-cols-2 gap-8 items-center">
                     <div>
-                      <div className="text-3xl font-bold text-primary mb-4">Disney</div>
+                      <div className="text-3xl font-bold text-primary mb-4">Global Entertainment Leader</div>
                       <blockquote className="text-lg italic text-muted-foreground mb-6">
                         "Janio transformed our Asia Pacific logistics, reducing costs by 35% while enabling us to launch in 5 new markets in record time."
                       </blockquote>
@@ -291,7 +260,7 @@ const Index = () => {
                     <div className="text-center">
                       <img 
                         src={dashboardImage} 
-                        alt="Disney success story visualization" 
+                        alt="Global Entertainment Leader success story visualization" 
                         className="w-full h-auto rounded-lg shadow-medium"
                       />
                     </div>
@@ -342,20 +311,21 @@ const Index = () => {
 
         {/* SEA Coverage Map Section */}
         <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4 max-w-6xl">
+          <div className="container mx-auto px-4 max-w-7xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-display font-bold text-gray-900 mb-6">
                 Complete Southeast Asia Coverage
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                From Singapore to Jakarta, Bangkok to Manila - we've got your logistics covered across 15+ countries
+                From Singapore to Sydney, Bangkok to Hong Kong, and everywhere in between - we've got your logistics covered across 15+ countries
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Markets</h3>
-                <div className="grid grid-cols-2 gap-4">
+            <div className="grid lg:grid-cols-3 gap-12">
+              {/* Key Markets Section */}
+              <div className="lg:col-span-2">
+                <h3 className="text-2xl font-bold text-gray-900 mb-8">Key Markets</h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                   {[
                     { country: "Singapore", flag: "🇸🇬" },
                     { country: "Malaysia", flag: "🇲🇾" },
@@ -366,101 +336,40 @@ const Index = () => {
                     { country: "Cambodia", flag: "🇰🇭" },
                     { country: "Myanmar", flag: "🇲🇲" }
                   ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow">
+                    <div key={index} className="flex flex-col items-center gap-3 p-4 bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow h-24">
                       <span className="text-2xl">{item.flag}</span>
-                      <span className="font-medium text-gray-800">{item.country}</span>
-                      <MapPin className="w-4 h-4 text-primary ml-auto" />
+                      <span className="font-medium text-gray-800 text-center text-xs">{item.country}</span>
+                      <MapPin className="w-3 h-3 text-primary" />
                     </div>
                   ))}
                 </div>
               </div>
               
-              <div className="bg-white p-8 rounded-xl shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Coverage Capabilities</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Last-mile delivery in 500+ cities</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Cross-border customs clearance</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Local warehousing & fulfillment</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Regional freight consolidation</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Multi-currency billing</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SEA Coverage Map Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-display font-bold text-gray-900 mb-6">
-                Complete Southeast Asia Coverage
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                From Singapore to Jakarta, Bangkok to Manila - we've got your logistics covered across 15+ countries
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Markets</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { country: "Singapore", flag: "🇸🇬" },
-                    { country: "Malaysia", flag: "🇲🇾" },
-                    { country: "Thailand", flag: "🇹🇭" },
-                    { country: "Indonesia", flag: "🇮🇩" },
-                    { country: "Philippines", flag: "🇵🇭" },
-                    { country: "Vietnam", flag: "🇻🇳" },
-                    { country: "Cambodia", flag: "🇰🇭" },
-                    { country: "Myanmar", flag: "🇲🇲" }
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow">
-                      <span className="text-2xl">{item.flag}</span>
-                      <span className="font-medium text-gray-800">{item.country}</span>
-                      <MapPin className="w-4 h-4 text-primary ml-auto" />
+              {/* Coverage Capabilities Section */}
+              <div className="flex flex-col">
+                <h3 className="text-2xl font-bold text-gray-900 mb-8">Coverage Capabilities</h3>
+                <div className="bg-white p-6 rounded-xl shadow-lg flex-1 flex items-center justify-center">
+                  <div className="space-y-3 w-full">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Last-mile delivery in 500+ cities</span>
                     </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="bg-white p-8 rounded-xl shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Coverage Capabilities</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Last-mile delivery in 500+ cities</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Cross-border customs clearance</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Local warehousing & fulfillment</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Regional freight consolidation</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Multi-currency billing</span>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Cross-border customs clearance</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Local warehousing & fulfillment</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Regional freight consolidation</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Multi-currency billing</span>
+                    </div>
                   </div>
                 </div>
               </div>

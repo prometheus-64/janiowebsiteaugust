@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Phone, Mail, Clock, ArrowRight, Loader2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ArrowRight, Loader2, CheckCircle, Star, DollarSign, Zap } from 'lucide-react';
 
 import { useToast } from "@/hooks/use-toast";
 
@@ -122,41 +122,94 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary via-primary/90 to-secondary relative overflow-hidden">
+      {/* Hero Section with Prominent CTA */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        {/* Enhanced Background with Subtle Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-secondary/95" />
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-4xl lg:text-6xl font-bold font-display mb-6 animate-fade-in">
-              Let's Transform Your Logistics Together
-            </h1>
-            <p className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed animate-slide-up">
-              Ready to scale without complexity? Get a free assessment and discover 
-              how Janio can optimize your supply chain operations.
-            </p>
-          </div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/50 rounded-full blur-2xl"></div>
         </div>
-      </section>
-
-      {/* Contact Form & Info Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        
+        <div className="relative w-full max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             
-            {/* Contact Form */}
-            <div className="animate-fade-in">
-              <Card className="p-8 shadow-medium">
-                <CardHeader className="pb-6">
-                  <CardTitle className="text-2xl font-display text-foreground">
-                    Get Your Free Logistics Assessment
+            {/* Left Column - Value Proposition */}
+            <div className="text-white">
+              <div className="mb-6 animate-fade-in">
+                <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">
+                  Free Logistics Assessment
+                </span>
+              </div>
+              
+              <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6 animate-fade-in leading-tight">
+                Get Your Free
+                <span className="block text-white">$50,000+ Savings</span>
+                Assessment
+              </h1>
+              
+              <p className="text-lg lg:text-xl text-white/80 mb-8 leading-relaxed animate-slide-up">
+                Our logistics experts will analyze your current setup and identify opportunities to reduce costs by 20-35% while improving efficiency. No commitment required.
+              </p>
+
+              {/* Value Props */}
+              <div className="space-y-4 mb-8 animate-fade-in">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1">
+                    <CheckCircle className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white mb-1">Personalized Cost Analysis</h3>
+                    <p className="text-white/70 text-sm">Detailed breakdown of potential savings across your logistics operations</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1">
+                    <DollarSign className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white mb-1">ROI-Focused Recommendations</h3>
+                    <p className="text-white/70 text-sm">Actionable insights that deliver measurable business impact</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1">
+                    <Zap className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white mb-1">24-Hour Response Time</h3>
+                    <p className="text-white/70 text-sm">Fast turnaround with expert analysis and custom recommendations</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Proof */}
+              <div className="flex flex-wrap items-center gap-6 text-sm text-white/70 animate-fade-in">
+                <div className="flex items-center gap-2">
+                  <Star className="w-4 h-4 text-accent fill-current" />
+                  <span>Trusted by 500+ companies</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4" />
+                  <span>Average 32% cost reduction</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Assessment Form */}
+            <div className="animate-slide-up">
+              <Card className="bg-white/95 backdrop-blur-sm p-6 shadow-2xl border-0 rounded-2xl">
+                <CardHeader className="pb-6 text-center">
+                  <CardTitle className="text-2xl font-display text-foreground mb-2">
+                    Start Your Free Assessment
                   </CardTitle>
                   <p className="text-muted-foreground">
-                    Tell us about your business and we'll provide personalized recommendations.
+                    Takes 2 minutes. Results within 24 hours.
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="name">Full Name *</Label>
                         <Input
@@ -165,6 +218,7 @@ const Contact = () => {
                           onChange={(e) => handleInputChange('name', e.target.value)}
                           placeholder="Your full name"
                           required
+                          className="h-12"
                         />
                       </div>
                       <div className="space-y-2">
@@ -176,11 +230,12 @@ const Contact = () => {
                           onChange={(e) => handleInputChange('email', e.target.value)}
                           placeholder="you@company.com"
                           required
+                          className="h-12"
                         />
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="company">Company Name *</Label>
                         <Input
@@ -189,6 +244,7 @@ const Contact = () => {
                           onChange={(e) => handleInputChange('company', e.target.value)}
                           placeholder="Your company"
                           required
+                          className="h-12"
                         />
                       </div>
                       <div className="space-y-2">
@@ -199,185 +255,134 @@ const Contact = () => {
                           value={formData.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
                           placeholder="+1 (555) 123-4567"
+                          className="h-12"
                         />
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="service">Service Interest</Label>
+                        <Label htmlFor="service">Primary Interest</Label>
                         <Select onValueChange={(value) => handleInputChange('serviceInterest', value)}>
-                          <SelectTrigger>
+                          <SelectTrigger className="h-12">
                             <SelectValue placeholder="Select a service" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="laas">Logistics as a Service</SelectItem>
-                            <SelectItem value="procurement">Transportation Procurement</SelectItem>
-                            <SelectItem value="control-tower">Supply Chain Control Tower</SelectItem>
-                            <SelectItem value="audit">Invoice Audit Services</SelectItem>
-                            <SelectItem value="multiple">Multiple Services</SelectItem>
+                            <SelectItem value="cost-reduction">Cost Reduction</SelectItem>
+                            <SelectItem value="laas">Full Logistics Outsourcing</SelectItem>
+                            <SelectItem value="procurement">Rate Optimization</SelectItem>
+                            <SelectItem value="control-tower">Supply Chain Visibility</SelectItem>
+                            <SelectItem value="audit">Invoice Audit</SelectItem>
                             <SelectItem value="not-sure">Not Sure Yet</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="company-size">Company Size</Label>
+                        <Label htmlFor="company-size">Monthly Logistics Spend</Label>
                         <Select onValueChange={(value) => handleInputChange('companySize', value)}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select company size" />
+                          <SelectTrigger className="h-12">
+                            <SelectValue placeholder="Select range" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="startup">Startup (1-50 employees)</SelectItem>
-                            <SelectItem value="growth">Growth Stage (51-200 employees)</SelectItem>
-                            <SelectItem value="midmarket">Mid-Market (201-1000 employees)</SelectItem>
-                            <SelectItem value="enterprise">Enterprise (1000+ employees)</SelectItem>
+                            <SelectItem value="under-10k">Under $10K</SelectItem>
+                            <SelectItem value="10k-50k">$10K - $50K</SelectItem>
+                            <SelectItem value="50k-200k">$50K - $200K</SelectItem>
+                            <SelectItem value="200k-500k">$200K - $500K</SelectItem>
+                            <SelectItem value="over-500k">Over $500K</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message">Tell us about your logistics challenges</Label>
+                      <Label htmlFor="message">Biggest logistics challenge (optional)</Label>
                       <Textarea
                         id="message"
                         value={formData.message}
                         onChange={(e) => handleInputChange('message', e.target.value)}
-                        placeholder="Describe your current logistics setup, challenges, and goals..."
-                        className="min-h-[120px]"
+                        placeholder="e.g., high shipping costs, poor delivery performance, complex multi-vendor management..."
+                        className="min-h-[80px] resize-none"
                       />
                     </div>
 
-                    <Button type="submit" variant="cta" size="lg" className="w-full" disabled={isSubmitting}>
+                    <Button 
+                      type="submit" 
+                      size="lg" 
+                      className="w-full bg-primary hover:bg-primary/90 text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 h-14" 
+                      disabled={isSubmitting}
+                    >
                       {isSubmitting ? (
                         <>
                           <Loader2 className="mr-2 w-5 h-5 animate-spin" />
-                          Submitting...
+                          Analyzing...
                         </>
                       ) : (
                         <>
-                          Get My Assessment
+                          Get My Free Assessment
                           <ArrowRight className="ml-2 w-5 h-5" />
                         </>
                       )}
                     </Button>
+
+                    <p className="text-xs text-muted-foreground text-center mt-4">
+                      No spam, ever. We'll only contact you with your assessment results.
+                    </p>
                   </form>
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Contact Information */}
-            <div className="space-y-8 animate-slide-up">
-              
-              {/* Office Locations */}
-              <div>
-                <h3 className="text-2xl font-display font-semibold text-foreground mb-6">
-                  Office Locations
-                </h3>
-                <div className="space-y-6">
-                  {offices.map((office, index) => (
-                    <Card key={office.city} className="p-6 hover:shadow-medium transition-all duration-300">
-                      <CardContent className="pt-0">
-                        <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center">
-                          <MapPin className="w-5 h-5 text-accent mr-2" />
-                          {office.city}
-                        </h4>
-                        <div className="space-y-2 text-muted-foreground">
+      {/* Secondary Contact Options */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            
+
+            {/* Global Offices */}
+            <div className="animate-fade-in">
+              <Card className="bg-white p-8 shadow-lg border-0 rounded-2xl">
+                <CardHeader className="pb-6 text-center">
+                  <CardTitle className="text-2xl font-display text-foreground flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-primary mr-3" />
+                    Our Global Offices
+                  </CardTitle>
+                  <p className="text-muted-foreground mt-2">
+                    Local presence across key markets in Asia-Pacific and North America
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {offices.map((office, index) => (
+                      <div key={office.city} className="p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <h5 className="text-lg font-semibold text-foreground mb-2">{office.city}</h5>
+                        <div className="space-y-1 text-sm text-muted-foreground mb-3">
                           <p>{office.address}</p>
                           <p>{office.postal}</p>
-                          <div className="flex items-center pt-2">
-                            <Phone className="w-4 h-4 text-accent mr-2" />
-                            <span>{office.phone}</span>
+                        </div>
+                        <div className="space-y-1 text-sm">
+                          <div className="flex items-center gap-2">
+                            <Phone className="w-3 h-3 text-primary" />
+                            <a href={`tel:${office.phone}`} className="text-foreground hover:text-primary transition-colors">
+                              {office.phone}
+                            </a>
                           </div>
-                          <div className="flex items-center">
-                            <Mail className="w-4 h-4 text-accent mr-2" />
-                            <span>{office.email}</span>
+                          <div className="flex items-center gap-2">
+                            <Mail className="w-3 h-3 text-primary" />
+                            <a href={`mailto:${office.email}`} className="text-foreground hover:text-primary transition-colors">
+                              {office.email}
+                            </a>
                           </div>
                         </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-
-              {/* Business Hours */}
-              <Card className="p-6">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-lg font-display text-foreground flex items-center">
-                    <Clock className="w-5 h-5 text-accent mr-2" />
-                    Business Hours
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 text-muted-foreground">
-                    <div className="flex justify-between">
-                      <span>Monday - Friday:</span>
-                      <span>9:00 AM - 6:00 PM</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Saturday:</span>
-                      <span>9:00 AM - 1:00 PM</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Sunday:</span>
-                      <span>Closed</span>
-                    </div>
-                    <div className="pt-4 border-t border-border">
-                      <p className="text-sm">
-                        <strong>Emergency Support:</strong> 24/7 for existing clients
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Response Promise */}
-              <Card className="p-6 bg-muted/30 border-l-4 border-l-accent">
-                <CardContent>
-                  <h4 className="text-lg font-semibold text-foreground mb-3">
-                    Our Response Promise
-                  </h4>
-                  <div className="space-y-2 text-muted-foreground">
-                    <p>✓ Response within 1-2 business days</p>
-                    <p>✓ Free assessment within 48 hours</p>
-                    <p>✓ Custom proposal within 5 business days</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Alternative Contact Methods */}
-              <Card className="p-6">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-lg font-display text-foreground">
-                    Other Ways to Connect
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between p-3 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors">
-                      <span className="text-foreground font-medium">LinkedIn</span>
-                      <a href="https://linkedin.com/company/janio" target="_blank" rel="noopener noreferrer" 
-                         className="text-primary hover:text-primary/80 font-medium">
-                        Follow Us →
-                      </a>
-                    </div>
-                    <div className="flex items-center justify-between p-3 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors">
-                      <span className="text-foreground font-medium">WhatsApp</span>
-                      <a href="https://wa.me/6512345678" target="_blank" rel="noopener noreferrer" 
-                         className="text-primary hover:text-primary/80 font-medium">
-                        Chat Now →
-                      </a>
-                    </div>
-                    <div className="flex items-center justify-between p-3 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors">
-                      <span className="text-foreground font-medium">General Inquiries</span>
-                      <a href="mailto:hello@janio.asia" 
-                         className="text-primary hover:text-primary/80 font-medium">
-                        hello@janio.asia →
-                      </a>
-                    </div>
+                      </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
             </div>
+
           </div>
         </div>
       </section>

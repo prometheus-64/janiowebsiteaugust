@@ -651,7 +651,7 @@ const Resources = () => {
                   </Button>
                   
                   <p className="text-xs text-muted-foreground">
-                    No spam. Unsubscribe anytime. Used by teams at Microsoft, Amazon, and 500+ growing companies.
+                    No spam. Unsubscribe anytime. Used by teams at Fortune 500 companies and 500+ growing businesses worldwide.
                   </p>
                 </div>
               </CardContent>

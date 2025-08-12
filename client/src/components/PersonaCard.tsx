@@ -23,7 +23,7 @@ const PersonaCard: React.FC<PersonaCardProps> = ({
 }) => {
   return (
     <Card className={cn(
-      "group relative overflow-hidden transition-all duration-300 hover:shadow-strong hover:-translate-y-1 border-l-4 border-l-accent",
+      "group relative overflow-hidden transition-all duration-300 hover:shadow-strong hover:-translate-y-1 border-l-4 border-l-accent h-full flex flex-col",
       className
     )}>
       <CardHeader className="pb-4">
@@ -39,8 +39,8 @@ const PersonaCard: React.FC<PersonaCardProps> = ({
           {headline}
         </h3>
       </CardHeader>
-      <CardContent className="pt-0">
-        <p className="text-muted-foreground mb-6 leading-relaxed">
+      <CardContent className="pt-0 flex-1 flex flex-col">
+        <p className="text-muted-foreground mb-6 leading-relaxed flex-1">
           {subtext}
         </p>
         <Button 

@@ -6,12 +6,12 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
 // Generate slugs for existing use cases
 const useCaseSlugs = [
-  { title: "How Disney Cut Logistics Costs by 35% While Expanding Across Asia", slug: "disney-cost-optimization" },
-  { title: "GOAT's 2-Week Expansion into Southeast Asia", slug: "goat-rapid-expansion" },
-  { title: "Swarovski's Premium Service Standards Across Borders", slug: "swarovski-luxury-logistics" },
-  { title: "Beyond The Vines: From Startup to Regional Leader", slug: "beyond-the-vines-growth" },
-  { title: "Shopee's Unified Cross-Border Operations", slug: "shopee-cross-border" },
-  { title: "Lazada's Peak Season Success Story", slug: "lazada-peak-season" }
+  { title: "How a Global Entertainment Leader Cut Logistics Costs by 35% While Expanding Across Asia", slug: "entertainment-leader-cost-optimization" },
+  { title: "Fashion Marketplace Pioneer's 2-Week Expansion into Southeast Asia", slug: "fashion-pioneer-rapid-expansion" },
+  { title: "International Luxury Brand's Premium Service Standards Across Borders", slug: "luxury-brand-logistics" },
+  { title: "Growing Retail Brand: From Startup to Regional Leader", slug: "retail-brand-growth" },
+  { title: "Leading SEA Marketplace's Unified Cross-Border Operations", slug: "marketplace-cross-border" },
+  { title: "Regional E-commerce Platform's Peak Season Success Story", slug: "platform-peak-season" }
 ];
 
 async function addSlugsToUseCases() {

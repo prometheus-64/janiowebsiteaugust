@@ -77,29 +77,36 @@ const LogisticsAsAService = () => {
     <div className="min-h-screen bg-background">
       
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-primary via-primary/90 to-secondary relative overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        {/* Enhanced Background with Subtle Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-secondary/95" />
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-4xl lg:text-6xl font-bold font-display mb-6 animate-fade-in">
-              Your Complete Logistics Department, Outsourced
-            </h1>
-            <p className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed animate-slide-up">
-              Free up resources to move your business forward with your own in-house operations, technical, and finance team. Add courier services and customs clearance with procurement, partner onboarding, and finance reconciliation completely managed.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
-              <Link to="/assessment">
-                <button className="bg-accent text-white hover:bg-accent/90 text-lg px-10 py-4 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl">
-                  Get LaaS Assessment
-                  <ArrowRight className="ml-2 w-5 h-5 inline" />
-                </button>
-              </Link>
-              <Link to="/resources/calculators">
-                <button className="bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white hover:text-primary text-lg px-10 py-4 rounded-full font-medium transition-all duration-200">
-                  Calculate ROI
-                </button>
-              </Link>
-            </div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/50 rounded-full blur-2xl"></div>
+        </div>
+        <div className="relative w-full max-w-6xl mx-auto px-6 text-center text-white">
+          <div className="mb-4 animate-fade-in">
+            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">Complete Logistics Outsourcing</span>
+          </div>
+          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
+            Your Complete Logistics
+            <span className="block text-white bg-gradient-to-r from-white to-blue-100 bg-clip-text">Department, Outsourced</span>
+          </h1>
+          <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
+            Free up resources to move your business forward with your own in-house operations, technical, and finance team. Add courier services and customs clearance with procurement, partner onboarding, and finance reconciliation completely managed.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
+            <Link to="/assessment">
+              <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                Get LaaS Assessment <ArrowRight className="ml-2 w-5 h-5 inline" />
+              </button>
+            </Link>
+            <Link to="/resources/calculators">
+              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
+                Calculate ROI
+              </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -259,29 +266,29 @@ const LogisticsAsAService = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10" />
+      <section className="py-24 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
         <div className="relative container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold font-display text-primary-foreground mb-6">
-              Ready to Experience LaaS?
+          <div className="max-w-4xl mx-auto animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-white mb-8 leading-tight">
+              Ready to Experience 
+              <span className="block text-accent">LaaS?</span>
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-              Get a free assessment and see how our Logistics as a Service platform 
-              can transform your operations
+            <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
+              Get a free assessment and see how our Logistics as a Service platform can transform your operations.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cta" size="xl" asChild>
-                <Link to="/assessment">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link to="/assessment">
+                <button className="bg-accent text-white hover:bg-accent/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
                   Get Your LaaS Assessment
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-              <Button variant="hero" size="xl" asChild>
-                <Link to="/contact">
+                </button>
+              </Link>
+              <Link to="/contact">
+                <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-10 py-4 rounded-full font-medium transition-all duration-200 inline-flex items-center">
                   Talk to an Expert
-                </Link>
-              </Button>
+                </button>
+              </Link>
             </div>
           </div>
         </div>

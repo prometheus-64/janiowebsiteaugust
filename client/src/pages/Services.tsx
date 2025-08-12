@@ -68,20 +68,34 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        {/* Enhanced Background with Subtle Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-secondary/95" />
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h1 className="text-4xl lg:text-6xl font-display font-bold text-white mb-6">
-              The Building Blocks of a Smarter Supply Chain
-            </h1>
-            <p className="text-xl lg:text-2xl text-white/90 leading-relaxed mb-8">
-              Janio's suite of services provides the technology, expertise, and network to optimize every aspect of your logistics. Explore our capabilities and build the solution that fits your business.
-            </p>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/50 rounded-full blur-2xl"></div>
+        </div>
+        <div className="relative w-full max-w-6xl mx-auto px-6 text-center text-white">
+          <div className="mb-4 animate-fade-in">
+            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">Comprehensive Service Portfolio</span>
+          </div>
+          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
+            The Building Blocks of a
+            <span className="block text-white bg-gradient-to-r from-white to-blue-100 bg-clip-text">Smarter Supply Chain</span>
+          </h1>
+          <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
+            Janio's suite of services provides the technology, expertise, and network to optimize every aspect of your logistics. Explore our capabilities and build the solution that fits your business.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
             <Link to="/contact">
-              <button className="bg-accent text-white hover:bg-accent/90 text-lg px-10 py-4 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl inline-flex items-center">
-                Talk to a Solutions Expert
-                <ArrowRight className="ml-2 w-5 h-5" />
+              <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                Talk to a Solutions Expert <ArrowRight className="ml-2 w-5 h-5 inline" />
+              </button>
+            </Link>
+            <Link to="/solutions">
+              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
+                Explore Solutions
               </button>
             </Link>
           </div>
@@ -180,28 +194,29 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10" />
+      <section className="py-24 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
         <div className="relative container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto animate-fade-in">
-            <h2 className="text-3xl lg:text-4xl font-bold font-display text-primary-foreground mb-6">
-              Ready to Build Your Perfect Logistics Solution?
+          <div className="max-w-4xl mx-auto animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-white mb-8 leading-tight">
+              Ready to Build Your 
+              <span className="block text-accent">Perfect Logistics Solution?</span>
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
+            <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
               Let's discuss how our services can be configured to meet your specific business needs and growth objectives.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cta" size="xl" asChild>
-                <Link to="/contact">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link to="/contact">
+                <button className="btn-accent text-lg px-10 py-4 rounded-full shadow-large">
                   Schedule a Consultation
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-              <Button variant="hero" size="xl" asChild>
-                <Link to="/solutions">
+                  <ArrowRight className="ml-2 w-5 h-5 inline" />
+                </button>
+              </Link>
+              <Link to="/solutions">
+                <button className="btn-secondary text-lg px-10 py-4 rounded-full border-white/30 hover:bg-white/20 text-[#04216c]">
                   Explore Solutions
-                </Link>
-              </Button>
+                </button>
+              </Link>
             </div>
           </div>
         </div>

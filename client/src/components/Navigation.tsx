@@ -84,6 +84,13 @@ const Navigation = () => {
           <div className="hidden lg:flex items-center space-x-8">
             <NavigationMenu>
               <NavigationMenuList>
+                {/* Home */}
+                <NavigationMenuItem>
+                  <Link to="/" className={cn("nav-link px-4 py-2 text-base font-medium", location.pathname === "/" && "text-primary")}>
+                    Home
+                  </Link>
+                </NavigationMenuItem>
+
                 {/* Solutions */}
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="nav-link text-base font-medium">
@@ -179,6 +186,9 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
+              <Link to="/" className="text-sm font-medium text-gray-900 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                Home
+              </Link>
               <Link to="/solutions" className="text-sm font-medium text-gray-900 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 Solutions
               </Link>

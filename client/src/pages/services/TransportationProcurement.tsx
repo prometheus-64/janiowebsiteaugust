@@ -3,35 +3,43 @@ import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { Truck, Plane, Ship, BarChart3, DollarSign, Clock, Shield, CheckCircle } from 'lucide-react';
+import { Truck, Plane, Ship, BarChart3, DollarSign, Clock, Shield, CheckCircle, ArrowRight } from 'lucide-react';
 
 const TransportationProcurement = () => {
   return (
     <div className="min-h-screen bg-background">
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        {/* Enhanced Background with Subtle Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-secondary/95" />
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold font-display text-white mb-6">
-              Strategic Procurement: <span className="text-accent">Add Courier & Customs</span>
-            </h1>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Gain immediate access to a comprehensive vendor portfolio without technical work. Save time onboarding vendors in streamlined fashion, eliminate switching costs, and make core operational decisions without technical constraints.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/assessment">
-                <button className="bg-accent text-white hover:bg-accent/90 text-lg px-10 py-4 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl">
-                  Analyze Your Freight Spend
-                </button>
-              </Link>
-              <Link to="/calculator/transportation-procurement-roi">
-                <button className="bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white hover:text-primary text-lg px-10 py-4 rounded-full font-medium transition-all duration-200">
-                  Calculate Savings
-                </button>
-              </Link>
-            </div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/50 rounded-full blur-2xl"></div>
+        </div>
+        <div className="relative w-full max-w-6xl mx-auto px-6 text-center text-white">
+          <div className="mb-4 animate-fade-in">
+            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">Strategic Procurement Excellence</span>
+          </div>
+          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
+            Strategic Procurement:
+            <span className="block text-white">Add Courier & Customs</span>
+          </h1>
+          <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
+            Gain immediate access to a comprehensive vendor portfolio without technical work. Save time onboarding vendors in streamlined fashion, eliminate switching costs, and make core operational decisions without technical constraints.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
+            <Link to="/assessment">
+              <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                Analyze Your Freight Spend <ArrowRight className="ml-2 w-5 h-5 inline" />
+              </button>
+            </Link>
+            <Link to="/calculator/transportation-procurement-roi">
+              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
+                Calculate Savings
+              </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -391,22 +399,29 @@ const TransportationProcurement = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-secondary">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold font-display text-secondary-foreground mb-6">
-              Ready to optimize your freight spend?
+      <section className="py-24 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+        <div className="relative container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-white mb-8 leading-tight">
+              Ready to Optimize Your 
+              <span className="block text-accent">Freight Spend?</span>
             </h2>
-            <p className="text-xl text-secondary-foreground/80 mb-8">
-              Get a free freight spend analysis and see your savings potential
+            <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
+              Get a free freight spend analysis and see your savings potential.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl" asChild>
-                <Link to="/assessment">Get Free Analysis</Link>
-              </Button>
-              <Button variant="outline" size="xl" className="border-white/20 text-white hover:bg-white/10" asChild>
-                <Link to="/contact">Speak with Procurement Expert</Link>
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link to="/assessment">
+                <button className="bg-accent text-white hover:bg-accent/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
+                  Get Free Analysis
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </button>
+              </Link>
+              <Link to="/contact">
+                <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-10 py-4 rounded-full font-medium transition-all duration-200 inline-flex items-center">
+                  Speak with Procurement Expert
+                </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -54,16 +54,36 @@ const Solutions = () => {
     <div className="min-h-screen bg-background">
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        {/* Enhanced Background with Subtle Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-secondary/95" />
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h1 className="text-4xl lg:text-6xl font-display font-bold text-white mb-6">
-              End-to-End Logistics, Engineered for Your Industry
-            </h1>
-            <p className="text-xl lg:text-2xl text-white/90 leading-relaxed mb-8">
-              Your business isn't generic, and your logistics partner shouldn't be either. Discover how Janio's industry-specific 4PL solutions are built to solve your biggest challenges and unlock new opportunities for growth.
-            </p>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/50 rounded-full blur-2xl"></div>
+        </div>
+        <div className="relative w-full max-w-6xl mx-auto px-6 text-center text-white">
+          <div className="mb-4 animate-fade-in">
+            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">Industry-Specific Solutions</span>
+          </div>
+          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
+            End-to-End Logistics,
+            <span className="block text-white">Engineered for Your Industry</span>
+          </h1>
+          <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
+            Your business isn't generic, and your logistics partner shouldn't be either. Discover how Janio's industry-specific 4PL solutions are built to solve your biggest challenges and unlock new opportunities for growth.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
+            <Link to="/contact">
+              <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                Find Your Solution <ArrowRight className="ml-2 w-5 h-5 inline" />
+              </button>
+            </Link>
+            <Link to="/services">
+              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
+                Explore Services
+              </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -132,48 +152,6 @@ const Solutions = () => {
         </div>
       </section>
 
-      {/* Trust Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-3xl lg:text-4xl font-bold font-display text-foreground mb-4">
-              The Partner of Choice for Industry Leaders
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We're proud to power the supply chains for a diverse range of businesses across the globe.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-4 gap-8 items-center justify-center">
-            {[
-              { name: "Disney", industry: "Entertainment" },
-              { name: "GOAT", industry: "Fashion" },
-              { name: "Swarovski", industry: "Luxury" },
-              { name: "Beyond The Vines", industry: "Ecommerce" },
-              { name: "Shopee", industry: "Marketplace" },
-              { name: "Lazada", industry: "Marketplace" },
-              { name: "Shein", industry: "Fashion" },
-              { name: "500+ More", industry: "Various" }
-            ].map((client, index) => (
-              <Card key={client.name} className="text-center p-6 hover:shadow-medium transition-shadow duration-300">
-                <CardContent className="pt-6">
-                  <h3 className="font-bold text-lg text-primary mb-2">{client.name}</h3>
-                  <p className="text-sm text-muted-foreground">{client.industry}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg" asChild>
-              <Link to="/use-cases">
-                View Our Use Cases
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

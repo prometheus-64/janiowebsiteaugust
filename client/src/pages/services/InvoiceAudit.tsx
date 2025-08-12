@@ -3,35 +3,44 @@ import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { Search, FileText, DollarSign, Calculator, TrendingUp, CheckCircle, AlertTriangle, Target } from 'lucide-react';
+import { Search, FileText, DollarSign, Calculator, TrendingUp, CheckCircle, AlertTriangle, Target, ArrowRight } from 'lucide-react';
 
 const InvoiceAudit = () => {
   return (
     <div className="min-h-screen bg-background">
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        {/* Enhanced Background with Subtle Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-secondary/95" />
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold font-display text-white mb-6">
-              Freight Invoice Audit: <span className="text-accent">Recover Hidden Money</span> in Your Logistics Spend
-            </h1>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Systematic audit process identifies billing errors and recovers overcharges across all transportation modes. Stop overpaying on freight invoices.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/assessment">
-                <button className="bg-accent text-white hover:bg-accent/90 text-lg px-10 py-4 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl">
-                  Get Free Sample Audit
-                </button>
-              </Link>
-              <Link to="/calculator/invoice-audit-roi">
-                <button className="bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white hover:text-primary text-lg px-10 py-4 rounded-full font-medium transition-all duration-200">
-                  Calculate Recovery Potential
-                </button>
-              </Link>
-            </div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/50 rounded-full blur-2xl"></div>
+        </div>
+        <div className="relative w-full max-w-6xl mx-auto px-6 text-center text-white">
+          <div className="mb-4 animate-fade-in">
+            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">Freight Invoice Recovery Service</span>
+          </div>
+          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
+            Freight Invoice Audit:
+            <span className="block text-white">Recover Hidden Money</span>
+            <span className="block text-white">in Your Logistics Spend</span>
+          </h1>
+          <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
+            Systematic audit process identifies billing errors and recovers overcharges across all transportation modes. Stop overpaying on freight invoices.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
+            <Link to="/assessment">
+              <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                Get Free Sample Audit <ArrowRight className="ml-2 w-5 h-5 inline" />
+              </button>
+            </Link>
+            <Link to="/calculator/invoice-audit-roi">
+              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
+                Calculate Recovery Potential
+              </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -431,22 +440,29 @@ const InvoiceAudit = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-secondary">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold font-display text-secondary-foreground mb-6">
-              Ready to recover hidden money in your freight spend?
+      <section className="py-24 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+        <div className="relative container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-white mb-8 leading-tight">
+              Ready to Recover Hidden Money 
+              <span className="block text-accent">in Your Freight Spend?</span>
             </h2>
-            <p className="text-xl text-secondary-foreground/80 mb-8">
-              Get a free sample audit of your recent freight invoices
+            <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
+              Get a free sample audit of your recent freight invoices.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl" asChild>
-                <Link to="/assessment">Get Free Sample Audit</Link>
-              </Button>
-              <Button variant="outline" size="xl" className="border-white/20 text-white hover:bg-white/10" asChild>
-                <Link to="/calculator/invoice-audit-roi">Calculate Recovery Potential</Link>
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link to="/assessment">
+                <button className="bg-accent text-white hover:bg-accent/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
+                  Get Free Sample Audit
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </button>
+              </Link>
+              <Link to="/calculator/invoice-audit-roi">
+                <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-10 py-4 rounded-full font-medium transition-all duration-200 inline-flex items-center">
+                  Calculate Recovery Potential
+                </button>
+              </Link>
             </div>
           </div>
         </div>
