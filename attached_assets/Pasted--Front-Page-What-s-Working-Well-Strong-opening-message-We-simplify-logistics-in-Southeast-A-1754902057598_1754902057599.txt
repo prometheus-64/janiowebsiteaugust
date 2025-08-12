@@ -1,0 +1,131 @@
+🔗 Front Page
+
+✅ What’s Working Well:
+
+Strong opening message: “We simplify logistics in Southeast Asia” is clear and aligned with what eCommerce brands care about.
+
+CTAs like “Get in Touch” and “Get Started” are visible and effective for conversion.
+
+Clean, modern, and startup-forward design.
+
+❌ What Could Be Improved:
+
+Lacks customer logos, case studies, or testimonials — no social proof.
+
+Missing ICP-specific messaging (e.g., tailored examples for fashion, electronics, etc.).
+
+💡 Suggestions:
+
+Add a “Trusted by” section, shipment stats, and a lane coverage map.
+
+Include a live chat widget to improve lead capture and engagement.
+
+🔗 Solutions Page
+
+✅ What’s Working Well:
+
+Covers Cross-border, Fulfilment, Last-mile, and Customs clearly.
+
+Clean visual layout, good for skimming.
+
+❌ What Could Be Improved:
+
+Lacks visual elements and concrete differentiators.
+
+No industry-specific examples that help drive relevance during outreach.
+
+💡 Suggestions:
+
+Add short examples per vertical (e.g., fashion brands during peak season).
+
+Include 2–3 USPs per service to help Janio stand out.
+
+🔗 Services Page
+
+✅ What’s Working Well:
+
+Simple layout and quick overview of services.
+
+Reinforces end-to-end capabilities from freight to last-mile.
+
+❌ What Could Be Improved:
+
+Lacks a visual flow to show how services are connected.
+
+All service blocks look the same — no icons or visual differentiation.
+
+💡 Suggestions:
+
+Add a flow diagram (e.g., Freight → Customs → Fulfilment → Last Mile).
+
+Include interactive or bundled solutions based on client types.
+
+🔗 About Page
+
+✅ What’s Working Well:
+
+Clear mission statement.
+
+Mentions regional presence and strong delivery network.
+
+❌ What Could Be Improved:
+
+No founding info, milestones, team bios, or industry focus.
+
+Missing social proof, leadership faces, or press mentions.
+
+💡 Suggestions:
+
+Add a timeline, leadership mini-bios, CEO quotes, and case studies.
+
+Include SEA coverage map and logos of clients/partners.
+
+🔗 Contact Page
+
+✅ What’s Working Well:
+
+Simple layout and short form = low friction for inbound leads.
+
+❌ What Could Be Improved:
+
+No confirmation message or expectations after submission.
+
+No links to socials or alternative contact methods.
+
+💡 Suggestions:
+
+Add a line like: “We’ll get back to you within 1–2 business days.”
+
+Include LinkedIn or WhatsApp icons, and explore a live chat feature.
+
+🎙️ Transcript Summary & Meeting Insights
+
+
+
+Key Discussion Points:
+
+JK’s feedback suggests the need to rework the site’s messaging and add 3–4 new landing pages focused on cost-conscious and last-mile logistics users.
+
+I shared visual/UI feedback, highlighting the need for:
+
+Customer logos and testimonials
+
+A live chat feature (with optional routing)
+
+Differentiator/competitor section (updated regularly)
+
+A more humanized About section (timelines, bios, CEO quotes)
+
+We also discussed the copyright font issue that currently limits our use of social media icons.
+
+You mentioned aligning with JK later to review this and allocate time for updates.
+
+Action Items Recap:
+
+✅ I’ve summarized all my feedback via this email.
+
+🔜 You to follow up with JK to align on messaging and timelines.
+
+🔜 Explore feasibility of live chat, competitor comparison section, and alternative naming for services that can’t be listed.
+
+🔜 Consider how to manage inquiry flow (e.g., routing logic for operational vs sales queries).
