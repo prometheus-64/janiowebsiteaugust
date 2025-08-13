@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import PersonaCard from '@/components/PersonaCard';
 import HowItWorksStep from '@/components/HowItWorksStep';
-import LiveChat from '@/components/LiveChat';
 import heroImage from '@/assets/hero-elegant-premium.jpg';
 import dashboardImage from '@/assets/dashboard-analytics.jpg';
 import { Settings, DollarSign, Network, BarChart3, Search, Lightbulb, Play, CheckCircle, ArrowRight, Users, Globe, Clock, Shield, MapPin, Package, TrendingDown } from 'lucide-react';
@@ -377,8 +376,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Live Chat Widget */}
-        <LiveChat />
       </div>
     );
 };

@@ -9,28 +9,38 @@ const About = () => {
     <div className="min-h-screen bg-background">
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        {/* Enhanced Background with Subtle Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-secondary/95" />
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold font-display text-white mb-6">
-              Making logistics <span className="text-accent">simple</span> for growing businesses
-            </h1>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Janio is a Fourth-Party Logistics (4PL) provider specializing in comprehensive supply chain management across Land, Air, Ocean transportation, and advanced warehousing services.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <button className="bg-accent text-white hover:bg-accent/90 text-lg px-10 py-4 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl">
-                  Get In Touch
-                </button>
-              </Link>
-              <Link to="/contact">
-                <button className="bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white hover:text-primary text-lg px-10 py-4 rounded-full font-medium transition-all duration-200">
-                  Get Free Assessment
-                </button>
-              </Link>
-            </div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/50 rounded-full blur-2xl"></div>
+        </div>
+        <div className="relative w-full max-w-6xl mx-auto px-6 text-center text-white">
+          <div className="mb-4 animate-fade-in">
+            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">About Janio Logistics</span>
+          </div>
+          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
+            Making logistics
+            <span className="block text-white bg-gradient-to-r from-white to-blue-100 bg-clip-text">simple</span>
+            for growing businesses
+          </h1>
+          <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
+            Janio is a Fourth-Party Logistics (4PL) provider specializing in comprehensive supply chain 
+            management across Land, Air, Ocean transportation, and advanced warehousing services.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
+            <Link to="/contact">
+              <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                Get In Touch
+              </button>
+            </Link>
+            <Link to="/contact">
+              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
+                Get Free Assessment
+              </button>
+            </Link>
           </div>
         </div>
       </section>
