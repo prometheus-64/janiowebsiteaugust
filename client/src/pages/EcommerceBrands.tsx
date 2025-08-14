@@ -19,12 +19,14 @@ export default function EcommerceBrands() {
           <div className="mb-4 animate-fade-in">
             <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">For Ecommerce Brands</span>
           </div>
-          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
-            Compare Existing Rates Against
-            <span className="block text-white">Market Benchmarks</span>
+          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-6 animate-fade-in leading-tight tracking-tight">
+            Supply Chain Optimization Made Simple
           </h1>
+          <h2 className="text-2xl lg:text-3xl font-semibold mb-8 text-white/90 animate-fade-in">
+            Beyond Traditional 3PL - Complete 4PL Orchestration
+          </h2>
           <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
-            Easily compare rates, onboard new vendors seamlessly, eliminate switching costs, and get accurate billing reconciliation managed completely. Build customized supply chains that manage delays and exceptions automatically.
+          Beyond shipping: we optimize your complete logistics ecosystem. Compare market rates, manage multiple carriers and 3PLs, and gain full supply chain visibility through one unified platform.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
@@ -154,15 +156,43 @@ export default function EcommerceBrands() {
               </Card>
             </div>
 
-            <div className="mt-12 text-center">
-              <Card className="bg-muted/50 border-primary/20 max-w-3xl mx-auto">
-                <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold mb-4 text-primary">The Real Cost</h3>
-                  <p className="text-lg">
-                    While you're spending months negotiating with 3PLs and managing logistics complexity, your competitors are already selling in new markets and focusing on what actually grows their business.
-                  </p>
-                </CardContent>
-              </Card>
+            <div className="mt-16 text-center">
+              <div className="relative bg-gradient-to-r from-destructive/10 via-orange-500/10 to-yellow-600/10 border-2 border-destructive/20 rounded-2xl max-w-4xl mx-auto p-12 overflow-hidden">
+                {/* Background pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-destructive/5 to-transparent"></div>
+                <div className="absolute top-4 right-4 w-32 h-32 bg-destructive/10 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-4 left-4 w-24 h-24 bg-orange-500/10 rounded-full blur-xl"></div>
+                
+                <div className="relative z-10">
+                  <div className="inline-flex items-center gap-3 mb-6">
+                    <div className="w-3 h-3 bg-destructive rounded-full animate-pulse"></div>
+                    <h3 className="text-2xl font-bold text-destructive">The Real Cost of Inaction</h3>
+                    <div className="w-3 h-3 bg-destructive rounded-full animate-pulse"></div>
+                  </div>
+                  
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-destructive/10">
+                    <p className="text-xl font-medium text-gray-800 leading-relaxed">
+                      While you're spending <span className="font-bold text-destructive">months negotiating with 3PLs</span> and managing logistics complexity, 
+                      your competitors are <span className="font-bold text-primary">already selling in new markets</span> and focusing on what actually grows their business.
+                    </p>
+                  </div>
+                  
+                  <div className="mt-6 flex justify-center items-center gap-8 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-orange-500" />
+                      <span>Time Lost: 3-6 months</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <TrendingDown className="w-4 h-4 text-destructive" />
+                      <span>Market Share Lost</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="w-4 h-4 text-yellow-600" />
+                      <span>Competitor Advantage</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -179,25 +209,63 @@ export default function EcommerceBrands() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-16">
-              <Card className="border-destructive/20">
-                <CardHeader>
-                  <CardTitle className="text-destructive">Traditional 3PL Approach</CardTitle>
+              <Card className="border-2 border-destructive/30 bg-destructive/5 hover:bg-destructive/10 transition-all duration-300 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-destructive"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 bg-destructive/20 rounded-full flex items-center justify-center">
+                  <span className="text-destructive font-bold text-sm">✗</span>
+                </div>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-destructive text-xl font-bold flex items-center gap-2">
+                    <TrendingDown className="w-5 h-5" />
+                    Traditional 3PL Approach
+                  </CardTitle>
+                  <Badge variant="destructive" className="w-fit">Complex & Costly</Badge>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4">
-                    You manage 5-8 different 3PLs across regions. Each requires separate contracts, integrations, negotiations, and daily oversight. Your team becomes a logistics management company instead of focusing on your core business.
-                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Manage <strong>5-8 different 3PLs</strong> across regions</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Separate contracts, integrations, negotiations</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Your team becomes a <strong>logistics management company</strong></span>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-primary">4PL Approach</CardTitle>
+              <Card className="border-2 border-primary/40 bg-gradient-to-br from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/15 transition-all duration-300 relative overflow-hidden shadow-lg">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                </div>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-primary text-xl font-bold flex items-center gap-2">
+                    <Zap className="w-5 h-5" />
+                    4PL Approach
+                  </CardTitle>
+                  <Badge className="w-fit bg-primary/20 text-primary hover:bg-primary/30">Strategic & Efficient</Badge>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4">
-                    One strategic partner orchestrates your entire logistics network through 500+ vetted providers. You get better rates, faster deployment, and complete visibility—while your team focuses on growth.
-                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span className="text-gray-700"><strong>One strategic partner</strong> orchestrates everything</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span className="text-gray-700">Access to <strong>500+ vetted providers</strong></span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span className="text-gray-700">Your team <strong>focuses on growth</strong></span>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -212,15 +280,15 @@ export default function EcommerceBrands() {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Direct Savings:</strong> 20-50% cost reduction through optimized negotiations</span>
+                      <span><strong>Rate Benchmarking:</strong> Compare existing rates against market benchmarks and BYOR</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Indirect Savings:</strong> Eliminate internal overhead costs</span>
+                      <span><strong>Vendor Integration:</strong> Onboard new vendors easily, eliminate switching costs</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Flexible Pricing:</strong> No long-term commitments</span>
+                      <span><strong>Cost Optimization:</strong> 20-50% savings through optimized negotiations</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -235,15 +303,15 @@ export default function EcommerceBrands() {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span><strong>Billing Management:</strong> Accurate invoicing and billing reconciliation completely managed</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span><strong>Exception Handling:</strong> Managing delays and exceptions automatically</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                       <span><strong>Speed:</strong> New services live in 24 hours vs. 2-3 months</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Scalability:</strong> Instant access to additional capacity</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Reliability:</strong> Redundancy across 500+ providers</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -258,15 +326,15 @@ export default function EcommerceBrands() {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span><strong>Custom Supply Chains:</strong> Build and manage new supply chains customized to your requirements</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                       <span><strong>Market Entry:</strong> Launch in new countries in weeks</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                       <span><strong>Resource Allocation:</strong> Redirect logistics overhead to growth</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Competitive Edge:</strong> Better service at lower costs</span>
                     </li>
                   </ul>
                 </CardContent>

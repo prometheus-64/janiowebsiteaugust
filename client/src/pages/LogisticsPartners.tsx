@@ -19,12 +19,15 @@ export default function LogisticsPartners() {
           <div className="mb-4 animate-fade-in">
             <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">For Logistics Service Providers</span>
           </div>
-          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
-            Expand Capabilities
-            <span className="block text-white">Without Cannibalization</span>
+          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-6 animate-fade-in leading-tight tracking-tight">
+            White-Label 4PL Network Access
+            <span className="block text-white">for Asset-Light Expansion</span>
           </h1>
+          <h2 className="text-2xl lg:text-3xl font-semibold mb-8 text-white/90 animate-fade-in">
+            Beyond Traditional Asset Investment - Complete Platform Partnership
+          </h2>
           <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
-            Forwarders expand into customs/courier services, warehousing providers offer end-to-end ecommerce services, and expand into new markets without complexity. Partnerships and cross-company collaboration that list your core capabilities as sales channels.
+            As your white-label 4PL partner, expand your service catalog instantly without capital investment. Access our 500+ provider network under your brand, capture more wallet share from existing clients, and launch new capabilities in days rather than months.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
@@ -133,15 +136,43 @@ export default function LogisticsPartners() {
               </Card>
             </div>
 
-            <div className="mt-12 text-center">
-              <Card className="bg-muted/50 border-primary/20 max-w-3xl mx-auto">
-                <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold mb-4 text-primary">The Real Cost</h3>
-                  <p className="text-lg">
-                    Every client request you can't fulfill is potential revenue walking to a competitor. Worse, it's a crack in the relationship that eventually leads to complete client loss.
-                  </p>
-                </CardContent>
-              </Card>
+            <div className="mt-16 text-center">
+              <div className="relative bg-gradient-to-r from-destructive/10 via-orange-500/10 to-yellow-600/10 border-2 border-destructive/20 rounded-2xl max-w-4xl mx-auto p-12 overflow-hidden">
+                {/* Background pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-destructive/5 to-transparent"></div>
+                <div className="absolute top-4 right-4 w-32 h-32 bg-destructive/10 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-4 left-4 w-24 h-24 bg-orange-500/10 rounded-full blur-xl"></div>
+                
+                <div className="relative z-10">
+                  <div className="inline-flex items-center gap-3 mb-6">
+                    <div className="w-3 h-3 bg-destructive rounded-full animate-pulse"></div>
+                    <h3 className="text-2xl font-bold text-destructive">The Real Cost of Saying "No"</h3>
+                    <div className="w-3 h-3 bg-destructive rounded-full animate-pulse"></div>
+                  </div>
+                  
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-destructive/10">
+                    <p className="text-xl font-medium text-gray-800 leading-relaxed">
+                      Every client request <span className="font-bold text-destructive">you can't fulfill</span> is potential revenue walking to a competitor. 
+                      Worse, it's <span className="font-bold text-primary">a crack in the relationship</span> that eventually leads to complete client loss.
+                    </p>
+                  </div>
+                  
+                  <div className="mt-6 flex justify-center items-center gap-8 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <DollarSign className="w-4 h-4 text-orange-500" />
+                      <span>Revenue Lost: 20-40%</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Target className="w-4 h-4 text-destructive" />
+                      <span>Client Defection</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="w-4 h-4 text-yellow-600" />
+                      <span>Competitive Disadvantage</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -158,25 +189,63 @@ export default function LogisticsPartners() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-16">
-              <Card className="border-destructive/20">
-                <CardHeader>
-                  <CardTitle className="text-destructive">Traditional Expansion Approach</CardTitle>
+              <Card className="border-2 border-destructive/30 bg-destructive/5 hover:bg-destructive/10 transition-all duration-300 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-destructive"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 bg-destructive/20 rounded-full flex items-center justify-center">
+                  <span className="text-destructive font-bold text-sm">✗</span>
+                </div>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-destructive text-xl font-bold flex items-center gap-2">
+                    <Building className="w-5 h-5" />
+                    Traditional Expansion Approach
+                  </CardTitle>
+                  <Badge variant="destructive" className="w-fit">High-Risk & Capital Intensive</Badge>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4">
-                    Invest millions in warehouses, vehicles, and technology. Hire teams. Take 12-18 months to launch. Risk capital in uncertain markets.
-                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Invest <strong>millions in warehouses</strong> and vehicles</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Take <strong>12-18 months</strong> to launch</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Risk capital in <strong>uncertain markets</strong></span>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-primary">White-Label 4PL Approach</CardTitle>
+              <Card className="border-2 border-primary/40 bg-gradient-to-br from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/15 transition-all duration-300 relative overflow-hidden shadow-lg">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                </div>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-primary text-xl font-bold flex items-center gap-2">
+                    <Zap className="w-5 h-5" />
+                    White-Label 4PL Approach
+                  </CardTitle>
+                  <Badge className="w-fit bg-primary/20 text-primary hover:bg-primary/30">Asset-Light & Scalable</Badge>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4">
-                    Instant access to our entire 500+ provider network under your brand. Launch new services in days, not months. Generate revenue from day one with zero capital investment.
-                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span className="text-gray-700"><strong>Instant access</strong> to 500+ provider network</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span className="text-gray-700">Launch new services in <strong>days, not months</strong></span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span className="text-gray-700">Generate revenue <strong>from day one</strong></span>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -191,15 +260,15 @@ export default function LogisticsPartners() {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Complete white-label platform with your branding</span>
+                      <span><strong>Rate Benchmarking:</strong> Compare partner rates against market standards</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Access to 500+ provider network</span>
+                      <span><strong>White-Label Platform:</strong> Complete platform with your branding</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Operations support under your name</span>
+                      <span><strong>Network Access:</strong> 500+ vetted providers under your brand</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -214,15 +283,15 @@ export default function LogisticsPartners() {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Expand service catalog immediately</span>
+                      <span><strong>Billing Management:</strong> Accurate invoicing and reconciliation handled</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Capture more wallet share from existing clients</span>
+                      <span><strong>Exception Handling:</strong> Managing delays and issues seamlessly</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Generate recurring revenue from network</span>
+                      <span><strong>Revenue Growth:</strong> Capture more wallet share immediately</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -237,15 +306,15 @@ export default function LogisticsPartners() {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>No capital investment required</span>
+                      <span><strong>Custom Supply Chains:</strong> Build logistics networks tailored to LSP needs</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Performance guarantees backed by multiple providers</span>
+                      <span><strong>Zero Investment:</strong> No capital requirements for expansion</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Exit flexibility if priorities change</span>
+                      <span><strong>Performance Guarantees:</strong> Backed by multiple providers</span>
                     </li>
                   </ul>
                 </CardContent>

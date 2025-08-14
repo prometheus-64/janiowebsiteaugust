@@ -21,13 +21,15 @@ const InvoiceAudit = () => {
           <div className="mb-4 animate-fade-in">
             <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">Freight Invoice Recovery Service</span>
           </div>
-          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
-            Freight Invoice Audit:
-            <span className="block text-white">Recover Hidden Money</span>
-            <span className="block text-white">in Your Logistics Spend</span>
+          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-6 animate-fade-in leading-tight tracking-tight">
+            Intelligent Invoice Audit
+            <span className="block text-white">with Automatic Reconciliation</span>
           </h1>
+          <h2 className="text-2xl lg:text-3xl font-semibold mb-8 text-white/90 animate-fade-in">
+            Beyond Traditional Audits - Complete 4PL Billing Management
+          </h2>
           <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
-            Systematic audit process identifies billing errors and recovers overcharges across all transportation modes. Stop overpaying on freight invoices.
+            Compare invoice rates against market benchmarks and recover overcharges systematically. Our intelligent audit process manages vendor billing reconciliation completely, eliminates switching costs from billing errors, and builds custom validation workflows while handling exceptions and disputes automatically.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
@@ -446,14 +448,14 @@ const InvoiceAudit = () => {
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-display font-bold text-white mb-8 leading-tight">
               Ready to Recover Hidden Money 
-              <span className="block text-accent">in Your Freight Spend?</span>
+              <span className="block text-white">in Your Freight Spend?</span>
             </h2>
             <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
               Get a free sample audit of your recent freight invoices.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/assessment">
-                <button className="bg-accent text-white hover:bg-accent/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
+                <button className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
                   Get Free Sample Audit
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </button>

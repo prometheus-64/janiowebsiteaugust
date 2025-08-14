@@ -200,20 +200,20 @@ const Services = () => {
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-display font-bold text-white mb-8 leading-tight">
               Ready to Build Your 
-              <span className="block text-accent">Perfect Logistics Solution?</span>
+              <span className="block text-white">Perfect Logistics Solution?</span>
             </h2>
             <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
               Let's discuss how our services can be configured to meet your specific business needs and growth objectives.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/contact">
-                <button className="btn-accent text-lg px-10 py-4 rounded-full shadow-large">
+                <button className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
                   Schedule a Consultation
-                  <ArrowRight className="ml-2 w-5 h-5 inline" />
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </button>
               </Link>
               <Link to="/solutions">
-                <button className="btn-secondary text-lg px-10 py-4 rounded-full border-white/30 hover:bg-white/20 text-[#04216c]">
+                <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-10 py-4 rounded-full font-medium transition-all duration-200 inline-flex items-center">
                   Explore Solutions
                 </button>
               </Link>

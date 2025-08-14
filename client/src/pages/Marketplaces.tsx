@@ -19,13 +19,15 @@ export default function Marketplaces() {
           <div className="mb-4 animate-fade-in">
             <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">For Marketplaces</span>
           </div>
-          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
-            Work with Any
-            <span className="block text-white">Partner Combination</span>
-            <span className="block text-white">Without Technical Limitations</span>
+          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-6 animate-fade-in leading-tight tracking-tight">
+            Complete Cross-Border Orchestration
+            <span className="block text-white">for Marketplace Scaling</span>
           </h1>
+          <h2 className="text-2xl lg:text-3xl font-semibold mb-8 text-white/90 animate-fade-in">
+            Beyond Traditional Freight Forwarders - Unified 4PL Network
+          </h2>
           <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
-            Procure specific capabilities and aggressive rates for your well-oiled machine. Work with any combination of partners without technical constraints while maintaining platform-wide visibility and control.
+            As your 4PL partner, we orchestrate your entire cross-border logistics ecosystem. Work with any partner combination, procure aggressive rates, and maintain complete visibility across 500+ vetted providers - all through one unified platform built for marketplace operations.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
@@ -134,15 +136,43 @@ export default function Marketplaces() {
               </Card>
             </div>
 
-            <div className="mt-12 text-center">
-              <Card className="bg-muted/50 border-primary/20 max-w-3xl mx-auto">
-                <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold mb-4 text-primary">The Real Cost</h3>
-                  <p className="text-lg">
-                    While you're coordinating between freight forwarders and dealing with clearance issues, your competitors are launching new routes and capturing market share across Asia Pacific.
-                  </p>
-                </CardContent>
-              </Card>
+            <div className="mt-16 text-center">
+              <div className="relative bg-gradient-to-r from-destructive/10 via-orange-500/10 to-yellow-600/10 border-2 border-destructive/20 rounded-2xl max-w-4xl mx-auto p-12 overflow-hidden">
+                {/* Background pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-destructive/5 to-transparent"></div>
+                <div className="absolute top-4 right-4 w-32 h-32 bg-destructive/10 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-4 left-4 w-24 h-24 bg-orange-500/10 rounded-full blur-xl"></div>
+                
+                <div className="relative z-10">
+                  <div className="inline-flex items-center gap-3 mb-6">
+                    <div className="w-3 h-3 bg-destructive rounded-full animate-pulse"></div>
+                    <h3 className="text-2xl font-bold text-destructive">The Real Cost of Complex Logistics</h3>
+                    <div className="w-3 h-3 bg-destructive rounded-full animate-pulse"></div>
+                  </div>
+                  
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-destructive/10">
+                    <p className="text-xl font-medium text-gray-800 leading-relaxed">
+                      While you're <span className="font-bold text-destructive">coordinating between freight forwarders</span> and dealing with clearance issues, 
+                      your competitors are <span className="font-bold text-primary">launching new routes</span> and capturing market share across Asia Pacific.
+                    </p>
+                  </div>
+                  
+                  <div className="mt-6 flex justify-center items-center gap-8 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <Ship className="w-4 h-4 text-orange-500" />
+                      <span>Route Setup: 3-6 months</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Globe className="w-4 h-4 text-destructive" />
+                      <span>Market Share Lost</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-yellow-600" />
+                      <span>Operational Overhead</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -159,25 +189,63 @@ export default function Marketplaces() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-16">
-              <Card className="border-destructive/20">
-                <CardHeader>
-                  <CardTitle className="text-destructive">Traditional Cross-Border</CardTitle>
+              <Card className="border-2 border-destructive/30 bg-destructive/5 hover:bg-destructive/10 transition-all duration-300 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-destructive"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 bg-destructive/20 rounded-full flex items-center justify-center">
+                  <span className="text-destructive font-bold text-sm">✗</span>
+                </div>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-destructive text-xl font-bold flex items-center gap-2">
+                    <Ship className="w-5 h-5" />
+                    Traditional Cross-Border Approach
+                  </CardTitle>
+                  <Badge variant="destructive" className="w-fit">Fragmented & Risky</Badge>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4">
-                    You coordinate between separate providers for pickup, export clearance, air freight, import clearance, and final delivery. Each handoff creates risk and delays.
-                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Coordinate <strong>separate providers</strong> for each step</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Each handoff creates <strong>risk and delays</strong></span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Multiple relationships to <strong>manage and optimize</strong></span>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-primary">Janio's 4PL Approach</CardTitle>
+              <Card className="border-2 border-primary/40 bg-gradient-to-br from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/15 transition-all duration-300 relative overflow-hidden shadow-lg">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                </div>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-primary text-xl font-bold flex items-center gap-2">
+                    <Zap className="w-5 h-5" />
+                    Janio's 4PL Approach
+                  </CardTitle>
+                  <Badge className="w-fit bg-primary/20 text-primary hover:bg-primary/30">Unified & Orchestrated</Badge>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4">
-                    We orchestrate your entire cross-border supply chain through our network of 500+ vetted providers, giving you seamless operations with single-point accountability.
-                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span className="text-gray-700"><strong>One strategic partner</strong> orchestrates everything</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span className="text-gray-700">Seamless operations with <strong>single-point accountability</strong></span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span className="text-gray-700">Network of <strong>500+ vetted providers</strong></span>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -192,19 +260,19 @@ export default function Marketplaces() {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Warehouse pickup coordination</span>
+                      <span><strong>Rate Benchmarking:</strong> Compare marketplace rates against market standards</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Export clearance management</span>
+                      <span><strong>Vendor Integration:</strong> Onboard logistics partners seamlessly</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Optimized air freight</span>
+                      <span><strong>Export Clearance:</strong> Managed across all origin countries</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Import clearance expertise</span>
+                      <span><strong>Import Expertise:</strong> Local compliance in all destinations</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -219,19 +287,19 @@ export default function Marketplaces() {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Single point of accountability</span>
+                      <span><strong>Billing Management:</strong> Accurate invoicing and reconciliation managed</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Regulatory expertise across all markets</span>
+                      <span><strong>Exception Handling:</strong> Managing delays and issues automatically</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Scalable capacity guaranteed</span>
+                      <span><strong>Scalable Capacity:</strong> Guaranteed across all routes</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Real-time visibility</span>
+                      <span><strong>Real-time Visibility:</strong> Complete supply chain transparency</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -246,19 +314,19 @@ export default function Marketplaces() {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>8+ countries with local expertise</span>
+                      <span><strong>Custom Supply Chains:</strong> Build routes customized to marketplace needs</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Multi-modal transportation</span>
+                      <span><strong>15+ Countries:</strong> Complete SEA coverage with local expertise</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>API integration platform</span>
+                      <span><strong>API Integration:</strong> Single platform for all logistics operations</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Marketplace-focused features</span>
+                      <span><strong>Marketplace Features:</strong> Built specifically for platform operations</span>
                     </li>
                   </ul>
                 </CardContent>

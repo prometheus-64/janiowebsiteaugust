@@ -21,12 +21,15 @@ const ControlTower = () => {
           <div className="mb-4 animate-fade-in">
             <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">Supply Chain Visibility & Control</span>
           </div>
-          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
-            Gain Immediate Access to
-            <span className="block text-white">Comprehensive Vendor Portfolio</span>
+          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-6 animate-fade-in leading-tight tracking-tight">
+            Supply Chain Control Tower
+            <span className="block text-white">with Real-Time Intelligence</span>
           </h1>
+          <h2 className="text-2xl lg:text-3xl font-semibold mb-8 text-white/90 animate-fade-in">
+            Beyond Traditional Visibility - Complete 4PL Orchestration
+          </h2>
           <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
-            View and evaluate supply chain decisions on how they directly impact your P&L and customer experience. Identify inefficiencies quickly, recover money lost, eliminate switching costs and operational downtime.
+            Compare rates against market benchmarks, manage vendor onboarding seamlessly, and eliminate switching costs through our intelligent control tower. Get accurate billing reconciliation, build custom supply chains, and handle delays and exceptions automatically with 24/7 expert monitoring.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
@@ -466,14 +469,14 @@ const ControlTower = () => {
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-display font-bold text-white mb-8 leading-tight">
               Ready to Command Your 
-              <span className="block text-accent">Supply Chain?</span>
+              <span className="block text-white">Supply Chain?</span>
             </h2>
             <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
               See Control Tower in action with a personalized demo of your supply chain.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/demo">
-                <button className="bg-accent text-white hover:bg-accent/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
+                <button className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
                   Schedule Live Demo
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </button>
