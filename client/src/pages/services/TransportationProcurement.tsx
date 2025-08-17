@@ -33,7 +33,7 @@ const TransportationProcurement = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
-            <Link to="/assessment">
+            <Link to="/contact">
               <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                 Analyze Your Freight Spend <ArrowRight className="ml-2 w-5 h-5 inline" />
               </button>
@@ -76,7 +76,7 @@ const TransportationProcurement = () => {
                     <li>• Freight spend categorization by mode</li>
                     <li>• Lane analysis and optimization opportunities</li>
                     <li>• Current rate benchmarking</li>
-                    <li>• Service level assessment</li>
+                    <li>• Service level evaluation</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -414,7 +414,7 @@ const TransportationProcurement = () => {
               Get a free freight spend analysis and see your savings potential.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link to="/assessment">
+              <Link to="/contact">
                 <button className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
                   Get Free Analysis
                   <ArrowRight className="ml-2 w-5 h-5" />

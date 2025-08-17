@@ -82,7 +82,7 @@ const PeakSeason = () => {
                 <Link to="/contact">Prepare for Peak Season</Link>
               </Button>
               <Button size="xl" variant="hero" asChild>
-                <Link to="/assessment">Get Capacity Assessment</Link>
+                <Link to="/contact">Book Capacity Consultation</Link>
               </Button>
             </div>
           </div>
@@ -298,7 +298,7 @@ const PeakSeason = () => {
                 </Link>
               </Button>
               <Button size="xl" variant="outline" asChild>
-                <Link to="/assessment">Get Capacity Assessment</Link>
+                <Link to="/contact">Book Capacity Consultation</Link>
               </Button>
             </div>
           </div>

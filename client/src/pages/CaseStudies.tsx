@@ -487,7 +487,7 @@ const CaseStudies = () => {
                 </Link>
               </Button>
               <Button size="xl" variant="outline" asChild>
-                <Link to="/contact">Get Your Assessment</Link>
+                <Link to="/contact">Book Your Consultation</Link>
               </Button>
             </div>
           </div>

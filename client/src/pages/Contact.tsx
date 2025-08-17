@@ -138,14 +138,14 @@ const Contact = () => {
             <div className="text-white">
               <div className="mb-6 animate-fade-in">
                 <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">
-                  Free Logistics Assessment
+                  Logistics Consultation
                 </span>
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6 animate-fade-in leading-tight">
-                Get Your Free
+                Book Your Free
                 <span className="block text-white">$50,000+ Savings</span>
-                Assessment
+                Consultation
               </h1>
               
               <p className="text-lg lg:text-xl text-white/80 mb-8 leading-relaxed animate-slide-up">
@@ -201,7 +201,7 @@ const Contact = () => {
               <Card className="bg-white/95 backdrop-blur-sm p-6 shadow-2xl border-0 rounded-2xl">
                 <CardHeader className="pb-6 text-center">
                   <CardTitle className="text-2xl font-display text-foreground mb-2">
-                    Start Your Free Assessment
+                    Book Your Free Consultation
                   </CardTitle>
                   <p className="text-muted-foreground">
                     Takes 2 minutes. Results within 24 hours.
@@ -318,14 +318,14 @@ const Contact = () => {
                         </>
                       ) : (
                         <>
-                          Get My Free Assessment
+                          Book My Consultation
                           <ArrowRight className="ml-2 w-5 h-5" />
                         </>
                       )}
                     </Button>
 
                     <p className="text-xs text-muted-foreground text-center mt-4">
-                      No spam, ever. We'll only contact you with your assessment results.
+                      No spam, ever. We'll only contact you with your consultation results.
                     </p>
                   </form>
                 </CardContent>

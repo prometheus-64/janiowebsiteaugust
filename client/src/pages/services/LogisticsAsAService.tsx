@@ -54,7 +54,7 @@ const LogisticsAsAService = () => {
     {
       phase: "Phase 1: Assessment (Week 1-2)",
       description: "Complete analysis of current logistics operations, pain points, and optimization opportunities",
-      deliverables: ["Current state assessment", "Gap analysis", "Optimization roadmap"]
+      deliverables: ["Current state analysis", "Gap analysis", "Optimization roadmap"]
     },
     {
       phase: "Phase 2: Design (Week 3-6)",
@@ -100,9 +100,9 @@ const LogisticsAsAService = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
-            <Link to="/assessment">
+            <Link to="/contact">
               <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                Get LaaS Assessment <ArrowRight className="ml-2 w-5 h-5 inline" />
+                Book LaaS Consultation <ArrowRight className="ml-2 w-5 h-5 inline" />
               </button>
             </Link>
             <Link to="/resources/calculators">
@@ -278,12 +278,12 @@ const LogisticsAsAService = () => {
               <span className="block text-white">LaaS?</span>
             </h2>
             <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
-              Get a free assessment and see how our Logistics as a Service platform can transform your operations.
+              Book a free consultation and see how our Logistics as a Service platform can transform your operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link to="/assessment">
+              <Link to="/contact">
                 <button className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
-                  Get Your LaaS Assessment
+                  Book Your LaaS Consultation
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </button>
               </Link>

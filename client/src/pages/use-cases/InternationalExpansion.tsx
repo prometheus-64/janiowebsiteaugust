@@ -82,7 +82,7 @@ const InternationalExpansion = () => {
                 <Link to="/contact">Start Global Expansion</Link>
               </Button>
               <Button size="xl" variant="hero" asChild>
-                <Link to="/assessment">Get Expansion Assessment</Link>
+                <Link to="/contact">Book Expansion Consultation</Link>
               </Button>
             </div>
           </div>
@@ -257,7 +257,7 @@ const InternationalExpansion = () => {
                 </Link>
               </Button>
               <Button size="xl" variant="outline" asChild>
-                <Link to="/assessment">Book a Consultation!</Link>
+                <Link to="/contact">Book a Consultation!</Link>
               </Button>
             </div>
           </div>

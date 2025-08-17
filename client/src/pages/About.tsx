@@ -38,7 +38,7 @@ const About = () => {
             </Link>
             <Link to="/contact">
               <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
-                Get Free Assessment
+                Book a Consultation
               </button>
             </Link>
           </div>
@@ -399,7 +399,7 @@ const About = () => {
                 <Link to="/contact">Start the Conversation</Link>
               </Button>
               <Button variant="outline" size="xl" className="border-white/20 text-white hover:bg-white/10" asChild>
-                <Link to="/contact">Get Free Assessment</Link>
+                <Link to="/contact">Book a Consultation</Link>
               </Button>
             </div>
           </div>

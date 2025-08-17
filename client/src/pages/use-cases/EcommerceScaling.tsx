@@ -24,7 +24,7 @@ const EcommerceScaling = () => {
                 <Link to="/services/logistics-as-a-service">See LaaS Solution</Link>
               </Button>
               <Button variant="outline" size="xl" asChild>
-                <Link to="/assessment">Get Scaling Assessment</Link>
+                <Link to="/contact">Book Scaling Consultation</Link>
               </Button>
             </div>
           </div>
@@ -270,7 +270,7 @@ const EcommerceScaling = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="xl" asChild>
-                <Link to="/assessment">Get Scaling Assessment</Link>
+                <Link to="/contact">Book Scaling Consultation</Link>
               </Button>
               <Button variant="outline" size="xl" className="border-white/20 text-white hover:bg-white/10" asChild>
                 <Link to="/services/logistics-as-a-service">See LaaS Solution</Link>

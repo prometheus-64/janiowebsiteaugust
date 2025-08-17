@@ -102,9 +102,9 @@ const Digitization = () => {
                   Start Digital Transformation
                 </button>
               </Link>
-              <Link to="/assessment">
+              <Link to="/contact">
                 <button className="bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white hover:text-primary text-lg px-10 py-4 rounded-full font-medium transition-all duration-200">
-                  Get Digital Maturity Assessment
+                  Book Digital Consultation
                 </button>
               </Link>
             </div>
@@ -249,7 +249,7 @@ const Digitization = () => {
               {[
                 {
                   phase: "Discovery",
-                  title: "Current State Assessment",
+                  title: "Current State Analysis",
                   description: "Analyze existing processes, systems, and pain points",
                   duration: "2-3 weeks"
                 },
@@ -304,7 +304,7 @@ const Digitization = () => {
               Ready to Digitize Your Supply Chain?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Start your digital transformation journey with a comprehensive technology assessment
+              Start your digital transformation journey with a comprehensive technology consultation
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="xl" asChild>
@@ -314,7 +314,7 @@ const Digitization = () => {
                 </Link>
               </Button>
               <Button size="xl" variant="outline" asChild>
-                <Link to="/assessment">Get Maturity Assessment</Link>
+                <Link to="/contact">Book Consultation</Link>
               </Button>
             </div>
           </div>

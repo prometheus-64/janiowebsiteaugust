@@ -115,7 +115,7 @@ export default function Marketplaces() {
                     <li>• Months to vet freight forwarders</li>
                     <li>• Complex due diligence for clearance</li>
                     <li>• Testing per service provider</li>
-                    <li>• Risk assessment per country</li>
+                    <li>• Risk evaluation per country</li>
                   </ul>
                 </CardContent>
               </Card>

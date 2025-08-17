@@ -7,13 +7,13 @@ import { Progress } from "@/components/ui/progress";
 import { ArrowRight, CheckCircle, Clock, BarChart3, Target, Users, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const Assessments = () => {
-  const [selectedAssessment, setSelectedAssessment] = useState(null);
+const Consultations = () => {
+  const [selectedConsultation, setSelectedConsultation] = useState(null);
 
-  const assessments = [
+  const consultations = [
     {
       id: 'logistics-maturity',
-      title: "Logistics Maturity Assessment",
+      title: "Logistics Maturity Consultation",
       description: "Evaluate your logistics operations across 8 key dimensions",
       duration: "15-20 minutes",
       questions: 45,
@@ -65,7 +65,7 @@ const Assessments = () => {
       icon: Users,
       categories: ["Current Technology", "Data Quality", "Team Skills", "Change Management", "Integration Needs", "Budget"],
       benefits: [
-        "Digital maturity assessment",
+        "Digital maturity consultation",
         "Technology gap analysis",
         "Implementation roadmap",
         "Change management plan"
@@ -96,7 +96,7 @@ const Assessments = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="secondary" className="mb-6 text-base px-4 py-2">
-              Interactive Assessments
+              Interactive Consultations
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">
               Evaluate Your Logistics Maturity
@@ -105,7 +105,7 @@ const Assessments = () => {
               Get data-driven insights into your supply chain performance and improvement opportunities
             </p>
             <Button size="xl" variant="secondary" asChild>
-              <Link to="#assessments">Start Your Assessment</Link>
+              <Link to="#consultations">Start Your Consultation</Link>
             </Button>
           </div>
         </div>
@@ -117,7 +117,7 @@ const Assessments = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">
-                How Our Assessments Work
+                How Our Consultations Work
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Professional-grade evaluation tools used by logistics leaders worldwide
@@ -165,46 +165,46 @@ const Assessments = () => {
         </div>
       </section>
 
-      {/* Assessments Grid */}
-      <section id="assessments" className="py-20">
+      {/* Consultations Grid */}
+      <section id="consultations" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">
-                Choose Your Assessment
+                Choose Your Consultation
               </h2>
               <p className="text-xl text-muted-foreground">
-                Select the assessment that best matches your current priorities
+                Select the consultation that best matches your current priorities
               </p>
             </div>
             
             <div className="grid lg:grid-cols-2 gap-8">
-              {assessments.map((assessment, index) => (
-                <Card key={assessment.id} className="hover:shadow-medium transition-shadow">
+              {consultations.map((consultation, index) => (
+                <Card key={consultation.id} className="hover:shadow-medium transition-shadow">
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-3">
-                        <assessment.icon className="h-8 w-8 text-primary" />
+                        <consultation.icon className="h-8 w-8 text-primary" />
                         <div>
-                          <CardTitle className="text-xl">{assessment.title}</CardTitle>
+                          <CardTitle className="text-xl">{consultation.title}</CardTitle>
                           <div className="flex items-center gap-4 text-sm text-muted-foreground mt-2">
                             <div className="flex items-center gap-1">
                               <Clock className="h-4 w-4" />
-                              {assessment.duration}
+                              {consultation.duration}
                             </div>
-                            <div>{assessment.questions} questions</div>
+                            <div>{consultation.questions} questions</div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground mb-6">{assessment.description}</p>
+                    <p className="text-muted-foreground mb-6">{consultation.description}</p>
                     
                     <div className="mb-6">
-                      <h4 className="font-semibold mb-3">Assessment Categories:</h4>
+                      <h4 className="font-semibold mb-3">Consultation Categories:</h4>
                       <div className="flex flex-wrap gap-2">
-                        {assessment.categories.map((category, catIndex) => (
+                        {consultation.categories.map((category, catIndex) => (
                           <Badge key={catIndex} variant="outline" className="text-xs">
                             {category}
                           </Badge>
@@ -215,7 +215,7 @@ const Assessments = () => {
                     <div className="mb-6">
                       <h4 className="font-semibold mb-3">What You'll Get:</h4>
                       <ul className="space-y-2">
-                        {assessment.benefits.map((benefit, benefitIndex) => (
+                        {consultation.benefits.map((benefit, benefitIndex) => (
                           <li key={benefitIndex} className="flex items-center text-sm">
                             <CheckCircle className="h-4 w-4 text-primary mr-2" />
                             {benefit}
@@ -226,7 +226,7 @@ const Assessments = () => {
                     
                     <Button className="w-full" size="lg" asChild>
                       <Link to="/contact">
-                        Start Assessment
+                        Start Consultation
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
@@ -244,7 +244,7 @@ const Assessments = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">
-                Sample Assessment Questions
+                Sample Consultation Questions
               </h2>
               <p className="text-xl text-muted-foreground">
                 Get a preview of the types of questions you'll encounter
@@ -256,7 +256,7 @@ const Assessments = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <Package className="h-6 w-6 text-primary" />
-                    Logistics Maturity Assessment - Sample Questions
+                    Logistics Maturity Consultation - Sample Questions
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -272,7 +272,7 @@ const Assessments = () => {
                   </div>
                   <div className="mt-6 p-4 bg-accent/20 rounded-lg">
                     <p className="text-sm text-muted-foreground">
-                      <strong>Note:</strong> Each question includes multiple choice answers, rating scales, or specific metrics to ensure accurate assessment of your logistics maturity.
+                      <strong>Note:</strong> Each question includes multiple choice answers, rating scales, or specific metrics to ensure accurate consultation of your logistics maturity.
                     </p>
                   </div>
                 </CardContent>
@@ -288,7 +288,7 @@ const Assessments = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">
-                Your Assessment Results
+                Your Consultation Results
               </h2>
               <p className="text-xl text-muted-foreground">
                 Comprehensive insights and actionable recommendations
@@ -364,7 +364,7 @@ const Assessments = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="xl" asChild>
                 <Link to="/contact">
-                  Start Assessment
+                  Start Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -379,4 +379,4 @@ const Assessments = () => {
   );
 };
 
-export default Assessments;
+export default Consultations;

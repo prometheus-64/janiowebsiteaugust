@@ -20,7 +20,7 @@ const Resources = () => {
               Transform Your Logistics with Expert <span className="text-secondary">Resources</span>
             </h1>
             <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-              Get instant access to professional-grade assessments, ROI calculators, and strategic guides used by 500+ logistics leaders
+              Get instant access to professional-grade consultations, ROI calculators, and strategic guides used by 500+ logistics leaders
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button variant="secondary" size="xl" asChild>
@@ -54,10 +54,10 @@ const Resources = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">
-                Get Your Free Logistics Maturity Assessment
+                Book Your Free Logistics Consultation
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Download our comprehensive 15-minute assessment used by Fortune 500 companies to identify $2M+ in annual savings opportunities
+                Book our comprehensive 15-minute consultation used by Fortune 500 companies to identify $2M+ in annual savings opportunities
               </p>
             </div>
             
@@ -70,7 +70,7 @@ const Resources = () => {
                         <Award className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <CardTitle className="text-xl">Logistics Maturity Assessment</CardTitle>
+                        <CardTitle className="text-xl">Logistics Maturity Consultation</CardTitle>
                         <p className="text-sm text-muted-foreground">Professional-grade evaluation tool</p>
                       </div>
                     </div>
@@ -101,7 +101,7 @@ const Resources = () => {
                         <span>What's Included:</span>
                       </div>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>• 45-question comprehensive assessment</li>
+                        <li>• 45-question comprehensive consultation</li>
                         <li>• Detailed scoring across 8 dimensions</li>
                         <li>• Custom improvement recommendations</li>
                         <li>• Industry benchmarking report</li>
@@ -121,7 +121,7 @@ const Resources = () => {
               
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-2xl font-bold font-display mb-4">Why 500+ Companies Use This Assessment</h3>
+                  <h3 className="text-2xl font-bold font-display mb-4">Why 500+ Companies Book This Consultation</h3>
                   <div className="grid grid-cols-2 gap-6">
                     <div className="text-center">
                       <div className="text-3xl font-bold text-primary mb-2">$2.1M</div>
@@ -151,7 +151,7 @@ const Resources = () => {
                       <div>
                         <div className="font-semibold mb-2">Sarah Chen, VP Supply Chain at TechFlow</div>
                         <p className="text-sm text-muted-foreground italic">
-                          "This assessment revealed $3.2M in savings opportunities we never knew existed. Within 8 months, we'd implemented 80% of the recommendations and cut logistics costs by 22%."
+                          "This consultation revealed $3.2M in savings opportunities we never knew existed. Within 8 months, we'd implemented 80% of the recommendations and cut logistics costs by 22%."
                         </p>
                       </div>
                     </div>
@@ -169,7 +169,7 @@ const Resources = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold font-display text-foreground mb-4">
-                Specialized Assessment Tools
+                Specialized Consultation Tools
               </h2>
               <p className="text-xl text-muted-foreground">
                 Industry-specific evaluations for targeted optimization strategies
@@ -194,7 +194,7 @@ const Resources = () => {
                   </p>
                   <div className="text-sm font-medium text-secondary">Perfect for scaling businesses</div>
                   <Button variant="outline" className="w-full" asChild>
-                    <Link to="/contact">Take Assessment</Link>
+                    <Link to="/contact">Book Consultation</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -359,7 +359,7 @@ const Resources = () => {
                     </div>
                     <div className="text-left">
                       <h4 className="font-semibold">Want a Custom ROI Analysis?</h4>
-                      <p className="text-sm text-muted-foreground">Get a personalized assessment of your specific logistics optimization potential</p>
+                      <p className="text-sm text-muted-foreground">Get a personalized consultation of your specific logistics optimization potential</p>
                     </div>
                     <Button asChild>
                       <Link to="/contact">Request Analysis</Link>
@@ -404,7 +404,7 @@ const Resources = () => {
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">
                       <CheckCircle className="h-3 w-3 text-primary" />
-                      <span>Assessment frameworks & maturity models</span>
+                      <span>Evaluation frameworks & maturity models</span>
                     </div>
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">
                       <CheckCircle className="h-3 w-3 text-primary" />
@@ -668,11 +668,11 @@ const Resources = () => {
               Ready to Transform Your Logistics?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Start with our free assessment and discover your optimization potential
+              Start with our free consultation and discover your optimization potential
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="xl" asChild>
-                <Link to="/contact">Take Free Assessment</Link>
+                <Link to="/contact">Book Free Consultation</Link>
               </Button>
               <Button variant="outline" size="xl" asChild>
                 <Link to="/contact">Get Expert Consultation</Link>

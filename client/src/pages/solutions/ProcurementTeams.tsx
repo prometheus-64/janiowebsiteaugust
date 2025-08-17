@@ -21,7 +21,7 @@ const ProcurementTeams = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="cta" size="xl" asChild>
-                <Link to="/assessment">Analyze Your Freight Spend</Link>
+                <Link to="/contact">Analyze Your Freight Spend</Link>
               </Button>
               <Button variant="outline" size="xl" asChild>
                 <Link to="/calculator/transportation-procurement-roi">Calculate Savings</Link>
@@ -222,7 +222,7 @@ const ProcurementTeams = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="xl" asChild>
-                <Link to="/assessment">Get Free Analysis</Link>
+                <Link to="/contact">Book Free Consultation</Link>
               </Button>
               <Button variant="outline" size="xl" className="border-white/20 text-white hover:bg-white/10" asChild>
                 <Link to="/contact">Contact Procurement Expert</Link>

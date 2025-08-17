@@ -24,7 +24,7 @@ const SupplyChainLeaders = () => {
                 <Link to="/services/control-tower">See Control Tower</Link>
               </Button>
               <Button variant="outline" size="xl" asChild>
-                <Link to="/assessment">Assess Your Visibility</Link>
+                <Link to="/contact">Book Your Consultation</Link>
               </Button>
             </div>
           </div>
@@ -254,7 +254,7 @@ const SupplyChainLeaders = () => {
                 <Link to="/services/control-tower">See Control Tower Demo</Link>
               </Button>
               <Button variant="outline" size="xl" className="border-white/20 text-white hover:bg-white/10" asChild>
-                <Link to="/assessment">Assess Your Supply Chain</Link>
+                <Link to="/contact">Book Your Consultation</Link>
               </Button>
             </div>
           </div>

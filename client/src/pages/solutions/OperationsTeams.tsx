@@ -43,8 +43,8 @@ const OperationsTeams = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
               <Button variant="cta" size="xl" asChild>
-                <Link to="/assessment">
-                  Get Your Assessment
+                <Link to="/contact">
+                  Book Your Consultation
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
@@ -180,12 +180,12 @@ const OperationsTeams = () => {
               Ready to Focus on Growth?
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-              Get a free assessment and see how LaaS can transform your operations team's effectiveness
+              Book a free consultation and see how LaaS can transform your operations team's effectiveness
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="cta" size="xl" asChild>
-                <Link to="/assessment">
-                  Get Your Free Assessment
+                <Link to="/contact">
+                  Book Your Free Consultation
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
