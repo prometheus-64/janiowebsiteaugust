@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactSubmissionSchema, insertUseCaseSchema, updateUseCaseSchema } from "@shared/schema";
+import { insertContactSubmissionSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here
@@ -66,91 +66,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Use Cases CRUD API endpoints
-  app.get("/api/use-cases", async (req, res) => {
-    try {
-      const useCases = await storage.getUseCases();
-      // Parse metrics JSON for each use case
-      const formattedUseCases = useCases.map(useCase => ({
-        ...useCase,
-        metrics: JSON.parse(useCase.metrics)
-      }));
-      res.json({ success: true, data: formattedUseCases });
-    } catch (error) {
-      console.error("Error fetching use cases:", error);
-      res.status(500).json({ success: false, error: "Failed to fetch use cases" });
-    }
-  });
-
-  app.get("/api/use-cases/:id", async (req, res) => {
-    try {
-      const param = req.params.id;
-      let useCase;
-      
-      // First try as slug if it doesn't look like a UUID
-      const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(param);
-      
-      if (!isUUID) {
-        // Try slug lookup first
-        useCase = await storage.getUseCaseBySlug(param);
-      } else {
-        // Try ID lookup
-        useCase = await storage.getUseCase(param);
-      }
-      
-      if (!useCase) {
-        return res.status(404).json({ success: false, error: "Use case not found" });
-      }
-      const formattedUseCase = {
-        ...useCase,
-        metrics: JSON.parse(useCase.metrics)
-      };
-      res.json({ success: true, data: formattedUseCase });
-    } catch (error) {
-      console.error("Error fetching use case:", error);
-      res.status(500).json({ success: false, error: "Failed to fetch use case" });
-    }
-  });
-
-  app.post("/api/use-cases", async (req, res) => {
-    try {
-      const validatedData = insertUseCaseSchema.parse(req.body);
-      const useCase = await storage.createUseCase(validatedData);
-      const formattedUseCase = {
-        ...useCase,
-        metrics: JSON.parse(useCase.metrics)
-      };
-      res.json({ success: true, data: formattedUseCase });
-    } catch (error) {
-      console.error("Use case creation error:", error);
-      res.status(400).json({ success: false, error: "Invalid use case data" });
-    }
-  });
-
-  app.put("/api/use-cases/:id", async (req, res) => {
-    try {
-      const validatedData = updateUseCaseSchema.parse(req.body);
-      const useCase = await storage.updateUseCase(req.params.id, validatedData);
-      const formattedUseCase = {
-        ...useCase,
-        metrics: JSON.parse(useCase.metrics)
-      };
-      res.json({ success: true, data: formattedUseCase });
-    } catch (error) {
-      console.error("Use case update error:", error);
-      res.status(400).json({ success: false, error: "Invalid use case data" });
-    }
-  });
-
-  app.delete("/api/use-cases/:id", async (req, res) => {
-    try {
-      await storage.deleteUseCase(req.params.id);
-      res.json({ success: true });
-    } catch (error) {
-      console.error("Use case deletion error:", error);
-      res.status(500).json({ success: false, error: "Failed to delete use case" });
-    }
-  });
 
   const httpServer = createServer(app);
 

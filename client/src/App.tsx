@@ -25,6 +25,12 @@ import InternationalExpansion from "./pages/use-cases/InternationalExpansion";
 import PeakSeason from "./pages/use-cases/PeakSeason";
 import Digitization from "./pages/use-cases/Digitization";
 import CaseStudyDetailPage from "./pages/use-cases/CaseStudyDetail";
+import EntertainmentLeaderCostReduction from "./pages/use-cases/EntertainmentLeaderCostReduction";
+import FashionMarketplaceExpansion from "./pages/use-cases/FashionMarketplaceExpansion";
+import LuxuryBrandStandards from "./pages/use-cases/LuxuryBrandStandards";
+import RetailBrandGrowth from "./pages/use-cases/RetailBrandGrowth";
+import MarketplaceUnification from "./pages/use-cases/MarketplaceUnification";
+import PlatformPeakSeason from "./pages/use-cases/PlatformPeakSeason";
 // import Assessments from "./pages/resources/Assessments";
 // import Calculators from "./pages/resources/Calculators";
 // import Guides from "./pages/resources/Guides";
@@ -38,6 +44,7 @@ import BlogPost from "./pages/BlogPost";
 import EcommerceBrands from "./pages/EcommerceBrands";
 import Marketplaces from "./pages/Marketplaces";
 import LogisticsPartners from "./pages/LogisticsPartners";
+import B2CImportGrowth from "./pages/B2CImportGrowth";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
@@ -90,7 +97,15 @@ const App = () => (
           <Route path="/use-cases/peak-season" element={<PeakSeason />} />
           <Route path="/use-cases/digitization" element={<Digitization />} />
           
-          {/* Dynamic Use Case Detail Pages */}
+          {/* Static Use Case Detail Pages */}
+          <Route path="/use-cases/entertainment-leader-cost-reduction" element={<EntertainmentLeaderCostReduction />} />
+          <Route path="/use-cases/fashion-marketplace-expansion" element={<FashionMarketplaceExpansion />} />
+          <Route path="/use-cases/luxury-brand-standards" element={<LuxuryBrandStandards />} />
+          <Route path="/use-cases/retail-brand-growth" element={<RetailBrandGrowth />} />
+          <Route path="/use-cases/marketplace-unification" element={<MarketplaceUnification />} />
+          <Route path="/use-cases/platform-peak-season" element={<PlatformPeakSeason />} />
+          
+          {/* Dynamic Use Case Detail Pages (fallback for any remaining dynamic routes) */}
           <Route path="/use-cases/:slug" element={<CaseStudyDetailPage />} />
           
           {/* Resources Routes */}
@@ -107,6 +122,9 @@ const App = () => (
           <Route path="/ecommerce-brands" element={<EcommerceBrands />} />
           <Route path="/marketplaces" element={<Marketplaces />} />
           <Route path="/logistics-partners" element={<LogisticsPartners />} />
+          
+          {/* New Persona-Specific Landing Pages */}
+          <Route path="/b2c-import-growth" element={<B2CImportGrowth />} />
           
           {/* Admin Dashboard */}
           <Route path="/admin" element={<Admin />} />

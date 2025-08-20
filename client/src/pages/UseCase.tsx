@@ -1,66 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Filter, TrendingUp, Globe, Clock, Zap } from 'lucide-react';
+import { useCases, getUseCasesByCategory, type UseCase } from '@/data/useCases';
 
-interface UseCase {
-  id: string;
-  title: string;
-  category: string;
-  industry: string;
-  challenge: string;
-  result: string;
-  tags: string[];
-  href: string;
-  metrics: Array<{ label: string; value: string }>;
-  createdAt: string;
-  updatedAt: string;
-}
-
-const UseCase = () => {
+const UseCasePage = () => {
   const [selectedFilter, setSelectedFilter] = useState('All');
   
   const filters = ['All', 'Ecommerce', 'Marketplace', 'Cost Optimization', 'Scaling', 'International'];
   
-  const { data: useCasesData, isLoading, error } = useQuery<{ success: boolean; data: UseCase[] }>({
-    queryKey: ['/api/use-cases'],
-    queryFn: async () => {
-      const response = await fetch('/api/use-cases');
-      if (!response.ok) {
-        throw new Error('Failed to fetch use cases');
-      }
-      return response.json();
-    }
-  });
-
-  const useCases = useCasesData?.data || [];
-  
-  const filteredCases = selectedFilter === 'All' 
-    ? useCases 
-    : useCases.filter(useCase => useCase.category === selectedFilter || useCase.tags.some(tag => tag.includes(selectedFilter)));
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-lg">Loading use cases...</div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-lg text-red-500">Error loading use cases</div>
-        </div>
-      </div>
-    );
-  }
+  const filteredCases = getUseCasesByCategory(selectedFilter);
 
   return (
     <div className="min-h-screen bg-background">
@@ -147,7 +98,7 @@ const UseCase = () => {
                     ))}
                   </div>
                   
-                  {(useCase as any).showDetailedPage && (
+                  {useCase.showDetailedPage && (
                     <Button 
                       variant="outline" 
                       size="sm" 
@@ -239,4 +190,4 @@ const UseCase = () => {
   );
 };
 
-export default UseCase;
+export default UseCasePage;
