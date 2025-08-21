@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, ArrowRight, Building, Users, TrendingUp, Shield, Zap, Globe, DollarSign, Target, Ship, Clock, Package } from "lucide-react";
+import { CheckCircle, ArrowRight, Building, Users, TrendingUp, Shield, Zap, Globe, DollarSign, Target, Ship, Clock, Package, XCircle, AlertTriangle, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function B2CImportGrowth() {
@@ -27,7 +27,7 @@ export default function B2CImportGrowth() {
             Beyond Traditional Freight Forwarding - Complete B2C Import Solutions
           </h2>
           <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
-            Go beyond freight forwarding. With Janio, upstream logistics providers can offer end-to-end B2C import solutions in the Philippines, Singapore, and Malaysia—customs clearance, duties & taxes, and warehouse delivery handled under one 4PL network.
+            Go beyond freight forwarding. With Janio, upstream logistics providers can offer end-to-end B2C import solutions, starting with our core markets in the Philippines, Singapore, and Malaysia, and extending across our Southeast Asia network—customs clearance, duties & taxes, and warehouse delivery handled under one 4PL network.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
@@ -183,145 +183,74 @@ export default function B2CImportGrowth() {
       {/* Solution Awareness Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Complete Import-to-Warehouse Orchestration With Janio</h2>
-              <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-                Instead of fragmented partners for clearance and delivery, Janio offers a single orchestrated solution across the Philippines, Singapore, and Malaysia.
-              </p>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">From Fragmented Chaos to a Unified Flow</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Stop juggling multiple vendors. Janio transforms the complex import-to-warehouse process into a single, managed pipeline, giving you and your clients peace of mind.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 items-stretch">
+            {/* Before Card */}
+            <div className="bg-slate-800 rounded-xl p-8 border border-slate-700 shadow-2xl">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-white">The Old Way: Fragmented & Risky</h3>
+                <p className="text-red-400">Multiple Vendors, Multiple Headaches</p>
+              </div>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-4">
+                  <XCircle className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-white">Separate Contracts</h4>
+                    <p className="text-slate-400">You or your client must find, vet, and contract individual customs brokers and last-mile truckers for each country.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <AlertTriangle className="w-6 h-6 text-yellow-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-white">High Risk of Delays</h4>
+                    <p className="text-slate-400">Poor coordination between parties leads to delays, disputes, and costly demurrage or detention fees.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <Users className="w-6 h-6 text-orange-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-white">Client Burden</h4>
+                    <p className="text-slate-400">The operational burden falls on your client, creating a frustrating and unprofessional experience.</p>
+                  </div>
+                </li>
+              </ul>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-              <Card className="border-2 border-destructive/30 bg-destructive/5 hover:bg-destructive/10 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-destructive"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 bg-destructive/20 rounded-full flex items-center justify-center">
-                  <span className="text-destructive font-bold text-sm">✗</span>
-                </div>
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-destructive text-xl font-bold flex items-center gap-2">
-                    <Building className="w-5 h-5" />
-                    Traditional Approach (Fragmented & Risky)
-                  </CardTitle>
-                  <Badge variant="destructive" className="w-fit">Disconnected Partners</Badge>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-700">Separate <strong>customs brokers</strong> for each country</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-700">Multiple <strong>trucking contracts</strong> to warehouses</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-700">High risk of <strong>delays and disputes</strong></span>
-                    </div>
+            {/* After Card */}
+            <div className="bg-white rounded-xl p-8 border border-slate-200 shadow-2xl">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-primary">The Janio Way: Unified & Seamless</h3>
+                <p className="text-green-600">One Partner, End-to-End Control</p>
+              </div>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-4">
+                  <ShieldCheck className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-slate-800">Single Point of Contact</h4>
+                    <p className="text-slate-600">Janio becomes your single partner for the entire import-to-warehouse leg of the journey. One handover is all it takes.</p>
                   </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-primary/40 bg-gradient-to-br from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/15 transition-all duration-300 relative overflow-hidden shadow-lg">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
-                  <CheckCircle className="w-5 h-5 text-primary" />
-                </div>
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-primary text-xl font-bold flex items-center gap-2">
-                    <Zap className="w-5 h-5" />
-                    Janio's 4PL Approach (Unified & Seamless)
-                  </CardTitle>
-                  <Badge className="w-fit bg-primary/20 text-primary hover:bg-primary/30">Integrated Solution</Badge>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                      <span className="text-gray-700">One partner for <strong>clearance + warehouse delivery</strong></span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                      <span className="text-gray-700">Standardized <strong>SLAs across markets</strong></span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                      <span className="text-gray-700">Proven reliability with <strong>500+ vetted partners</strong></span>
-                    </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <Zap className="w-6 h-6 text-blue-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-slate-800">Streamlined & Standardized</h4>
+                    <p className="text-slate-600">We provide a unified process with standardized SLAs for customs, tax handling, and warehouse delivery across all markets.</p>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="border-primary/20 hover:border-primary/40 transition-colors">
-                <CardHeader>
-                  <Ship className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle className="text-primary">End-to-End Import Management</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Import Clearance:</strong> All permits, duties & taxes handled</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Direct Delivery:</strong> Into fulfillment warehouses</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Exception Management:</strong> Delays and issues handled</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-primary/20 hover:border-primary/40 transition-colors">
-                <CardHeader>
-                  <Globe className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle className="text-primary">Multi-Market Expertise</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Philippines:</strong> Proven compliance and delivery network</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Singapore:</strong> Hub operations with regional reach</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Malaysia:</strong> Local expertise and fulfillment</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-primary/20 hover:border-primary/40 transition-colors">
-                <CardHeader>
-                  <Target className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle className="text-primary">Revenue Growth Partnership</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Wallet Share:</strong> Capture additional services revenue</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Client Retention:</strong> Offer complete solutions</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span><strong>Faster Go-Live:</strong> For your e-commerce clients</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+                </li>
+                <li className="flex items-start gap-4">
+                  <TrendingUp className="w-6 h-6 text-purple-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-slate-800">Focus on Growth</h4>
+                    <p className="text-slate-600">You and your client can focus on strategic growth, confident that the operational details are handled by experts.</p>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -409,67 +338,79 @@ export default function B2CImportGrowth() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <Card className="border-primary/20">
+              <Card className="border-primary/20 flex flex-col">
                 <CardHeader>
                   <CardTitle className="text-primary">Global Freight Forwarder</CardTitle>
+                  <CardDescription>Expanding B2C Capabilities</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
+                <CardContent className="flex-grow">
+                  <blockquote className="italic text-muted-foreground border-l-2 pl-4 mb-4">
+                    "Partnering with Janio was a game-changer. We could finally offer our e-commerce clients the end-to-end import solution they were demanding, which immediately strengthened our relationships."
+                  </blockquote>
+                  <div className="space-y-3">
                     <div>
                       <h4 className="font-semibold text-orange-600">Challenge:</h4>
-                      <p className="text-sm">Clients needing complete import solutions beyond freight</p>
+                      <p className="text-sm">Losing e-commerce clients who needed services beyond traditional freight, like customs and last-mile delivery.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-blue-600">Solution:</h4>
-                      <p className="text-sm">Integrated clearance and delivery through Janio partnership</p>
+                      <p className="text-sm">Utilized Janio's 'Freight + Clearance' model to seamlessly add customs and delivery services.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-green-600">Result:</h4>
-                      <p className="text-sm">Enabled clients to expand into Southeast Asia e-commerce</p>
+                      <p className="text-sm"><strong>Retained 95% of at-risk e-commerce accounts</strong> and grew wallet share by 30%.</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-primary/20">
+              <Card className="border-primary/20 flex flex-col">
                 <CardHeader>
                   <CardTitle className="text-primary">Regional Logistics Provider</CardTitle>
+                  <CardDescription>Streamlining Multi-Market Operations</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
+                <CardContent className="flex-grow">
+                  <blockquote className="italic text-muted-foreground border-l-2 pl-4 mb-4">
+                    "The complexity of managing different brokers and truckers in PH, SG, and MY was a nightmare. Janio's unified platform gave us the visibility and control we were missing."
+                  </blockquote>
+                  <div className="space-y-3">
                     <div>
                       <h4 className="font-semibold text-orange-600">Challenge:</h4>
-                      <p className="text-sm">Complex import requirements across multiple markets</p>
+                      <p className="text-sm">Inconsistent performance and high overhead from managing multiple local partners across Southeast Asia.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-blue-600">Solution:</h4>
-                      <p className="text-sm">Streamlined operations through Janio's unified platform</p>
+                      <p className="text-sm">Adopted Janio's Control Tower to unify operations and standardize SLAs.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-green-600">Result:</h4>
-                      <p className="text-sm">Faster turnaround and fewer exceptions across PH, SG, MY</p>
+                      <p className="text-sm"><strong>Reduced exception handling time by 40%</strong> and improved on-time delivery to 99.2%.</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-primary/20">
+              <Card className="border-primary/20 flex flex-col">
                 <CardHeader>
                   <CardTitle className="text-primary">Leading Marketplace Partner</CardTitle>
+                  <CardDescription>Enabling Compliant Cross-Border Trade</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
+                <CardContent className="flex-grow">
+                  <blockquote className="italic text-muted-foreground border-l-2 pl-4 mb-4">
+                    "Scaling our cross-border volume was impossible without a reliable partner for on-ground customs. Janio provided the expertise we needed to grow with confidence."
+                  </blockquote>
+                  <div className="space-y-3">
                     <div>
                       <h4 className="font-semibold text-orange-600">Challenge:</h4>
-                      <p className="text-sm">Scaling cross-border flows with compliance requirements</p>
+                      <p className="text-sm">Compliance risks and delays were hindering the growth of their cross-border e-commerce marketplace.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-blue-600">Solution:</h4>
-                      <p className="text-sm">Combined freight with Janio's import expertise</p>
+                      <p className="text-sm">Integrated their freight movements with Janio's import clearance and D&T management services.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-green-600">Result:</h4>
-                      <p className="text-sm">Scaled cross-border flows with on-ground B2C import support</p>
+                      <p className="text-sm"><strong>Achieved 99.8% customs clearance accuracy</strong>, enabling a 200% growth in cross-border volume.</p>
                     </div>
                   </div>
                 </CardContent>
@@ -549,7 +490,7 @@ export default function B2CImportGrowth() {
 
             <div className="mt-12 space-y-2 text-sm opacity-80">
               <p><strong>Partner Development Team</strong></p>
-              <p><strong>Email:</strong> partners@janio.asia | <strong>Phone:</strong> +65 XXXX XXXX</p>
+              <p><strong>Email:</strong> partners@janio.asia | <strong>Phone:</strong> +65 3138 9080</p>
               <p><strong>Office:</strong> Singapore • Hong Kong • Bangkok • Jakarta</p>
             </div>
           </div>

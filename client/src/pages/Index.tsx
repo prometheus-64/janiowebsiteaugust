@@ -326,14 +326,19 @@ const Index = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-8">Key Markets</h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                   {[
+                    // Southeast Asia
                     { country: "Singapore", flag: "🇸🇬" },
                     { country: "Malaysia", flag: "🇲🇾" },
                     { country: "Thailand", flag: "🇹🇭" },
                     { country: "Indonesia", flag: "🇮🇩" },
                     { country: "Philippines", flag: "🇵🇭" },
-                    { country: "Vietnam", flag: "🇻🇳" },
-                    { country: "Cambodia", flag: "🇰🇭" },
-                    { country: "Myanmar", flag: "🇲🇲" }
+                    // East Asia
+                    { country: "Hong Kong", flag: "🇭🇰" },
+                    { country: "Taiwan", flag: "🇹🇼" },
+                    { country: "South Korea", flag: "🇰🇷" },
+                    { country: "Japan", flag: "🇯🇵" },
+                    // Oceania
+                    { country: "Australia", flag: "🇦🇺" }
                   ].map((item, index) => (
                     <div key={index} className="flex flex-col items-center gap-3 p-4 bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow h-24">
                       <span className="text-2xl">{item.flag}</span>

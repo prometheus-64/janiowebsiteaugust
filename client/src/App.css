@@ -40,3 +40,32 @@
 .read-the-docs {
   color: #888;
 }
+
+.flow-card {
+  border-width: 1px;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.flow-card-header {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+
+.flow-arrow {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #9ca3af; /* gray-400 */
+}
+
+.flow-card-connector {
+  height: 2rem;
+  width: 2px;
+  background-color: #d1d5db; /* gray-300 */
+  margin: 0 auto;
+}
