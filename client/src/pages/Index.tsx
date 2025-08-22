@@ -280,26 +280,25 @@ const Index = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+        <section className="py-24 bg-gradient-hero relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/30" />
           <div className="relative container-narrow text-center">
             <div className="max-w-4xl mx-auto animate-fade-in">
-              <h2 className="text-4xl lg:text-5xl font-display font-bold text-white mb-8 leading-tight">
-                Ready to Transform Your 
-                <span className="block text-accent">Supply Chain?</span>
+              <h2 className="text-4xl lg:text-5xl font-display font-bold text-white mb-6 leading-tight">
+                Ready to Transform Your Supply Chain?
               </h2>
-              <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto">
                 Schedule a free, no-obligation strategy session with a Janio logistics expert and discover your optimization potential.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Link to="/contact">
-                  <button className="btn-accent text-lg px-10 py-4 rounded-full shadow-large">
+                  <button className="btn-cta">
                     Book My Free Consultation
                     <ArrowRight className="ml-2 w-5 h-5 inline" />
                   </button>
                 </Link>
                 <Link to="/solutions">
-                  <button className="btn-secondary text-lg px-10 py-4 rounded-full border-white/30 hover:bg-white/20 text-[#04216c]">
+                  <button className="btn-ghost-dark">
                     Explore Solutions
                   </button>
                 </Link>
