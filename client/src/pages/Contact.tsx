@@ -341,7 +341,7 @@ const Contact = () => {
                 <CardContent>
                   <div className="flex justify-center">
                     {offices.map((office, index) => (
-                      <div key={office.city} className="p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors max-w-md w-full">
+                      <div key={office.city} className="p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors max-w-md w-full text-center">
                         <h5 className="text-xl font-semibold text-foreground mb-3">{office.city}</h5>
                         <div className="space-y-2 text-muted-foreground mb-4">
                           <p>{office.address}</p>
