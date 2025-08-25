@@ -147,11 +147,54 @@ const Navigation = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* Use Cases */}
+                {/* Resources */}
                 <NavigationMenuItem>
-                  <Link to="/use-cases" className={cn("nav-link px-4 py-2 text-base font-medium", location.pathname === "/use-cases" && "text-primary")}>
-                    Use Cases
-                  </Link>
+                  <NavigationMenuTrigger className="nav-link text-base font-medium">
+                    Resources
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="nav-dropdown w-[500px] p-6">
+                      <div className="mb-4">
+                        <Link to="/resources" className="text-sm font-medium text-primary hover:underline">
+                          View All Resources →
+                        </Link>
+                      </div>
+                      <div className="grid gap-3">
+                        <NavigationMenuLink asChild>
+                          <Link to="/resources/blogs" className={cn("block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground")}>
+                            <div className="text-sm font-medium leading-none">Blogs</div>
+                            <p className="text-xs leading-snug font-normal text-inherit">
+                              Industry insights and logistics best practices
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                          <Link to="/resources/guides" className={cn("block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground")}>
+                            <div className="text-sm font-medium leading-none">Guides</div>
+                            <p className="text-xs leading-snug font-normal text-inherit">
+                              Comprehensive guides for supply chain optimization
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                          <Link to="/resources/case-studies" className={cn("block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground")}>
+                            <div className="text-sm font-medium leading-none">Case Studies</div>
+                            <p className="text-xs leading-snug font-normal text-inherit">
+                              Real-world success stories and cost reductions
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                          <Link to="/resources/calculators" className={cn("block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground")}>
+                            <div className="text-sm font-medium leading-none">Calculators</div>
+                            <p className="text-xs leading-snug font-normal text-inherit">
+                              ROI and cost savings assessment tools
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
                 </NavigationMenuItem>
 
                 {/* About & Contact */}
@@ -195,8 +238,8 @@ const Navigation = () => {
               <Link to="/services" className="text-sm font-medium text-gray-900 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 Services
               </Link>
-              <Link to="/use-cases" className="text-sm font-medium text-gray-900 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                Use Cases
+              <Link to="/resources" className="text-sm font-medium text-gray-900 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                Resources
               </Link>
               <Link to="/about" className="text-sm font-medium text-gray-900 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 About

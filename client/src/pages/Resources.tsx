@@ -524,7 +524,7 @@ const Resources = () => {
                         Identify the key indicators that signal it's time to outsource your logistics operations...
                       </p>
                       <Button variant="ghost" size="sm" asChild>
-                        <Link to="/blog/signs-need-4pl-partner">Read More</Link>
+                        <Link to="/resources/blogs">Read More</Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -537,14 +537,14 @@ const Resources = () => {
                         Comprehensive preparation guide for handling holiday demand surges...
                       </p>
                       <Button variant="ghost" size="sm" asChild>
-                        <Link to="/blog/peak-season-preparation">Read More</Link>
+                        <Link to="/resources/blogs">Read More</Link>
                       </Button>
                     </CardContent>
                   </Card>
                 </div>
                 <div className="mt-6">
                   <Button variant="outline" asChild>
-                    <Link to="/blog">View All Articles</Link>
+                    <Link to="/resources/blogs">View All Articles</Link>
                   </Button>
                 </div>
               </div>
@@ -563,7 +563,7 @@ const Resources = () => {
                         How LaaS enabled rapid growth without operational complexity...
                       </p>
                       <Button variant="ghost" size="sm" asChild>
-                        <Link to="/case-studies/fashion-brand-scaling">Read Case Study</Link>
+                        <Link to="/resources/case-studies">Read Case Study</Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -576,14 +576,14 @@ const Resources = () => {
                         Strategic procurement delivers immediate and sustainable savings...
                       </p>
                       <Button variant="ghost" size="sm" asChild>
-                        <Link to="/case-studies/manufacturer-cost-reduction">Read Case Study</Link>
+                        <Link to="/resources/case-studies">Read Case Study</Link>
                       </Button>
                     </CardContent>
                   </Card>
                 </div>
                 <div className="mt-6">
                   <Button variant="outline" asChild>
-                    <Link to="/case-studies">View All Case Studies</Link>
+                    <Link to="/resources/case-studies">View All Case Studies</Link>
                   </Button>
                 </div>
               </div>

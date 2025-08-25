@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Admin from "./pages/Admin";
-// import Resources from "./pages/Resources";
+import Resources from "./pages/Resources";
 import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import UseCase from "./pages/UseCase";
@@ -31,9 +31,13 @@ import LuxuryBrandStandards from "./pages/use-cases/LuxuryBrandStandards";
 import RetailBrandGrowth from "./pages/use-cases/RetailBrandGrowth";
 import MarketplaceUnification from "./pages/use-cases/MarketplaceUnification";
 import PlatformPeakSeason from "./pages/use-cases/PlatformPeakSeason";
-// import Assessments from "./pages/resources/Assessments";
-// import Calculators from "./pages/resources/Calculators";
-// import Guides from "./pages/resources/Guides";
+import Assessments from "./pages/resources/Assessments";
+import Calculators from "./pages/resources/Calculators";
+import Guides from "./pages/resources/Guides";
+import Blogs from "./pages/resources/Blogs";
+import ResourcesBlogPost from "./pages/resources/BlogPost";
+import ResourcesCaseStudies from "./pages/resources/CaseStudies";
+import GuideDetail from "./pages/resources/GuideDetail";
 import Blog from "./pages/Blog";
 import CaseStudies from "./pages/CaseStudies";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
@@ -67,7 +71,13 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/resources" element={<Resources />} /> */}
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/resources/blogs" element={<Blogs />} />
+          <Route path="/resources/blogs/:id" element={<ResourcesBlogPost />} />
+          <Route path="/resources/guides" element={<Guides />} />
+          <Route path="/resources/guides/:slug" element={<GuideDetail />} />
+          <Route path="/resources/case-studies" element={<ResourcesCaseStudies />} />
+          <Route path="/resources/calculators" element={<Calculators />} />
           <Route path="/use-cases" element={<UseCase />} />
           
           {/* New Hub Pages */}

@@ -1,184 +1,91 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Download, BookOpen, Clock, Users, Target, TrendingUp } from 'lucide-react';
+import { ArrowRight, Download, BookOpen, Clock, Users, Target, TrendingUp, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
 
 const Guides = () => {
   const guides = [
     {
-      id: 'supply-chain-transformation',
-      title: "The Complete Guide to Supply Chain Digital Transformation",
-      description: "A comprehensive 50-page guide covering everything from assessment to implementation of modern supply chain technologies.",
-      category: "Digital Transformation",
-      readTime: "45-60 minutes",
-      pages: 50,
-      audience: "Supply Chain Leaders",
-      level: "Advanced",
-      topics: [
-        "Digital maturity assessment framework",
-        "Technology selection criteria",
-        "Implementation roadmap and timeline",
-        "Change management strategies",
-        "ROI measurement and KPIs",
-        "Common pitfalls and how to avoid them"
-      ],
-      keyTakeaways: [
-        "Structured approach to digital transformation",
-        "Proven implementation methodologies",
-        "Real-world case studies and lessons learned",
-        "Template documents and checklists"
-      ]
-    },
-    {
-      id: 'cost-optimization-playbook',
-      title: "Logistics Cost Optimization Playbook",
-      description: "Strategic guide to identifying and capturing logistics cost savings across transportation, warehousing, and operations.",
+      id: 1,
+      title: "Freight Spend Leaks: 10 Negotiation Tactics that Don't Hurt SLAs",
+      description: "Comprehensive guide to strategic freight negotiation that maintains service quality while reducing costs. Includes proven tactics, templates, and implementation frameworks from successful cost reduction initiatives.",
       category: "Cost Management",
-      readTime: "30-40 minutes",
+      level: "Advanced",
       pages: 35,
-      audience: "Procurement & Finance Teams",
-      level: "Intermediate",
-      topics: [
-        "Cost analysis frameworks and tools",
-        "Transportation procurement strategies",
-        "Warehouse optimization techniques",
-        "Vendor management best practices",
-        "Contract negotiation tactics",
-        "Quick win identification methods"
-      ],
-      keyTakeaways: [
-        "15-25% cost reduction methodologies",
-        "Negotiation templates and scripts",
-        "Benchmarking tools and metrics",
-        "Implementation action plans"
-      ]
-    },
-    {
-      id: 'peak-season-preparation',
-      title: "Peak Season Logistics Preparation Guide",
-      description: "Essential strategies for handling demand spikes, seasonal variations, and promotional events without service disruption.",
-      category: "Operations",
-      readTime: "25-35 minutes",
-      pages: 28,
-      audience: "Operations Teams",
-      level: "Intermediate",
-      topics: [
-        "Demand forecasting and planning",
-        "Capacity scaling strategies",
-        "Inventory management for peaks",
-        "Workforce planning and training",
-        "Technology requirements",
-        "Risk mitigation approaches"
-      ],
-      keyTakeaways: [
-        "Peak season planning timeline",
-        "Capacity requirement calculators",
-        "Contingency planning templates",
-        "Performance monitoring frameworks"
-      ]
-    },
-    {
-      id: 'international-expansion',
-      title: "International Logistics Expansion Handbook",
-      description: "Complete guide to expanding logistics operations globally, covering compliance, partnerships, and risk management.",
-      category: "Global Operations",
-      readTime: "40-50 minutes",
-      pages: 42,
-      audience: "Supply Chain Leaders",
-      level: "Advanced",
-      topics: [
-        "Market entry strategies and assessment",
-        "Regulatory compliance requirements",
-        "International carrier selection",
-        "Customs and documentation",
-        "Risk assessment and mitigation",
-        "Technology integration across borders"
-      ],
-      keyTakeaways: [
-        "Country-specific compliance checklists",
-        "Carrier evaluation frameworks",
-        "Risk assessment templates",
-        "Implementation timelines by region"
-      ]
-    },
-    {
-      id: 'vendor-management',
-      title: "Strategic Vendor Management for Logistics",
-      description: "Best practices for selecting, managing, and optimizing relationships with logistics service providers and carriers.",
-      category: "Vendor Management",
-      readTime: "20-30 minutes",
-      pages: 25,
-      audience: "Procurement Teams",
-      level: "Beginner to Intermediate",
-      topics: [
-        "Vendor selection criteria and RFP process",
-        "Performance measurement and scorecards",
-        "Contract management and negotiations",
-        "Relationship management strategies",
-        "Continuous improvement programs",
-        "Risk management and contingency planning"
-      ],
-      keyTakeaways: [
-        "Vendor evaluation scorecards",
-        "Contract templates and terms",
-        "Performance monitoring dashboards",
-        "Relationship management frameworks"
-      ]
-    },
-    {
-      id: 'automation-implementation',
-      title: "Logistics Automation Implementation Guide",
-      description: "Step-by-step approach to implementing automation technologies in warehousing, transportation, and order management.",
-      category: "Automation",
-      readTime: "35-45 minutes",
-      pages: 38,
-      audience: "Operations & IT Teams",
-      level: "Advanced",
-      topics: [
-        "Automation readiness assessment",
-        "Technology selection and evaluation",
-        "Implementation planning and phases",
-        "Change management for automation",
-        "Training and skill development",
-        "Performance measurement and optimization"
-      ],
-      keyTakeaways: [
-        "Automation roadmap templates",
-        "Technology comparison matrices",
-        "Training program outlines",
-        "ROI calculation frameworks"
-      ]
+      readTime: "45-60 min",
+      slug: "freight-spend-negotiation-tactics",
+      featured: true
     }
   ];
 
   const categories = ["All", "Digital Transformation", "Cost Management", "Operations", "Global Operations", "Vendor Management", "Automation"];
-  const [selectedCategory, setSelectedCategory] = React.useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [showLeadCapture, setShowLeadCapture] = useState(false);
+  const [selectedGuide, setSelectedGuide] = useState<any>(null);
 
   const filteredGuides = selectedCategory === "All" 
     ? guides 
     : guides.filter(guide => guide.category === selectedCategory);
 
+  const handleGuideClick = (guide: any) => {
+    // Navigate to guide detail page where lead capture will be handled
+    window.location.href = `/resources/guides/${guide.slug}`;
+  };
+
   return (
     <div className="min-h-screen bg-background">
       
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="secondary" className="mb-6 text-base px-4 py-2">
-              Strategic Guides
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">
-              Comprehensive Logistics Playbooks
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90">
-              In-depth guides and frameworks to optimize every aspect of your supply chain operations
-            </p>
-            <Button size="xl" variant="secondary" asChild>
-              <Link to="#guides">Browse Guides</Link>
-            </Button>
+      {/* Hero Section - Matching Home Page Format */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        {/* Enhanced Background with Subtle Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-secondary/95" />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/50 rounded-full blur-2xl"></div>
+        </div>
+        <div className="relative w-full max-w-6xl mx-auto px-6 text-center text-white">
+          <div className="mb-4 animate-fade-in">
+            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">
+              Strategic Implementation Guides
+            </span>
+          </div>
+          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-8 animate-fade-in leading-tight tracking-tight">
+            Comprehensive Logistics
+            <span className="block text-white bg-gradient-to-r from-white to-blue-100 bg-clip-text">Playbooks</span>
+          </h1>
+          <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
+            In-depth guides and frameworks to optimize every aspect of your supply chain operations. Professional-grade resources with implementation templates and proven methodologies.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
+            <Link to="#featured">
+              <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                Browse Strategic Guides <ArrowRight className="ml-2 w-5 h-5 inline" />
+              </button>
+            </Link>
+            <Link to="/contact">
+              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
+                Request Custom Guide
+              </button>
+            </Link>
+          </div>
+
+          {/* Category Filter Buttons */}
+          <div className="flex flex-wrap justify-center gap-4 animate-fade-in-up">
+            {categories.slice(0, 5).map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? "secondary" : "outline"}
+                className={selectedCategory === category ? "" : "border-white/20 text-white hover:bg-white/10 backdrop-blur-sm"}
+                onClick={() => setSelectedCategory(category)}
+              >
+                {category}
+              </Button>
+            ))}
           </div>
         </div>
       </section>
@@ -251,80 +158,149 @@ const Guides = () => {
         </div>
       </section>
 
-      {/* Guides Grid */}
-      <section className="py-20">
+      {/* Featured Guides */}
+      <section id="featured" className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8">
-              {filteredGuides.map((guide, index) => (
-                <Card key={guide.id} className="hover:shadow-medium transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-4">
-                      <Badge variant="outline">{guide.category}</Badge>
-                      <Badge variant="secondary">{guide.level}</Badge>
-                    </div>
-                    <CardTitle className="text-xl mb-3">{guide.title}</CardTitle>
-                    <p className="text-muted-foreground">{guide.description}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-3 gap-4 mb-6 text-center">
-                      <div>
-                        <div className="text-lg font-semibold text-primary">{guide.pages}</div>
-                        <div className="text-xs text-muted-foreground">Pages</div>
-                      </div>
-                      <div>
-                        <div className="text-lg font-semibold text-primary">
-                          <Clock className="h-4 w-4 inline mr-1" />
-                          {guide.readTime.split('-')[0]}
-                        </div>
-                        <div className="text-xs text-muted-foreground">Min Read</div>
-                      </div>
-                      <div>
-                        <div className="text-lg font-semibold text-primary">
-                          <Users className="h-4 w-4 inline mr-1" />
-                        </div>
-                        <div className="text-xs text-muted-foreground">{guide.audience}</div>
-                      </div>
-                    </div>
-                    
-                    <div className="mb-6">
-                      <h4 className="font-semibold mb-3">What You'll Learn:</h4>
-                      <ul className="space-y-2">
-                        {guide.topics.slice(0, 3).map((topic, topicIndex) => (
-                          <li key={topicIndex} className="text-sm text-muted-foreground flex items-start">
-                            <div className="h-1.5 w-1.5 bg-primary rounded-full mt-2 mr-2 flex-shrink-0" />
-                            {topic}
-                          </li>
-                        ))}
-                        {guide.topics.length > 3 && (
-                          <li className="text-sm text-muted-foreground italic">
-                            +{guide.topics.length - 3} more topics...
-                          </li>
-                        )}
-                      </ul>
-                    </div>
-                    
-                    <div className="mb-6">
-                      <h4 className="font-semibold mb-3">Key Takeaways:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {guide.keyTakeaways.slice(0, 2).map((takeaway, takeawayIndex) => (
-                          <Badge key={takeawayIndex} variant="outline" className="text-xs">
-                            {takeaway}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <Button className="w-full" size="lg" asChild>
-                      <Link to="/contact">
-                        <Download className="mr-2 h-4 w-4" />
-                        Download Guide
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold font-display mb-4">Featured Strategic Guides</h2>
+              <p className="text-xl text-muted-foreground">
+                Professional-grade resources for supply chain optimization
+              </p>
             </div>
+            
+            {filteredGuides.length === 0 ? (
+              <div className="text-center py-16">
+                <BookOpen className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-4">Strategic Guides Coming Soon</h3>
+                <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                  We're developing comprehensive strategic guides to help you optimize your logistics operations. 
+                  These professional-grade resources will include implementation templates, best practices, and proven methodologies.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <Target className="h-4 w-4" />
+                      <span>Implementation frameworks</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <TrendingUp className="h-4 w-4" />
+                      <span>ROI optimization strategies</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="h-4 w-4" />
+                      <span>Team training materials</span>
+                    </div>
+                  </div>
+                  <Button asChild>
+                    <Link to="/contact">Get Notified When Available</Link>
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredGuides.map((guide) => (
+                  <Card key={guide.id} className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer" onClick={() => handleGuideClick(guide)}>
+                    <CardHeader className="pb-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <Badge variant="secondary">{guide.category}</Badge>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Clock className="h-4 w-4" />
+                          <span>{guide.readTime}</span>
+                        </div>
+                      </div>
+                      <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                        {guide.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-muted-foreground text-sm line-clamp-3">{guide.description}</p>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                          <span>{guide.pages} pages</span>
+                          <span>•</span>
+                          <span>{guide.level}</span>
+                        </div>
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="group-hover:text-primary h-8 px-2 text-xs"
+                          onClick={() => handleGuideClick(guide)}
+                        >
+                          View <ArrowRight className="ml-1 h-3 w-3" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* All Guides */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            {filteredGuides.length > 0 && (
+              <>
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl font-bold font-display mb-4">
+                    {selectedCategory === "All" ? "All Strategic Guides" : `${selectedCategory} Guides`}
+                  </h2>
+                  <p className="text-xl text-muted-foreground">
+                    {selectedCategory === "All" 
+                      ? "Complete library of implementation guides" 
+                      : `Specialized guides for ${selectedCategory.toLowerCase()}`
+                    }
+                  </p>
+                </div>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {filteredGuides.map((guide) => (
+                    <Card key={guide.id} className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer" onClick={() => handleGuideClick(guide)}>
+                      <CardHeader className="pb-4">
+                        <div className="flex items-center justify-between mb-3">
+                          <Badge variant="outline">{guide.category}</Badge>
+                          <Badge variant="secondary">{guide.level}</Badge>
+                        </div>
+                        <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
+                          {guide.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <p className="text-muted-foreground text-sm">{guide.description}</p>
+                        <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                          <div>
+                            <div className="font-semibold text-primary">{guide.pages}</div>
+                            <div className="text-muted-foreground">Pages</div>
+                          </div>
+                          <div>
+                            <div className="font-semibold text-primary">{guide.readTime.split('-')[0]}</div>
+                            <div className="text-muted-foreground">Min</div>
+                          </div>
+                          <div>
+                            <div className="font-semibold text-primary">
+                              <Download className="h-3 w-3 inline" />
+                            </div>
+                            <div className="text-muted-foreground">Ready</div>
+                          </div>
+                        </div>
+                        <Button 
+                          className="w-full" 
+                          size="sm"
+                          onClick={() => handleGuideClick(guide)}
+                        >
+                          <ArrowRight className="mr-2 h-3 w-3" />
+                          View Guide
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>
@@ -406,6 +382,27 @@ const Guides = () => {
           </div>
         </div>
       </section>
+
+      {/* Lead Capture Modal */}
+      <Dialog open={showLeadCapture} onOpenChange={setShowLeadCapture}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="sr-only">Download Guide</DialogTitle>
+          </DialogHeader>
+          {selectedGuide && (
+            <LeadCaptureForm
+              title={`Download: ${selectedGuide.title}`}
+              description={`Get instant access to this ${selectedGuide.pages}-page strategic guide with templates and implementation frameworks.`}
+              resourceType="guide"
+              downloadText="Download Guide Now"
+              onSubmit={(data) => {
+                console.log('Lead captured:', data);
+                setShowLeadCapture(false);
+              }}
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

@@ -5,8 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Calculator, DollarSign, TrendingUp, Package, Truck, BarChart3 } from 'lucide-react';
+import { ArrowRight, Calculator, DollarSign, TrendingUp, Package, Truck, BarChart3, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
 
 const Calculators = () => {
   const [roiInputs, setRoiInputs] = useState({
@@ -23,6 +25,15 @@ const Calculators = () => {
     manualProcessTime: '',
     employeeCost: ''
   });
+
+  const [showLeadCapture, setShowLeadCapture] = useState(false);
+  const [selectedCalculator, setSelectedCalculator] = useState<any>(null);
+
+  const handleDetailedAnalysisClick = (calculatorType: string) => {
+    const calculatorData = calculators.find(calc => calc.id === calculatorType);
+    setSelectedCalculator(calculatorData);
+    setShowLeadCapture(true);
+  };
 
   const calculators = [
     {
@@ -268,11 +279,13 @@ const Calculators = () => {
                         </ul>
                       </div>
                       
-                      <Button className="w-full" size="lg" asChild>
-                        <Link to="/contact">
-                          Get Detailed ROI Analysis
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
+                      <Button 
+                        className="w-full" 
+                        size="lg" 
+                        onClick={() => handleDetailedAnalysisClick('roi-calculator')}
+                      >
+                        <Download className="mr-2 h-4 w-4" />
+                        Get Detailed ROI Analysis
                       </Button>
                     </CardContent>
                   </Card>
@@ -359,11 +372,13 @@ const Calculators = () => {
                         </div>
                       </div>
                       
-                      <Button className="w-full" size="lg" asChild>
-                        <Link to="/contact">
-                          Get Freight Audit
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
+                      <Button 
+                        className="w-full" 
+                        size="lg" 
+                        onClick={() => handleDetailedAnalysisClick('freight-savings')}
+                      >
+                        <Download className="mr-2 h-4 w-4" />
+                        Get Detailed Freight Analysis
                       </Button>
                     </CardContent>
                   </Card>
@@ -382,8 +397,9 @@ const Calculators = () => {
                       <p className="text-muted-foreground mb-6">
                         Our automation value calculator will help you quantify the benefits of automating manual logistics processes.
                       </p>
-                      <Button asChild>
-                        <Link to="/contact">Request Early Access</Link>
+                      <Button onClick={() => handleDetailedAnalysisClick('automation-value')}>
+                        <Download className="mr-2 h-4 w-4" />
+                        Request Early Access
                       </Button>
                     </div>
                   </CardContent>
@@ -402,8 +418,9 @@ const Calculators = () => {
                       <p className="text-muted-foreground mb-6">
                         Calculate working capital improvements and carrying cost savings from optimized inventory management.
                       </p>
-                      <Button asChild>
-                        <Link to="/contact">Request Early Access</Link>
+                      <Button onClick={() => handleDetailedAnalysisClick('inventory-optimization')}>
+                        <Download className="mr-2 h-4 w-4" />
+                        Request Early Access
                       </Button>
                     </div>
                   </CardContent>
@@ -438,6 +455,27 @@ const Calculators = () => {
           </div>
         </div>
       </section>
+
+      {/* Lead Capture Modal */}
+      <Dialog open={showLeadCapture} onOpenChange={setShowLeadCapture}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="sr-only">Download Calculator</DialogTitle>
+          </DialogHeader>
+          {selectedCalculator && (
+            <LeadCaptureForm
+              title={`Get Detailed Analysis: ${selectedCalculator.title}`}
+              description={`Download comprehensive analysis workbook with customized calculations, benchmarks, and implementation recommendations for ${selectedCalculator.title.toLowerCase()}.`}
+              resourceType="calculator"
+              downloadText="Download Calculator & Analysis"
+              onSubmit={(data) => {
+                console.log('Lead captured:', data);
+                setShowLeadCapture(false);
+              }}
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
