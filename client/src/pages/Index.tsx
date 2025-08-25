@@ -7,6 +7,8 @@ import HowItWorksStep from '@/components/HowItWorksStep';
 import heroImage from '@/assets/hero-elegant-premium.jpg';
 import dashboardImage from '@/assets/dashboard-analytics.jpg';
 import { Settings, DollarSign, Network, BarChart3, Search, Lightbulb, Play, CheckCircle, ArrowRight, Users, Globe, Clock, Shield, MapPin, Package, TrendingDown } from 'lucide-react';
+import SEO from '@/components/SEO';
+import { generateOrganizationSchema, generateWebPageSchema } from '@/utils/seo';
 const Index = () => {
   const icpSolutions = [{
     title: "For Ecommerce Brands",
@@ -65,8 +67,24 @@ const Index = () => {
     label: "Cost saved per year",
     icon: <TrendingDown className="w-5 h-5" />
   }];
+
+  // Generate structured data for homepage
+  const organizationSchema = generateOrganizationSchema();
+  const pageSchema = generateWebPageSchema({
+    title: 'Janio - Southeast Asia\'s Leading 4PL Logistics Provider',
+    description: 'Transform your supply chain with Janio\'s 4PL logistics solutions. Get rate benchmarking, vendor management, and end-to-end logistics optimization across Southeast Asia.',
+    url: 'https://janio.com'
+  });
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Southeast Asia's Leading 4PL Logistics Provider"
+        description="Transform your supply chain with Janio's 4PL logistics solutions. Get rate benchmarking, vendor management, and end-to-end logistics optimization across Southeast Asia."
+        keywords="4PL logistics, Southeast Asia shipping, supply chain optimization, transportation procurement, logistics management, cross-border shipping, freight forwarding"
+        url="/"
+        structuredData={[organizationSchema, pageSchema]}
+      />
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
           {/* Enhanced Background with Subtle Pattern */}

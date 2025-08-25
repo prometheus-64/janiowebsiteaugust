@@ -4,14 +4,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Clock, User, Calendar, Share2, BookOpen, TrendingUp, Users, Target } from 'lucide-react';
+import SEO from '@/components/SEO';
+import { generateArticleSchema, generateKeywords, formatDateForSEO } from '@/utils/seo';
 
 const BlogPost = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
 
   // Sample blog post data - in a real app, this would come from an API
   const blogPosts = {
-    1: {
+    "4pl-vs-3pl-vs-in-house-total-cost-ownership-comparison-east-asia": {
+      id: 1,
       title: "4PL vs 3PL vs In-House: Total Cost of Ownership Comparison for East Asia",
+      slug: "4pl-vs-3pl-vs-in-house-total-cost-ownership-comparison-east-asia",
       excerpt: "Comprehensive TCO analysis comparing logistics approaches for East Asian operations, including hidden costs, regional considerations, and strategic recommendations for businesses facing rapid growth or expansion.",
       author: "David Kim",
       authorTitle: "Senior Supply Chain Strategist",
@@ -163,10 +167,12 @@ const BlogPost = () => {
         </blockquote>
       `,
       tags: ["4PL", "3PL", "TCO Analysis", "East Asia", "Cost Management", "Supply Chain Strategy"],
-      relatedPosts: [2]
+      relatedPosts: ["designing-exception-playbooks-shrink-wismo-30-percent"]
     },
-    2: {
+    "designing-exception-playbooks-shrink-wismo-30-percent": {
+      id: 2,
       title: "Designing Exception Playbooks that Shrink WISMO by 30%",
+      slug: "designing-exception-playbooks-shrink-wismo-30-percent",
       excerpt: "Systematic approach to proactive exception management that reduces 'Where Is My Order?' inquiries while improving customer satisfaction and operational efficiency through predictive supply chain excellence.",
       author: "Operations Team",
       authorTitle: "Logistics Operations",
@@ -372,11 +378,11 @@ const BlogPost = () => {
         <p>The companies that master exception management today are building the foundation for customer experience leadership in an increasingly complex and demanding logistics environment. The question isn't whether to implement exception playbooks, but how quickly you can begin transforming your supply chain from reactive to predictive.</p>
       `,
       tags: ["WISMO", "Exception Management", "Customer Service", "Operations", "Supply Chain", "Automation"],
-      relatedPosts: [1]
+      relatedPosts: ["4pl-vs-3pl-vs-in-house-total-cost-ownership-comparison-east-asia"]
     }
   };
 
-  const currentPost = blogPosts[parseInt(id as string) as keyof typeof blogPosts];
+  const currentPost = slug ? blogPosts[slug as keyof typeof blogPosts] : null;
 
   if (!currentPost) {
     return (
@@ -392,13 +398,37 @@ const BlogPost = () => {
     );
   }
 
-  const relatedPosts = currentPost.relatedPosts?.map(postId => ({
-    id: postId,
-    ...blogPosts[postId as keyof typeof blogPosts]
-  })).filter(Boolean) || [];
+  const relatedPosts = currentPost.relatedPosts?.map(postSlug => 
+    blogPosts[postSlug as keyof typeof blogPosts]
+  ).filter(Boolean) || [];
+
+  // Generate SEO data
+  const articleSchema = generateArticleSchema({
+    title: currentPost.title,
+    description: currentPost.excerpt,
+    publishDate: currentPost.publishDate,
+    slug: currentPost.slug,
+    category: currentPost.category,
+    readTime: currentPost.readTime
+  });
+
+  const keywords = generateKeywords(currentPost.category, currentPost.title);
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={currentPost.title}
+        description={currentPost.excerpt}
+        keywords={keywords}
+        url={`/resources/blogs/${currentPost.slug}`}
+        type="article"
+        article={{
+          publishedTime: formatDateForSEO(currentPost.publishDate),
+          section: currentPost.category,
+          tags: currentPost.tags
+        }}
+        structuredData={articleSchema}
+      />
       {/* Header */}
       <section className="py-8 bg-muted/30 border-b">
         <div className="container mx-auto px-4">
@@ -526,7 +556,7 @@ const BlogPost = () => {
               <h2 className="text-2xl font-bold font-display mb-8 text-center">Related Articles</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {relatedPosts.slice(0, 3).map((post) => (
-                  <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer" onClick={() => window.location.href = `/resources/blogs/${post.id}`}>
+                  <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer" onClick={() => window.location.href = `/resources/blogs/${post.slug}`}>
                     <CardContent className="p-6">
                       <Badge variant="outline" className="mb-3">{post.category}</Badge>
                       <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
@@ -538,7 +568,7 @@ const BlogPost = () => {
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-muted-foreground">{post.readTime}</span>
                         <Button variant="ghost" size="sm" asChild>
-                          <Link to={`/resources/blogs/${post.id}`}>
+                          <Link to={`/resources/blogs/${post.slug}`}>
                             Read More
                           </Link>
                         </Button>

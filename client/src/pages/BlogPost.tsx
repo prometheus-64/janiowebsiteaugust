@@ -13,6 +13,7 @@ const BlogPost = () => {
   const blogPosts = {
     "1": {
       title: "The Future of 4PL: How AI is Revolutionizing Supply Chain Management",
+      excerpt: "Artificial intelligence is fundamentally transforming the logistics industry, and fourth-party logistics (4PL) providers are at the forefront of this revolution.",
       content: `
         <p>Artificial intelligence is fundamentally transforming the logistics industry, and fourth-party logistics (4PL) providers are at the forefront of this revolution. As supply chains become increasingly complex and global, AI-powered solutions are enabling unprecedented levels of optimization, visibility, and efficiency.</p>
 
@@ -66,6 +67,7 @@ const BlogPost = () => {
     },
     "2": {
       title: "Peak Season Preparation: 5 Strategies That Saved Our Clients Millions",
+      excerpt: "Peak season can make or break a company's annual performance. Learn five critical strategies that consistently deliver results during high-demand periods.",
       content: `
         <p>Peak season can make or break a company's annual performance. Through our work with hundreds of e-commerce brands and retailers, we've identified five critical strategies that consistently deliver results during high-demand periods.</p>
 

@@ -4,12 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, User, ArrowRight, TrendingUp, Users, BookOpen, Target } from 'lucide-react';
+import SEO from '@/components/SEO';
+import { generateOrganizationSchema, generateWebPageSchema } from '@/utils/seo';
 
 const Blogs = () => {
   const blogPosts = [
     {
       id: 1,
       title: "4PL vs 3PL vs In-House: Total Cost of Ownership Comparison for East Asia",
+      slug: "4pl-vs-3pl-vs-in-house-total-cost-ownership-comparison-east-asia",
       excerpt: "Comprehensive TCO analysis comparing logistics approaches for East Asian operations, including hidden costs, regional considerations, and strategic recommendations for businesses facing rapid growth or expansion.",
       author: "David Kim",
       authorTitle: "Senior Supply Chain Strategist",
@@ -21,6 +24,7 @@ const Blogs = () => {
     {
       id: 2,
       title: "Designing Exception Playbooks that Shrink WISMO by 30%",
+      slug: "designing-exception-playbooks-shrink-wismo-30-percent",
       excerpt: "Systematic approach to proactive exception management that reduces 'Where Is My Order?' inquiries while improving customer satisfaction and operational efficiency through predictive supply chain excellence.",
       author: "Operations Team",
       authorTitle: "Logistics Operations",
@@ -38,8 +42,21 @@ const Blogs = () => {
     ? blogPosts 
     : blogPosts.filter(post => post.category === selectedCategory);
 
+  const pageSchema = generateWebPageSchema({
+    title: 'Logistics Industry Insights & Best Practices | Janio Blog',
+    description: 'Expert insights for supply chain leaders. Read our latest articles on 4PL strategy, operations optimization, cost management, and logistics technology.',
+    url: 'https://janio.com/resources/blogs'
+  });
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Logistics Industry Insights & Best Practices"
+        description="Expert insights for supply chain leaders. Read our latest articles on 4PL strategy, operations optimization, cost management, and logistics technology across Southeast Asia."
+        keywords="logistics blog, supply chain insights, 4PL strategy, operations optimization, Southeast Asia logistics, transportation procurement"
+        url="/resources/blogs"
+        structuredData={[generateOrganizationSchema(), pageSchema]}
+      />
       
       {/* Hero Section - Matching Home Page Format */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
@@ -105,7 +122,7 @@ const Blogs = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {blogPosts.filter(post => post.featured).map((post) => (
-                <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer" onClick={() => window.location.href = `/resources/blogs/${post.id}`}>
+                <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer" onClick={() => window.location.href = `/resources/blogs/${post.slug}`}>
                   <CardHeader className="pb-4">
                     <div className="flex items-center justify-between mb-3">
                       <Badge variant="secondary">{post.category}</Badge>
@@ -125,7 +142,7 @@ const Blogs = () => {
                         <span>{post.publishDate}</span>
                       </div>
                       <Button variant="ghost" size="sm" className="group-hover:text-primary h-8 px-2 text-xs" asChild>
-                        <Link to={`/resources/blogs/${post.id}`}>
+                        <Link to={`/resources/blogs/${post.slug}`}>
                           Read <ArrowRight className="ml-1 h-3 w-3" />
                         </Link>
                       </Button>
@@ -176,7 +193,7 @@ const Blogs = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredPosts.map((post) => (
-                <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer" onClick={() => window.location.href = `/resources/blogs/${post.id}`}>
+                <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer" onClick={() => window.location.href = `/resources/blogs/${post.slug}`}>
                   <CardHeader className="pb-4">
                     <div className="flex items-center justify-between mb-3">
                       <Badge variant={post.featured ? "default" : "outline"}>{post.category}</Badge>
@@ -196,7 +213,7 @@ const Blogs = () => {
                         <span>{post.publishDate}</span>
                       </div>
                       <Button variant="ghost" size="sm" className="group-hover:text-primary h-8 px-2 text-xs" asChild>
-                        <Link to={`/resources/blogs/${post.id}`}>
+                        <Link to={`/resources/blogs/${post.slug}`}>
                           Read <ArrowRight className="ml-1 h-3 w-3" />
                         </Link>
                       </Button>
