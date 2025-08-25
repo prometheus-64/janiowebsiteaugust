@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Phone, Mail, Clock, ArrowRight, Loader2, CheckCircle, Star, DollarSign, Zap } from 'lucide-react';
+import { MapPin, Mail, Clock, ArrowRight, Loader2, CheckCircle, Star, DollarSign, Zap } from 'lucide-react';
 
 import { useToast } from "@/hooks/use-toast";
 
@@ -100,8 +100,7 @@ const Contact = () => {
       city: "Singapore Office (HQ)",
       address: "30 Prinsep St, #06-01",
       postal: "Singapore 188647", 
-      phone: "+65 6123 4567",
-      email: "singapore@janio.com"
+      email: "contact@janio.asia"
     }
   ];
 
@@ -348,13 +347,7 @@ const Contact = () => {
                           <p>{office.address}</p>
                           <p>{office.postal}</p>
                         </div>
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-3">
-                            <Phone className="w-4 h-4 text-primary" />
-                            <a href={`tel:${office.phone}`} className="text-foreground hover:text-primary transition-colors">
-                              {office.phone}
-                            </a>
-                          </div>
+                        <div className="flex items-center justify-center">
                           <div className="flex items-center gap-3">
                             <Mail className="w-4 h-4 text-primary" />
                             <a href={`mailto:${office.email}`} className="text-foreground hover:text-primary transition-colors">
