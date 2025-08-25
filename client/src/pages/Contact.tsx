@@ -97,25 +97,11 @@ const Contact = () => {
 
   const offices = [
     {
-      city: "Singapore",
-      address: "1 Raffles Place, #20-61",
-      postal: "Singapore 048616", 
+      city: "Singapore Office (HQ)",
+      address: "30 Prinsep St, #06-01",
+      postal: "Singapore 188647", 
       phone: "+65 6123 4567",
       email: "singapore@janio.com"
-    },
-    {
-      city: "Hong Kong",
-      address: "Central Plaza, 18 Harbour Road",
-      postal: "Wan Chai, Hong Kong",
-      phone: "+852 2123 4567", 
-      email: "hongkong@janio.com"
-    },
-    {
-      city: "Los Angeles",
-      address: "633 W 5th Street, Suite 2890",
-      postal: "Los Angeles, CA 90071",
-      phone: "+1 (213) 123-4567",
-      email: "usa@janio.com"
     }
   ];
 
@@ -347,30 +333,30 @@ const Contact = () => {
                 <CardHeader className="pb-6 text-center">
                   <CardTitle className="text-2xl font-display text-foreground flex items-center justify-center">
                     <MapPin className="w-6 h-6 text-primary mr-3" />
-                    Our Global Offices
+                    Our Headquarters
                   </CardTitle>
                   <p className="text-muted-foreground mt-2">
-                    Local presence across key markets in Asia-Pacific and North America
+                    Visit us at our Singapore headquarters for in-person consultations
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid md:grid-cols-3 gap-6">
+                  <div className="flex justify-center">
                     {offices.map((office, index) => (
-                      <div key={office.city} className="p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                        <h5 className="text-lg font-semibold text-foreground mb-2">{office.city}</h5>
-                        <div className="space-y-1 text-sm text-muted-foreground mb-3">
+                      <div key={office.city} className="p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors max-w-md w-full">
+                        <h5 className="text-xl font-semibold text-foreground mb-3">{office.city}</h5>
+                        <div className="space-y-2 text-muted-foreground mb-4">
                           <p>{office.address}</p>
                           <p>{office.postal}</p>
                         </div>
-                        <div className="space-y-1 text-sm">
-                          <div className="flex items-center gap-2">
-                            <Phone className="w-3 h-3 text-primary" />
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-3">
+                            <Phone className="w-4 h-4 text-primary" />
                             <a href={`tel:${office.phone}`} className="text-foreground hover:text-primary transition-colors">
                               {office.phone}
                             </a>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <Mail className="w-3 h-3 text-primary" />
+                          <div className="flex items-center gap-3">
+                            <Mail className="w-4 h-4 text-primary" />
                             <a href={`mailto:${office.email}`} className="text-foreground hover:text-primary transition-colors">
                               {office.email}
                             </a>
