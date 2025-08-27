@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Mail, Clock, ArrowRight, Loader2, CheckCircle, Star, DollarSign, Zap } from 'lucide-react';
+import { MapPin, Mail, ArrowRight, Loader2, Star, Users, Shield, Headphones } from 'lucide-react';
 
 import { useToast } from "@/hooks/use-toast";
 
@@ -75,8 +75,8 @@ const Contact = () => {
       });
 
       toast({
-        title: "Thank you for your inquiry!",
-        description: "We'll get back to you within 1-2 business days. Our logistics experts will review your requirements and contact you with tailored solutions.",
+        title: "Thank you for reaching out!",
+        description: "We've received your message and will get back to you within 24 hours. Our team looks forward to discussing how we can support your logistics needs.",
       });
 
     } catch (error) {
@@ -123,47 +123,46 @@ const Contact = () => {
             <div className="text-white">
               <div className="mb-6 animate-fade-in">
                 <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">
-                  Logistics Consultation
+                  Get in Touch
                 </span>
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6 animate-fade-in leading-tight">
-                Book Your Free
-                <span className="block text-white">$50,000+ Savings</span>
-                Consultation
+                Let's Start the
+                <span className="block text-white">Conversation</span>
               </h1>
               
               <p className="text-lg lg:text-xl text-white/80 mb-8 leading-relaxed animate-slide-up">
-                Our logistics experts will analyze your current setup and identify opportunities to reduce costs by 20-35% while improving efficiency. No commitment required.
+                Ready to explore how our 4PL expertise can support your logistics goals? We're here to listen, understand your needs, and discuss tailored solutions that work for your business.
               </p>
 
               {/* Value Props */}
               <div className="space-y-4 mb-8 animate-fade-in">
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1">
-                    <CheckCircle className="w-4 h-4 text-white" />
+                    <Users className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white mb-1">Personalized Cost Analysis</h3>
-                    <p className="text-white/70 text-sm">Detailed breakdown of potential savings across your logistics operations</p>
+                    <h3 className="font-semibold text-white mb-1">Expert Guidance</h3>
+                    <p className="text-white/70 text-sm">Connect with experienced 4PL professionals who understand your industry</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1">
-                    <DollarSign className="w-4 h-4 text-white" />
+                    <Headphones className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white mb-1">ROI-Focused Recommendations</h3>
-                    <p className="text-white/70 text-sm">Actionable insights that deliver measurable business impact</p>
+                    <h3 className="font-semibold text-white mb-1">Personal Response</h3>
+                    <p className="text-white/70 text-sm">Get a thoughtful reply within 24 hours from our logistics team</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1">
-                    <Zap className="w-4 h-4 text-white" />
+                    <Shield className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white mb-1">24-Hour Response Time</h3>
-                    <p className="text-white/70 text-sm">Fast turnaround with expert analysis and custom recommendations</p>
+                    <h3 className="font-semibold text-white mb-1">No Obligation</h3>
+                    <p className="text-white/70 text-sm">Low-pressure conversation focused on understanding your needs</p>
                   </div>
                 </div>
               </div>
@@ -175,8 +174,8 @@ const Contact = () => {
                   <span>Trusted by 500+ companies</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
-                  <span>Average 32% cost reduction</span>
+                  <Shield className="w-4 h-4" />
+                  <span>Confidential & secure</span>
                 </div>
               </div>
             </div>
@@ -186,10 +185,10 @@ const Contact = () => {
               <Card className="bg-white/95 backdrop-blur-sm p-6 shadow-2xl border-0 rounded-2xl">
                 <CardHeader className="pb-6 text-center">
                   <CardTitle className="text-2xl font-display text-foreground mb-2">
-                    Book Your Free Consultation
+                    Get in Touch
                   </CardTitle>
                   <p className="text-muted-foreground">
-                    Takes 2 minutes. Results within 24 hours.
+                    Tell us about your logistics needs. We'll respond within 24 hours.
                   </p>
                 </CardHeader>
                 <CardContent>
@@ -247,18 +246,18 @@ const Contact = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="service">Primary Interest</Label>
+                        <Label htmlFor="service">How can we help?</Label>
                         <Select onValueChange={(value) => handleInputChange('serviceInterest', value)}>
                           <SelectTrigger className="h-12">
-                            <SelectValue placeholder="Select a service" />
+                            <SelectValue placeholder="Select your interest" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="cost-reduction">Cost Reduction</SelectItem>
-                            <SelectItem value="laas">Full Logistics Outsourcing</SelectItem>
-                            <SelectItem value="procurement">Rate Optimization</SelectItem>
-                            <SelectItem value="control-tower">Supply Chain Visibility</SelectItem>
-                            <SelectItem value="audit">Invoice Audit</SelectItem>
-                            <SelectItem value="not-sure">Not Sure Yet</SelectItem>
+                            <SelectItem value="general-inquiry">General Inquiry</SelectItem>
+                            <SelectItem value="partnership">Partnership Opportunities</SelectItem>
+                            <SelectItem value="logistics-outsourcing">Logistics Outsourcing</SelectItem>
+                            <SelectItem value="supply-chain-optimization">Supply Chain Optimization</SelectItem>
+                            <SelectItem value="consultation">Expert Consultation</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
@@ -280,12 +279,12 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message">Biggest logistics challenge (optional)</Label>
+                      <Label htmlFor="message">Tell us about your needs (optional)</Label>
                       <Textarea
                         id="message"
                         value={formData.message}
                         onChange={(e) => handleInputChange('message', e.target.value)}
-                        placeholder="e.g., high shipping costs, poor delivery performance, complex multi-vendor management..."
+                        placeholder="Share any specific questions or challenges you'd like to discuss..."
                         className="min-h-[80px] resize-none"
                       />
                     </div>
@@ -299,18 +298,18 @@ const Contact = () => {
                       {isSubmitting ? (
                         <>
                           <Loader2 className="mr-2 w-5 h-5 animate-spin" />
-                          Analyzing...
+                          Sending...
                         </>
                       ) : (
                         <>
-                          Book My Consultation
+                          Talk to Our Team
                           <ArrowRight className="ml-2 w-5 h-5" />
                         </>
                       )}
                     </Button>
 
                     <p className="text-xs text-muted-foreground text-center mt-4">
-                      No spam, ever. We'll only contact you with your consultation results.
+                      Your information is secure and confidential. No spam, ever. We'll only contact you regarding your inquiry.
                     </p>
                   </form>
                 </CardContent>
@@ -335,7 +334,7 @@ const Contact = () => {
                     Our Headquarters
                   </CardTitle>
                   <p className="text-muted-foreground mt-2">
-                    Visit us at our Singapore headquarters for in-person consultations
+                    Visit us at our Singapore headquarters or reach out anytime
                   </p>
                 </CardHeader>
                 <CardContent>

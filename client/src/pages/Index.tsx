@@ -5,7 +5,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import PersonaCard from '@/components/PersonaCard';
 import HowItWorksStep from '@/components/HowItWorksStep';
 import heroImage from '@/assets/hero-elegant-premium.jpg';
-import dashboardImage from '@/assets/dashboard-analytics.jpg';
 import { Settings, DollarSign, Network, BarChart3, Search, Lightbulb, Play, CheckCircle, ArrowRight, Users, Globe, Clock, Shield, MapPin, Package, TrendingDown } from 'lucide-react';
 import SEO from '@/components/SEO';
 import { generateOrganizationSchema, generateWebPageSchema } from '@/utils/seo';
@@ -237,62 +236,6 @@ const Index = () => {
                     </div>
                   </CardContent>
                 </Card>)}
-            </div>
-          </div>
-        </section>
-
-        {/* Case Study Spotlight */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16 animate-fade-in">
-              <h2 className="text-3xl lg:text-4xl font-bold font-display text-foreground mb-4">
-                See How We Deliver
-              </h2>
-            </div>
-            
-            <div className="max-w-4xl mx-auto">
-              <Card className="overflow-hidden shadow-professional">
-                <CardContent className="p-8">
-                  <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                      <div className="text-3xl font-bold text-primary mb-4">Global Entertainment Leader</div>
-                      <blockquote className="text-lg italic text-muted-foreground mb-6">
-                        "Janio transformed our Asia Pacific logistics, reducing costs by 35% while enabling us to launch in 5 new markets in record time."
-                      </blockquote>
-                      <ul className="space-y-2">
-                        <li className="flex items-center gap-2">
-                          <CheckCircle className="w-5 h-5 text-primary" />
-                          <span>35% Reduction in logistics costs</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <CheckCircle className="w-5 h-5 text-primary" />
-                          <span>5 new markets launched in 6 weeks</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <CheckCircle className="w-5 h-5 text-primary" />
-                          <span>99.2% delivery accuracy maintained</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="text-center">
-                      <img 
-                        src={dashboardImage} 
-                        alt="Global Entertainment Leader success story visualization" 
-                        className="w-full h-auto rounded-lg shadow-medium"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="text-center mt-8">
-                    <Button variant="outline" size="lg" asChild>
-                      <Link to="/use-cases">
-                        Read the Full Story
-                        <ArrowRight className="ml-2 w-5 h-5" />
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </section>

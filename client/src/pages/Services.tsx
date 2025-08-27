@@ -87,15 +87,10 @@ const Services = () => {
             Janio's suite of services provides the technology, expertise, and network to optimize every aspect of your logistics. Explore our capabilities and build the solution that fits your business.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
+          <div className="flex justify-center items-center mb-16 animate-scale-in">
             <Link to="/contact">
               <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                 Talk to a Solutions Expert <ArrowRight className="ml-2 w-5 h-5 inline" />
-              </button>
-            </Link>
-            <Link to="/solutions">
-              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
-                Explore Solutions
               </button>
             </Link>
           </div>
@@ -205,16 +200,11 @@ const Services = () => {
             <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
               Let's discuss how our services can be configured to meet your specific business needs and growth objectives.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex justify-center">
               <Link to="/contact">
                 <button className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
                   Schedule a Consultation
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </button>
-              </Link>
-              <Link to="/solutions">
-                <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-10 py-4 rounded-full font-medium transition-all duration-200 inline-flex items-center">
-                  Explore Solutions
                 </button>
               </Link>
             </div>

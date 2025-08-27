@@ -30,18 +30,14 @@ const About = () => {
             management across Land, Air, Ocean transportation, and advanced warehousing services.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
+          <div className="flex justify-center animate-scale-in">
             <Link to="/contact">
               <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                 Get In Touch
               </button>
             </Link>
-            <Link to="/contact">
-              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
-                Book a Consultation
-              </button>
-            </Link>
           </div>
+          
         </div>
       </section>
 
@@ -253,7 +249,7 @@ const About = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-muted-foreground">Daily Shipments</span>
-                    <span className="font-semibold text-primary">10,000+</span>
+                    <span className="font-semibold text-primary">100,000+</span>
                   </div>
                 </div>
               </div>
@@ -324,83 +320,36 @@ const About = () => {
         </div>
       </section>
 
-      {/* Technology Partners */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      {/* CTA Section */}
+      <section className="py-24 bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold font-display text-foreground mb-4">
-                Technology & Integration Partners
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Powered by best-in-class technology and strategic partnerships
-              </p>
+            <h2 className="text-4xl lg:text-5xl font-bold font-display text-white mb-6">
+              Ready to simplify your logistics?
+            </h2>
+            <p className="text-xl lg:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Let's discuss how Janio can become your strategic logistics partner and help your business grow
+            </p>
+            
+            {/* Trust Markers */}
+            <div className="flex flex-wrap justify-center items-center gap-8 mb-12 text-white/80">
+              <div className="flex items-center gap-2">
+                <Users className="w-5 h-5" />
+                <span className="text-lg font-medium">Trusted by 500+ companies</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Globe className="w-5 h-5" />
+                <span className="text-lg font-medium">Managing 100,000+ shipments daily</span>
+              </div>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">ERP Integrations</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• SAP & Oracle</li>
-                    <li>• NetSuite & Dynamics</li>
-                    <li>• Shopify & Magento</li>
-                    <li>• Custom API development</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">Transportation Tech</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Advanced TMS platforms</li>
-                    <li>• Real-time tracking</li>
-                    <li>• Route optimization AI</li>
-                    <li>• Mobile applications</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">Warehouse Management</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Cloud-based WMS</li>
-                    <li>• Automated workflows</li>
-                    <li>• IoT sensor integration</li>
-                    <li>• Inventory optimization</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-secondary">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold font-display text-secondary-foreground mb-6">
-              Ready to transform your logistics?
-            </h2>
-            <p className="text-xl text-secondary-foreground/80 mb-8">
-              Let's discuss how Janio can become your strategic logistics partner
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl" asChild>
-                <Link to="/contact">Start the Conversation</Link>
-              </Button>
-              <Button variant="outline" size="xl" className="border-white/20 text-white hover:bg-white/10" asChild>
-                <Link to="/contact">Book a Consultation</Link>
-              </Button>
+            {/* Primary CTA */}
+            <div className="flex justify-center">
+              <Link to="/contact">
+                <button className="bg-white text-primary hover:bg-gray-50 text-xl font-semibold px-16 py-6 rounded-full transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 hover:scale-105 border-4 border-white/20">
+                  Get In Touch
+                </button>
+              </Link>
             </div>
           </div>
         </div>

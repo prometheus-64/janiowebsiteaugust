@@ -73,15 +73,10 @@ const Solutions = () => {
             Your business isn't generic, and your logistics partner shouldn't be either. Discover how Janio's industry-specific 4PL solutions are built to solve your biggest challenges and unlock new opportunities for growth.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
+          <div className="flex justify-center items-center mb-16 animate-scale-in">
             <Link to="/contact">
               <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                 Find Your Solution <ArrowRight className="ml-2 w-5 h-5 inline" />
-              </button>
-            </Link>
-            <Link to="/services">
-              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
-                Explore Services
               </button>
             </Link>
           </div>
