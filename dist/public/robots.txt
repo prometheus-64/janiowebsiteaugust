@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://janio.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin
+Disallow: /api/
+
+# Allow all resources and blog content
+Allow: /resources/
+Allow: /blog/
+Allow: /case-studies/
+Allow: /solutions/
+Allow: /services/
+
+# Block common crawlers from assets that don't need indexing
+Disallow: /*.json$
+Disallow: /assets/*.log$
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
