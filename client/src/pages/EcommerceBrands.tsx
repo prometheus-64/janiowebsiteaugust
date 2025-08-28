@@ -347,27 +347,49 @@ export default function EcommerceBrands() {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+              {/* Disney Store Logo */}
               <div className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                <div className="w-32 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">Disney</span>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#1B2951] mb-1" style={{fontFamily: 'Georgia, serif'}}>
+                    Disney
+                  </div>
+                  <div className="text-sm font-medium text-[#1B2951]">
+                    store
+                  </div>
                 </div>
               </div>
               
+              {/* GOAT Logo */}
               <div className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                <div className="w-32 h-16 bg-gradient-to-r from-black to-gray-800 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">GOAT</span>
+                <div className="bg-black px-6 py-3 rounded">
+                  <div className="text-white text-2xl font-bold tracking-wider">
+                    GOAT
+                  </div>
                 </div>
               </div>
               
+              {/* Swarovski Logo */}
               <div className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                <div className="w-32 h-16 bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">Swarovski</span>
+                <div className="text-center">
+                  <div className="flex justify-center mb-2">
+                    <div className="w-8 h-4 bg-black" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}>
+                    </div>
+                  </div>
+                  <div className="text-lg font-light tracking-widest text-black">
+                    SWAROVSKI
+                  </div>
                 </div>
               </div>
               
+              {/* Beyond The Vines Logo */}
               <div className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                <div className="w-32 h-16 bg-gradient-to-r from-green-600 to-green-700 rounded-lg flex items-center justify-center text-center">
-                  <span className="text-white font-bold text-xs leading-tight">Beyond<br />The Vines</span>
+                <div className="text-center">
+                  <div className="text-sm font-light text-black tracking-wider leading-tight">
+                    BEYOND
+                  </div>
+                  <div className="text-sm font-light text-black tracking-wider">
+                    THE VINES
+                  </div>
                 </div>
               </div>
             </div>
