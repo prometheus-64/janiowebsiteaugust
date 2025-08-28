@@ -65,17 +65,14 @@ export default function MCPMS() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
             <p className="text-sm text-muted-foreground mb-6">Live MCPMS Operations Dashboard</p>
-            <div className="relative rounded-xl shadow-2xl border overflow-hidden bg-white min-h-[500px]">
+            <div className="relative rounded-xl shadow-2xl border overflow-hidden bg-white">
               <img 
-                src="/media/placeholder.svg" 
-                alt="Real-time operations dashboard showing unified multi-carrier KPIs, exception management, and performance analytics"
+                src="/lovable-uploads/8c68f958-3573-4ff2-9966-82fbfd805748.png" 
+                alt="Real-time MCPMS operations dashboard showing network-wide KPIs, active lanes, carrier performance, and exception management with AI-powered insights"
                 width="1200"
                 height="800"
                 loading="lazy"
                 className="w-full h-auto"
-                style={{
-                  animation: "scroll-demo 15s ease-in-out infinite",
-                }}
               />
             </div>
             <p className="text-sm text-muted-foreground mt-4 max-w-2xl mx-auto">
@@ -84,12 +81,6 @@ export default function MCPMS() {
           </div>
         </div>
         
-        <style jsx>{`
-          @keyframes scroll-demo {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10%); }
-          }
-        `}</style>
       </section>
 
       {/* Problem Awareness Section */}
@@ -254,16 +245,15 @@ export default function MCPMS() {
                 </CardHeader>
                 <CardContent>
                   <div className="mb-6">
-                    <div className="relative rounded-lg shadow-lg border overflow-hidden bg-gray-100 min-h-[200px]">
+                    <div className="relative rounded-lg shadow-lg border overflow-hidden bg-gray-100">
                       <img 
-                        src="/media/placeholder.svg" 
-                        alt="Exception management showing automated workflows, AI-powered resolution recommendations, and real-time alert system for proactive issue handling"
+                        src="/lovable-uploads/90af5ba6-2f58-47ed-9a1f-f422fb3af390.png" 
+                        alt="Exception management showing 6 active exceptions with automated SLA tracking, priority assignment, and resolution workflows compared to unified MCPMS automation"
                         width="500"
                         height="300"
                         loading="lazy"
                         className="w-full h-auto opacity-50"
                         style={{
-                          animation: "scroll-demo 10s ease-in-out infinite",
                           filter: "grayscale(100%) contrast(0.5)",
                         }}
                       />
@@ -492,17 +482,14 @@ export default function MCPMS() {
                     Connect with carriers, e-commerce platforms, WMS systems, and business tools for seamless data flow.
                   </p>
                   <div className="mb-6">
-                    <div className="relative rounded-lg shadow-lg border overflow-hidden bg-gray-50 min-h-[200px]">
+                    <div className="relative rounded-lg shadow-lg border overflow-hidden bg-gray-50">
                       <img 
-                        src="/media/placeholder.svg" 
-                        alt="Integration hub showing unified multi-carrier connections, e-commerce platform synchronization, and ERP system workflow automation"
+                        src="/lovable-uploads/cab9476a-d981-41fa-83db-fbf15c6bb9d7.png" 
+                        alt="Integration hub showing 25+ carrier connections including DHL, FedEx, UPS with real-time status monitoring and API synchronization"
                         width="500"
                         height="300"
                         loading="lazy"
                         className="w-full h-auto"
-                        style={{
-                          animation: "scroll-demo 12s ease-in-out infinite",
-                        }}
                       />
                     </div>
                     <p className="text-xs text-muted-foreground mt-2 text-center">Live view: Seamless integration with 50+ carriers, e-commerce platforms, and business systems</p>
@@ -580,6 +567,56 @@ export default function MCPMS() {
         </div>
       </section>
 
+      {/* Automation Showcase Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Intelligent Automation & Configuration</h2>
+              <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+                Configure smart allocation rules, automated workflows, and exception handling that adapts to your business requirements with zero manual intervention.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div>
+                <h3 className="text-xl font-semibold mb-4 text-center">Automated Allocation Rules</h3>
+                <div className="relative rounded-xl shadow-lg border overflow-hidden bg-white">
+                  <img 
+                    src="/lovable-uploads/8c68f958-3573-4ff2-9966-82fbfd805748.png" 
+                    alt="Allocation rules configuration showing multi-source rules for MY/ID Express with destination-based routing and cheapest allocation strategy across DHL Express, FedEx, and MyDHL accounts"
+                    width="600"
+                    height="400"
+                    loading="lazy"
+                    className="w-full h-auto"
+                  />
+                </div>
+                <p className="text-sm text-muted-foreground mt-3 text-center">
+                  Smart carrier assignment based on destination, service type, and cost optimization
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-4 text-center">Exception Workflow Automation</h3>
+                <div className="relative rounded-xl shadow-lg border overflow-hidden bg-white">
+                  <img 
+                    src="/lovable-uploads/90af5ba6-2f58-47ed-9a1f-f422fb3af390.png" 
+                    alt="Exception workflow automation showing active SLA rules with P1/P2/P3 priority levels, resolution time targets, and automated workflows for delivery failure, customs hold, and damage claims"
+                    width="600"
+                    height="400"
+                    loading="lazy"
+                    className="w-full h-auto"
+                  />
+                </div>
+                <p className="text-sm text-muted-foreground mt-3 text-center">
+                  Automated SLA enforcement with escalation paths and workflow triggers
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* See It In Action Section */}
       <section className="py-20 bg-gradient-to-b from-white to-muted/30">
         <div className="container mx-auto px-4">
@@ -591,17 +628,14 @@ export default function MCPMS() {
               </p>
             </div>
             
-            <div className="relative rounded-xl shadow-2xl border overflow-hidden bg-white mb-12 min-h-[500px]">
+            <div className="relative rounded-xl shadow-2xl border overflow-hidden bg-white mb-12">
               <img 
-                src="/media/placeholder.svg" 
-                alt="Advanced lane analytics dashboard showing route optimization, cost analysis, carrier performance comparison, and predictive forecasting with actionable insights"
+                src="/lovable-uploads/9331332b-78d2-48fb-b565-5a2c834df46c.png" 
+                alt="Advanced lane analytics showing 5 active lanes with 86% on-time performance, cost breakdown analysis, carrier distribution, and risk assessment with monthly $49k spend tracking"
                 width="1200"
                 height="800"
                 loading="lazy"
                 className="w-full h-auto"
-                style={{
-                  animation: "scroll-demo 18s ease-in-out infinite",
-                }}
               />
             </div>
             <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-16">
