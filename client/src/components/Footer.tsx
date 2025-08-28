@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FEATURE_HIDE_RESOURCES } from '@/config';
 import janioLogo from "@assets/Untitled design_1753081963849.png";
 
 const Footer = () => {
@@ -93,7 +94,7 @@ const Footer = () => {
 
           
 
-          {/* Company */}
+          
           <div>
             <h3 className="font-semibold text-foreground mb-4">Company</h3>
             <ul className="space-y-2">

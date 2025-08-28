@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import janioLogo from "@assets/Untitled design_1753081963849.png";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { FEATURE_HIDE_RESOURCES } from '@/config';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 const Navigation = () => {
@@ -147,7 +148,7 @@ const Navigation = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* Resources */}
+                {!FEATURE_HIDE_RESOURCES && (
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="nav-link text-base font-medium">
                     Resources
@@ -195,7 +196,7 @@ const Navigation = () => {
                       </div>
                     </div>
                   </NavigationMenuContent>
-                </NavigationMenuItem>
+                </NavigationMenuItem>)}
 
                 {/* About & Contact */}
                 <NavigationMenuItem>
@@ -238,9 +239,9 @@ const Navigation = () => {
               <Link to="/services" className="text-sm font-medium text-gray-900 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 Services
               </Link>
-              <Link to="/resources" className="text-sm font-medium text-gray-900 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+              {!FEATURE_HIDE_RESOURCES && <Link to="/resources" className="text-sm font-medium text-gray-900 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 Resources
-              </Link>
+              </Link>}
               <Link to="/about" className="text-sm font-medium text-gray-900 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 About
               </Link>
