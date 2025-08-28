@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 import { 
   ArrowRight, 
   CheckCircle, 
@@ -12,282 +11,451 @@ import {
   Plane,
   BarChart3,
   Shield,
+  ChevronDown,
+  ChevronUp,
+  Users,
   Clock,
-  Globe
+  TrendingUp,
+  Award
 } from 'lucide-react';
 
 const LogisticsAsAService = () => {
-  const features = [
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = (window.scrollY / document.documentElement.scrollHeight) * 100;
+      setShowStickyCTA(scrolled > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const capabilities = [
     {
-      icon: <Warehouse className="w-6 h-6" />,
-      title: "Warehousing & Fulfillment",
-      description: "Enterprise-grade WMS with same-day and next-day fulfillment capabilities"
+      icon: <Warehouse className="w-5 h-5" />,
+      title: "Warehousing & Fulfilment",
+      description: "SLA-based pick/pack/ship, returns."
     },
     {
-      icon: <Truck className="w-6 h-6" />,
+      icon: <Truck className="w-5 h-5" />,
       title: "Land Transportation",
-      description: "Optimized ground shipping networks with real-time tracking and delivery"
+      description: "Optimized lanes with tracked delivery."
     },
     {
-      icon: <Plane className="w-6 h-6" />,
+      icon: <Plane className="w-5 h-5" />,
       title: "Air Freight",
-      description: "Express and economy air services for time-sensitive shipments"
+      description: "Priority uplift with rate intelligence."
     },
     {
-      icon: <Ship className="w-6 h-6" />,
+      icon: <Ship className="w-5 h-5" />,
       title: "Ocean Freight",
-      description: "Cost-effective ocean shipping for large volume international moves"
+      description: "Cost-effective FCL/LCL with schedule reliability."
     },
     {
-      icon: <BarChart3 className="w-6 h-6" />,
+      icon: <BarChart3 className="w-5 h-5" />,
       title: "Real-Time Analytics",
-      description: "Dashboard visibility into performance metrics and operational data"
+      description: "Single dashboard, predictive alerts."
     },
     {
-      icon: <Shield className="w-6 h-6" />,
+      icon: <Shield className="w-5 h-5" />,
       title: "Service Level Guarantees",
-      description: "99.5% on-time delivery SLA with performance penalties for non-compliance"
+      description: "99.5% on-time inside agreed scope."
     }
   ];
 
   const phases = [
     {
-      phase: "Phase 1: Assessment (Week 1-2)",
-      description: "Complete analysis of current logistics operations, pain points, and optimization opportunities",
-      deliverables: ["Current state analysis", "Gap analysis", "Optimization roadmap"]
+      title: "Phase 1: Assessment (Week 1–2)",
+      description: "Baseline KPIs, cost/leakage analysis, lane & partner review. Output: savings plan + transition blueprint."
     },
     {
-      phase: "Phase 2: Design (Week 3-6)",
-      description: "Custom LaaS solution design with technology integration and process optimization",
-      deliverables: ["Solution architecture", "Integration plan", "Implementation timeline"]
+      title: "Phase 2: Design (Week 3–6)",
+      description: "Network design, SOPs & SLAs, and tech integration plan. Output: playbooks and go-live checklist."
     },
     {
-      phase: "Phase 3: Implementation (Week 7-12)",
-      description: "Gradual migration with parallel operations to ensure zero disruption",
-      deliverables: ["System integration", "Staff training", "Process transition"]
+      title: "Phase 3: Implementation (Week 7–12)",
+      description: "Parallel run, vendor onboarding, training, and stabilization. Output: production rollout with performance guardrails."
     },
     {
-      phase: "Phase 4: Optimization (Ongoing)",
-      description: "Continuous monitoring, optimization, and scaling of logistics operations",
-      deliverables: ["Performance monitoring", "Regular reviews", "Scaling support"]
+      title: "Phase 4: Optimization (Ongoing)",
+      description: "Quarterly rate reviews, carrier scorecards, invoice audits, and continuous improvement. Output: sustained savings & reliability."
     }
+  ];
+
+  const faqs = [
+    {
+      question: "Do you replace our 3PLs?",
+      answer: "No. We orchestrate and improve them; we can add or switch partners when needed."
+    },
+    {
+      question: "How fast can we launch?",
+      answer: "Assessment in 1–2 weeks; initial go-live in 30–60 days."
+    },
+    {
+      question: "How is pricing structured?",
+      answer: "Retainer or performance-based—aligned to verified outcomes."
+    },
+    {
+      question: "Do you handle invoicing and audits?",
+      answer: "Yes. Contract-accurate invoice validation with reconciliation."
+    }
+  ];
+
+  const clientLogos = [
+    "Disney", "GOAT", "Swarovski", "Beyond The Vines", "Marketplace Pro", "Brand Elite", "Commerce Plus", "Global Retail"
   ];
 
   return (
     <div className="min-h-screen bg-background">
-      
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
-        {/* Enhanced Background with Subtle Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-secondary/95" />
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/50 rounded-full blur-2xl"></div>
         </div>
-        <div className="relative w-full max-w-6xl mx-auto px-6 text-center text-white">
-          <div className="mb-4 animate-fade-in">
-            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">Complete Logistics Outsourcing</span>
+        
+        <div className="relative w-full max-w-[1200px] mx-auto px-6 text-center text-white">
+          <div className="mb-4">
+            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium">
+              Complete Logistics Outsourcing
+            </span>
           </div>
-          <h1 className="text-5xl lg:text-7xl font-display font-bold mb-6 animate-fade-in leading-tight tracking-tight">
-            Your Complete Logistics Department
-            <span className="block text-white">Outsourced with 4PL Intelligence</span>
-          </h1>
-          <h2 className="text-2xl lg:text-3xl font-semibold mb-8 text-white/90 animate-fade-in">
-            Beyond Traditional 3PL - Complete Logistics Orchestration
-          </h2>
-          <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
-            As your complete 4PL logistics partner, we handle everything from rate benchmarking and vendor onboarding to billing reconciliation and exception management. Compare market rates, build custom supply chains, and focus on growth while we manage your entire logistics ecosystem.
-          </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
-            <Link to="/contact">
-              <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                Book LaaS Consultation <ArrowRight className="ml-2 w-5 h-5 inline" />
-              </button>
-            </Link>
+          <div className="max-w-[720px] mx-auto">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+              Your Entire Logistics Department, Managed by Experts.
+            </h1>
             
-          </div>
-        </div>
-      </section>
-
-      {/* What is LaaS Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold font-display text-foreground mb-4">
-                What is Logistics as a Service?
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                A comprehensive 4PL solution that manages your entire logistics ecosystem
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8 items-center mb-16">
-              <div className="space-y-6 animate-fade-in">
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Logistics as a Service (LaaS) is our flagship offering that transforms how growing 
-                  e-commerce companies manage their supply chain. Instead of juggling multiple vendors 
-                  and systems, you get a single integrated platform managed by logistics experts.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  We become your logistics department, handling everything from warehousing and 
-                  fulfillment to multi-modal transportation, while you focus on growing your business.
-                </p>
-                <div className="flex items-center space-x-4 p-4 bg-accent/10 rounded-lg">
-                  <CheckCircle className="w-6 h-6 text-accent flex-shrink-0" />
-                  <p className="text-foreground font-medium">
-                    Complete logistics outsourcing with guaranteed performance levels
-                  </p>
-                </div>
-              </div>
-              <div className="animate-slide-up">
-                <Card className="p-6 bg-muted/30 border-l-4 border-l-primary">
-                  <CardHeader className="pb-4">
-                    <CardTitle className="text-xl font-display text-foreground">
-                      LaaS at a Glance
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="flex items-center space-x-2">
-                        <Globe className="w-4 h-4 text-accent" />
-                        <span className="text-sm text-muted-foreground">Multi-modal transportation</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Warehouse className="w-4 h-4 text-accent" />
-                        <span className="text-sm text-muted-foreground">Warehousing & fulfillment</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <BarChart3 className="w-4 h-4 text-accent" />
-                        <span className="text-sm text-muted-foreground">Real-time visibility</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Shield className="w-4 h-4 text-accent" />
-                        <span className="text-sm text-muted-foreground">Performance guarantees</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How LaaS Works */}
-      <section className="py-20 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold font-display text-foreground mb-4">
-                How LaaS Works: 4-Phase Implementation
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Our proven methodology ensures smooth transition and rapid value realization
-              </p>
-            </div>
-            
-            <div className="space-y-8">
-              {phases.map((phase, index) => (
-                <Card key={phase.phase} className="p-6 animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">
-                        {index + 1}
-                      </div>
-                      <CardTitle className="text-xl font-display text-foreground">
-                        {phase.phase}
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
-                      {phase.description}
-                    </p>
-                    <div className="space-y-2">
-                      <p className="text-sm font-medium text-foreground">Key Deliverables:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {phase.deliverables.map((deliverable, idx) => (
-                          <span 
-                            key={idx}
-                            className="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full"
-                          >
-                            {deliverable}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Technology Platform */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold font-display text-foreground mb-4">
-                Enterprise-Grade Technology Platform
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Comprehensive capabilities across all logistics functions
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map((feature, index) => (
-                <Card key={feature.title} className="p-6 hover:shadow-medium transition-all duration-300 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="p-2 rounded-lg bg-accent/10 text-accent">
-                        {feature.icon}
-                      </div>
-                      <CardTitle className="text-lg font-display text-foreground">
-                        {feature.title}
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
-        <div className="relative container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto animate-fade-in">
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-white mb-8 leading-tight">
-              Ready to Experience 
-              <span className="block text-white">LaaS?</span>
-            </h2>
-            <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
-              Book a free consultation and see how our Logistics as a Service platform can transform your operations.
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+              Get a world-class, scalable logistics solution without the overhead. Janio's 4PL intelligence and network of partners in Asia ensure your supply chain is a competitive advantage, not a bottleneck.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link to="/contact">
-                <button className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
-                  Book Your LaaS Consultation
+            
+            <div className="mb-8">
+              <Link to="/contact#form">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-primary hover:bg-white/90 text-lg px-12 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+                  aria-label="Discover Effortless Logistics — opens contact form"
+                  data-cta="laas-primary"
+                >
+                  Discover Effortless Logistics
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </button>
+                </Button>
               </Link>
-              
+            </div>
+            
+            {/* Micro-trust row */}
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4" aria-hidden="true" />
+                <span>SOC 2 & ISO 27001 Compliant</span>
+              </div>
+              <div className="hidden sm:block text-white/60">•</div>
+              <div className="flex items-center gap-2">
+                <Users className="w-4 h-4" aria-hidden="true" />
+                <span>10,000+ Vetted Partners</span>
+              </div>
+              <div className="hidden sm:block text-white/60">•</div>
+              <div className="flex items-center gap-2">
+                <TrendingUp className="w-4 h-4" aria-hidden="true" />
+                <span>Asia–Pacific Coverage</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Trust / Social Proof */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-2xl font-bold text-center mb-8 text-gray-900">
+            Trusted by Leading Brands
+          </h2>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-6">
+            {clientLogos.map((logo, index) => (
+              <div 
+                key={index}
+                className="flex items-center justify-center p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-sm transition-shadow"
+              >
+                <span className="text-sm font-medium text-gray-600">{logo}</span>
+              </div>
+            ))}
+          </div>
+          
+          <p className="text-center text-gray-600 max-w-2xl mx-auto">
+            Companies use Janio's LaaS to expand faster, cut costs, and improve on-time delivery.
+          </p>
+        </div>
+      </section>
+
+      {/* What Is LaaS */}
+      <section className="py-20 bg-background">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 max-w-[760px] mx-auto">
+            What Is Logistics as a Service (LaaS)?
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+            <div className="space-y-4">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Instead of juggling multiple vendors, LaaS gives you a single 4PL command center. We handle procurement, onboarding, daily operations, and invoicing across modes—while you focus on growth.
+              </p>
+            </div>
+            
+            <Card className="rounded-2xl border-neutral-200 shadow-sm">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-xl">LaaS at a Glance</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Multi-mode orchestration: warehousing, land, air, ocean, last-mile</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Single dashboard with SLA performance guarantees</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Built-in invoice audit & reconciliation</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+          
+          {/* Pill row */}
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
+            {["E-commerce Brands", "Retail/Omni", "Marketplaces", "Subscription/DTC"].map((pill) => (
+              <span 
+                key={pill}
+                className="px-4 py-2 bg-primary/10 text-primary text-sm rounded-full"
+              >
+                {pill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 bg-muted/30">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 max-w-[760px] mx-auto">
+            How LaaS Works: 4-Phase Implementation
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {phases.map((phase, index) => (
+              <Card key={index} className="rounded-2xl border-neutral-200 shadow-sm p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold text-sm flex-shrink-0">
+                    {index + 1}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">{phase.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{phase.description}</p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+          
+          {/* Results bar */}
+          <div className="text-center mt-12">
+            <div className="inline-flex flex-wrap items-center gap-6 text-sm text-muted-foreground bg-white/60 px-6 py-3 rounded-full">
+              <span className="flex items-center gap-2">
+                <TrendingUp className="w-4 h-4 text-primary" />
+                12–20% cost reduction
+              </span>
+              <div className="hidden sm:block text-muted-foreground/50">•</div>
+              <span className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-primary" />
+                98% on-time service
+              </span>
+              <div className="hidden sm:block text-muted-foreground/50">•</div>
+              <span className="flex items-center gap-2">
+                <Award className="w-4 h-4 text-primary" />
+                8× ROI in Year 1
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Capabilities */}
+      <section className="py-20 bg-background">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 max-w-[760px] mx-auto">
+            What Janio Manages for You
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {capabilities.map((capability, index) => (
+              <Card key={index} className="rounded-2xl border-neutral-200 shadow-sm p-6 h-full">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                    {capability.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">{capability.title}</h3>
+                    <p className="text-muted-foreground text-sm">{capability.description}</p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Metrics */}
+      <section className="py-20 bg-muted/30">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 max-w-[760px] mx-auto">
+            Proven Business Impact
+          </h2>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl font-bold text-primary mb-2">12–20%</div>
+              <div className="text-sm text-muted-foreground">Average Cost Reduction</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-primary mb-2">30–60 Days</div>
+              <div className="text-sm text-muted-foreground">Time to Go Live</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-primary mb-2">98%</div>
+              <div className="text-sm text-muted-foreground">Service-Level Maintenance</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-primary mb-2">8×</div>
+              <div className="text-sm text-muted-foreground">Average ROI</div>
+            </div>
+          </div>
+          
+          {/* Optional case study card */}
+          <div className="mt-12 text-center">
+            <Card className="rounded-2xl border-neutral-200 shadow-sm p-6 max-w-md mx-auto">
+              <div className="text-sm text-muted-foreground mb-3">Case Study</div>
+              <p className="font-medium mb-4">
+                E-commerce brand reduced logistics costs by 18% and improved delivery times by 25% within 45 days.
+              </p>
+              <Link 
+                to="/contact#form" 
+                className="text-primary hover:text-primary/80 text-sm font-medium transition-colors"
+              >
+                See a tailored plan →
+              </Link>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Risk Reducers */}
+      <section className="py-20 bg-background">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 max-w-[760px] mx-auto">
+            Low-Risk, High-Impact Engagement
+          </h2>
+          
+          <div className="max-w-2xl mx-auto">
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <span>Start with a free logistics assessment</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <span>Keep your current 3PLs—LaaS orchestrates them</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <span>Clear exit and data portability terms</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-muted/30">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 max-w-[760px] mx-auto">
+            Common Questions
+          </h2>
+          
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="rounded-2xl border-neutral-200 shadow-sm">
+                <button
+                  className="w-full text-left p-6 flex items-center justify-between"
+                  onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                >
+                  <span className="font-medium">{faq.question}</span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-muted-foreground">{faq.answer}</p>
+                  </div>
+                )}
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <div className="max-w-[720px] mx-auto text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Outsource Logistics with 4PL Intelligence?
+            </h2>
+            <p className="text-lg text-white/90 mb-8">
+              Get a tailored plan and timeline for your LaaS rollout.
+            </p>
+            <Link to="/contact#form">
+              <Button 
+                size="lg" 
+                className="bg-white text-primary hover:bg-white/90 text-lg px-12 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+                aria-label="Discover Effortless Logistics — opens contact form"
+                data-cta="laas-primary"
+              >
+                Discover Effortless Logistics
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Sticky Mobile CTA */}
+      {showStickyCTA && (
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-50 md:hidden">
+          <Link to="/contact#form" className="block">
+            <Button 
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+              aria-label="Discover Effortless Logistics — opens contact form"
+              data-cta="laas-sticky"
+            >
+              Discover Effortless Logistics
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
