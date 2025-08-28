@@ -56,22 +56,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = insertContactSubmissionSchema.parse(sanitizedData);
       const submission = await storage.createContactSubmission(validatedData);
       
-      // Send to webhook if configured (non-blocking)
-      if (webhookService.isConfigured()) {
-        // Don't await webhook to avoid blocking the response
+      // Always respond with success first, then handle webhook
+      res.json({ success: true, data: submission });
+      
+      // Send to webhook if configured (completely non-blocking)
+      if (webhookService.isConfigured() && !process.env.DISABLE_WEBHOOK) {
+        // Fire and forget - webhook failures won't affect form submission
         webhookService.send({
           ...sanitizedData,
           submissionId: submission.id,
           serverTimestamp: new Date().toISOString(),
         }).catch(error => {
-          console.error('Webhook delivery failed:', error);
-          // In production, consider implementing retry logic or dead letter queue
+          console.error('Webhook delivery failed (non-blocking):', error);
+          // Form submission already succeeded, this is just a notification failure
         });
       } else {
-        console.log('⚠️ Webhook not configured - form submission saved but not sent to webhook');
+        console.log('⚠️ Webhook skipped - form submission saved successfully');
       }
-      
-      res.json({ success: true, data: submission });
     } catch (error) {
       console.error("Contact submission error:", error);
       res.status(400).json({ success: false, error: "Invalid submission data" });
