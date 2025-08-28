@@ -1,7 +1,5 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
-import { insertContactSubmissionSchema } from "@shared/schema";
 import { webhookService, sanitizeString } from "./webhook";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -33,12 +31,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     console.log('⚠️ Webhook not configured - missing environment variables');
   }
 
-  // Contact form submission endpoint
+  // Contact form submission endpoint - webhook-only (no database storage)
   app.post("/api/contact", async (req, res) => {
     try {
       // Sanitize input data
       const sanitizedData = {
-        ...req.body,
         name: sanitizeString(req.body.name),
         email: sanitizeString(req.body.email),
         company: sanitizeString(req.body.company),
@@ -53,40 +50,53 @@ export async function registerRoutes(app: Express): Promise<Server> {
         submissionTimestamp: req.body.submissionTimestamp ? sanitizeString(req.body.submissionTimestamp) : undefined,
       };
       
-      const validatedData = insertContactSubmissionSchema.parse(sanitizedData);
-      const submission = await storage.createContactSubmission(validatedData);
+      // Basic validation of required fields
+      if (!sanitizedData.name || !sanitizedData.email || !sanitizedData.company) {
+        return res.status(400).json({ 
+          success: false, 
+          error: "Name, email, and company are required" 
+        });
+      }
       
-      // Always respond with success first, then handle webhook
-      res.json({ success: true, data: submission });
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(sanitizedData.email)) {
+        return res.status(400).json({ 
+          success: false, 
+          error: "Invalid email format" 
+        });
+      }
+      
+      // Always respond with success first
+      res.json({ success: true, message: "Form submitted successfully" });
       
       // Send to webhook if configured (completely non-blocking)
       if (webhookService.isConfigured() && !process.env.DISABLE_WEBHOOK) {
         // Fire and forget - webhook failures won't affect form submission
         webhookService.send({
           ...sanitizedData,
-          submissionId: submission.id,
+          submissionId: `web_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
           serverTimestamp: new Date().toISOString(),
         }).catch(error => {
           console.error('Webhook delivery failed (non-blocking):', error);
           // Form submission already succeeded, this is just a notification failure
         });
       } else {
-        console.log('⚠️ Webhook skipped - form submission saved successfully');
+        console.log('⚠️ Webhook not configured - form submission completed without external storage');
       }
     } catch (error) {
       console.error("Contact submission error:", error);
       
       // Provide more detailed error information for debugging
-      let errorMessage = "Invalid submission data";
+      let errorMessage = "Something went wrong processing your submission";
       if (error instanceof Error) {
         console.error("Detailed error:", error.message);
-        errorMessage = error.message;
+        errorMessage = process.env.NODE_ENV === 'development' ? error.message : errorMessage;
       }
       
-      res.status(400).json({ 
+      res.status(500).json({ 
         success: false, 
-        error: errorMessage,
-        details: process.env.NODE_ENV === 'development' ? error : undefined
+        error: errorMessage
       });
     }
   });
