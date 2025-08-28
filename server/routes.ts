@@ -67,9 +67,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
-      // Always respond with success first
-      res.json({ success: true, message: "Form submitted successfully" });
-      
       // Debug webhook configuration
       console.log('🔍 Webhook Debug Info:');
       console.log('  - Is webhook configured?', webhookService.isConfigured());
@@ -78,26 +75,48 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log('  - WEBHOOK_USERNAME env?', process.env.WEBHOOK_USERNAME ? 'SET' : 'NOT SET');
       console.log('  - WEBHOOK_PASSWORD env?', process.env.WEBHOOK_PASSWORD ? 'SET' : 'NOT SET');
       
-      // Send to webhook if configured (completely non-blocking)  
+      // Send to webhook - REQUIRED for success
       const webhookDisabled = process.env.DISABLE_WEBHOOK === 'true';
-      if (webhookService.isConfigured() && !webhookDisabled) {
-        console.log('📤 Attempting to send webhook...');
-        // Fire and forget - webhook failures won't affect form submission
-        webhookService.send({
+      if (!webhookService.isConfigured()) {
+        console.error('❌ Webhook not configured');
+        return res.status(500).json({ 
+          success: false, 
+          error: "Lead capture system not configured. Please try again later." 
+        });
+      }
+      
+      if (webhookDisabled) {
+        console.error('❌ Webhook disabled');
+        return res.status(500).json({ 
+          success: false, 
+          error: "Lead capture system disabled. Please try again later." 
+        });
+      }
+      
+      console.log('📤 Attempting to send webhook...');
+      try {
+        const webhookResult = await webhookService.send({
           ...sanitizedData,
           submissionId: `web_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
           serverTimestamp: new Date().toISOString(),
-        }).then(result => {
-          console.log('✅ Webhook send result:', result);
-        }).catch(error => {
-          console.error('❌ Webhook delivery failed (non-blocking):', error);
-          // Form submission already succeeded, this is just a notification failure
         });
-      } else {
-        console.log('⚠️ Webhook not configured - form submission completed without external storage');
-        console.log('  - Configured:', webhookService.isConfigured());
-        console.log('  - Disabled:', webhookDisabled);
-        console.log('  - DISABLE_WEBHOOK value:', process.env.DISABLE_WEBHOOK);
+        
+        if (webhookResult.success) {
+          console.log('✅ Webhook delivered successfully');
+          res.json({ success: true, message: "Thank you! We'll be in touch within 24 hours." });
+        } else {
+          console.error('❌ Webhook failed:', webhookResult.error);
+          res.status(500).json({ 
+            success: false, 
+            error: "Unable to submit your inquiry. Please try again or contact us directly." 
+          });
+        }
+      } catch (error) {
+        console.error('❌ Webhook delivery failed:', error);
+        res.status(500).json({ 
+          success: false, 
+          error: "Unable to submit your inquiry. Please try again or contact us directly." 
+        });
       }
     } catch (error) {
       console.error("Contact submission error:", error);
