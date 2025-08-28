@@ -28,24 +28,12 @@ const Footer = () => {
     href: "/services/invoice-audit"
   }];
 
-  const useCasesItems = [{
-    title: "E-commerce Scaling",
-    href: "/use-cases/ecommerce-scaling"
-  }, {
-    title: "International Expansion",
-    href: "/use-cases/international-expansion"
-  }, {
-    title: "Peak Season Management",
-    href: "/use-cases/peak-season"
-  }, {
-    title: "Supply Chain Digitization",
-    href: "/use-cases/digitization"
-  }];
+  
 
   return (
     <footer className="bg-background border-t border-border">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Logo and Company Info */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-4">
@@ -103,24 +91,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Use Cases */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Use Cases</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/use-cases" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  All Use Cases
-                </Link>
-              </li>
-              {useCasesItems.map(item => (
-                <li key={item.href}>
-                  <Link to={item.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          
 
           {/* Company */}
           <div>
