@@ -20,6 +20,9 @@ export const contactSubmissions = pgTable("contact_submissions", {
   status: text("status").notNull().default('new'),
   referrerPage: text("referrer_page"), // Track which page led to the contact
   referrerUrl: text("referrer_url"), // Full URL for more context
+  ctaSourceUrl: text("cta_source_url"), // Specific page where CTA was clicked
+  userAgent: text("user_agent"), // Browser/device information
+  submissionTimestamp: text("submission_timestamp"), // Client-side timestamp
   submittedAt: timestamp("submitted_at", { withTimezone: true }).notNull().defaultNow(),
 });
 

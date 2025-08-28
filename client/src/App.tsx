@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
-import Admin from "./pages/Admin";
 import Resources from "./pages/Resources";
 import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
@@ -133,8 +132,6 @@ const App = () => (
           {/* New Persona-Specific Landing Pages */}
           <Route path="/b2c-import-growth" element={<B2CImportGrowth />} />
           
-          {/* Admin Dashboard */}
-          <Route path="/admin" element={<Admin />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

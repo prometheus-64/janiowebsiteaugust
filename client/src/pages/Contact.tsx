@@ -13,6 +13,7 @@ const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [referrerPage, setReferrerPage] = useState<string>('');
+  const [ctaSourcePage, setCtaSourcePage] = useState<string>('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,13 +25,24 @@ const Contact = () => {
   });
 
   useEffect(() => {
-    // Try to get referrer from sessionStorage (set by navigation)
+    // Capture the page URL where the CTA was clicked (stored when navigating to contact)
+    const ctaSourcePageData = sessionStorage.getItem('ctaSourcePage');
     const storedReferrer = sessionStorage.getItem('lastVisitedPage');
-    if (storedReferrer && storedReferrer !== '/contact') {
+    
+    if (ctaSourcePageData) {
+      // Use the specific page where CTA was clicked
+      setCtaSourcePage(ctaSourcePageData);
+      setReferrerPage(ctaSourcePageData);
+      // Clear it after using to avoid stale data
+      sessionStorage.removeItem('ctaSourcePage');
+    } else if (storedReferrer && storedReferrer !== '/contact') {
       setReferrerPage(storedReferrer);
+      setCtaSourcePage(storedReferrer);
     } else {
       // Fallback to current page if no previous page tracked
-      setReferrerPage(window.location.pathname);
+      const fallbackPage = window.location.pathname;
+      setReferrerPage(fallbackPage);
+      setCtaSourcePage(fallbackPage);
     }
   }, []);
 
@@ -53,7 +65,10 @@ const Contact = () => {
           companySize: formData.companySize || undefined,
           message: formData.message || undefined,
           referrerPage: referrerPage || '/direct',
-          referrerUrl: window.location.href
+          referrerUrl: window.location.href,
+          ctaSourceUrl: ctaSourcePage || referrerPage || '/direct',
+          submissionTimestamp: new Date().toISOString(),
+          userAgent: navigator.userAgent
         })
       });
 
@@ -255,9 +270,10 @@ const Contact = () => {
                             <SelectItem value="general-inquiry">General Inquiry</SelectItem>
                             <SelectItem value="partnership">Partnership Opportunities</SelectItem>
                             <SelectItem value="logistics-outsourcing">Logistics Outsourcing</SelectItem>
-                            <SelectItem value="supply-chain-optimization">Supply Chain Optimization</SelectItem>
-                            <SelectItem value="consultation">Expert Consultation</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
+                            <SelectItem value="supply-chain-control-tower">Supply Chain Control Tower</SelectItem>
+                            <SelectItem value="rfq-management">RFQ Management</SelectItem>
+                            <SelectItem value="invoice-audit">Invoice Audit</SelectItem>
+                            <SelectItem value="modern-mcpms">Modern MCPMS</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>

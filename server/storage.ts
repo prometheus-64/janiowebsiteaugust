@@ -10,10 +10,6 @@ export interface IStorage {
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
   createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission>;
-  getContactSubmissions(): Promise<ContactSubmission[]>;
-  getContactSubmission(id: string): Promise<ContactSubmission | undefined>;
-  updateContactSubmission(id: string, submission: Partial<ContactSubmission>): Promise<ContactSubmission>;
-  deleteContactSubmission(id: string): Promise<void>;
 }
 
 async function getDb() {
@@ -47,27 +43,6 @@ class DatabaseStorage implements IStorage {
     return result[0];
   }
 
-  async getContactSubmissions(): Promise<ContactSubmission[]> {
-    const db = await getDb();
-    return await db.select().from(contactSubmissions).orderBy(contactSubmissions.submittedAt);
-  }
-
-  async getContactSubmission(id: string): Promise<ContactSubmission | undefined> {
-    const db = await getDb();
-    const result = await db.select().from(contactSubmissions).where(eq(contactSubmissions.id, id));
-    return result[0];
-  }
-
-  async updateContactSubmission(id: string, updateData: Partial<ContactSubmission>): Promise<ContactSubmission> {
-    const db = await getDb();
-    const result = await db.update(contactSubmissions).set(updateData).where(eq(contactSubmissions.id, id)).returning();
-    return result[0];
-  }
-
-  async deleteContactSubmission(id: string): Promise<void> {
-    const db = await getDb();
-    await db.delete(contactSubmissions).where(eq(contactSubmissions.id, id));
-  }
 
 }
 
@@ -112,27 +87,6 @@ class InMemoryStorage implements IStorage {
     return newSubmission;
   }
 
-  async getContactSubmissions(): Promise<ContactSubmission[]> {
-    // Return ordered by submittedAt ascending to mirror DB behavior
-    return [...this.inMemoryContactSubmissions].sort((a, b) =>
-      new Date(a.submittedAt as any).getTime() - new Date(b.submittedAt as any).getTime(),
-    );
-  }
-
-  async getContactSubmission(id: string): Promise<ContactSubmission | undefined> {
-    return this.inMemoryContactSubmissions.find(s => s.id === id);
-  }
-
-  async updateContactSubmission(id: string, updateData: Partial<ContactSubmission>): Promise<ContactSubmission> {
-    const idx = this.inMemoryContactSubmissions.findIndex(s => s.id === id);
-    if (idx === -1) throw new Error("Contact submission not found");
-    this.inMemoryContactSubmissions[idx] = { ...this.inMemoryContactSubmissions[idx], ...updateData } as ContactSubmission;
-    return this.inMemoryContactSubmissions[idx];
-  }
-
-  async deleteContactSubmission(id: string): Promise<void> {
-    this.inMemoryContactSubmissions = this.inMemoryContactSubmissions.filter(s => s.id !== id);
-  }
 }
 
 function createStorage(): IStorage {
