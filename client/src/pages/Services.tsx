@@ -5,6 +5,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Package, ShoppingCart, Eye, FileText, ArrowRight, CheckCircle } from 'lucide-react';
 
 const Services = () => {
+  const servicesRef = React.useRef<HTMLDivElement>(null);
+
+  const scrollToServices = () => {
+    servicesRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const services = [
     {
       title: "Logistics as a Service (LaaS)",
@@ -88,17 +94,15 @@ const Services = () => {
           </p>
           
           <div className="flex justify-center items-center mb-16 animate-scale-in">
-            <Link to="/contact">
-              <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                Talk to a Solutions Expert <ArrowRight className="ml-2 w-5 h-5 inline" />
-              </button>
-            </Link>
+            <button onClick={scrollToServices} className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+              Explore our Services <ArrowRight className="ml-2 w-5 h-5 inline" />
+            </button>
           </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-background">
+      <section ref={servicesRef} className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-3xl lg:text-4xl font-bold font-display text-foreground mb-4">

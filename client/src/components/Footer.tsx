@@ -61,8 +61,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
-              Logistics simplified for intelligent supply chain solutions.
-              Transform your business with AI-powered automation and seamless logistics management.
+              Janio specializes in intelligent supply chain procurement, automation, and seamless partner management across Asia and beyond.
             </p>
           </div>
 

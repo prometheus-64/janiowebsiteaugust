@@ -19,28 +19,19 @@ const TransportationProcurement = () => {
         </div>
         <div className="relative w-full max-w-6xl mx-auto px-6 text-center text-white">
           <div className="mb-4 animate-fade-in">
-            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">Strategic Procurement Excellence</span>
+            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">Procurement-as-a-Service</span>
           </div>
           <h1 className="text-5xl lg:text-7xl font-display font-bold mb-6 animate-fade-in leading-tight tracking-tight">
-            Strategic Transportation Procurement
-            <span className="block text-white">with Market Rate Intelligence</span>
+            Let Janio Run Your RFQ — From Requirements to Contracts
           </h1>
-          <h2 className="text-2xl lg:text-3xl font-semibold mb-8 text-white/90 animate-fade-in">
-            Beyond Traditional RFPs - Intelligent 4PL Procurement
-          </h2>
           <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
-            Compare existing rates against market benchmarks and leverage BYOR flexibility. Our strategic procurement eliminates vendor switching costs, manages billing reconciliation completely, and builds custom supply chains optimized for your specific requirements while handling delays and exceptions automatically.
+            We manage your logistics procurement end-to-end, cutting cycle times by up to 60% and delivering 12–20% cost savings across all transport modes. Your team stays focused on growth — we handle the RFQs.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
             <Link to="/contact">
               <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                Analyze Your Freight Spend <ArrowRight className="ml-2 w-5 h-5 inline" />
-              </button>
-            </Link>
-            <Link to="/calculator/transportation-procurement-roi">
-              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
-                Calculate Savings
+                Get My RFQ Managed
               </button>
             </Link>
           </div>
@@ -53,10 +44,10 @@ const TransportationProcurement = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold font-display text-foreground mb-4">
-                3-Phase Procurement Methodology
+                Our Proven 3-Phase Procurement Methodology
               </h2>
               <p className="text-xl text-muted-foreground">
-                Systematic approach that consistently delivers 10-20% cost reductions
+                From defining requirements to onboarding carriers, Janio delivers structured, time-saving procurement at scale.
               </p>
             </div>
             
@@ -66,18 +57,12 @@ const TransportationProcurement = () => {
                   <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                     <BarChart3 className="h-8 w-8 text-primary" />
                   </div>
-                  <CardTitle>Phase 1: Market Analysis</CardTitle>
+                  <CardTitle>Phase 1: Define & Design</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Comprehensive spend analysis and market intelligence gathering
+                    We work closely with you to capture requirements, analyze spend, and draft tailored RFPs. Our precision ensures clarity from the outset.
                   </p>
-                  <ul className="text-sm text-muted-foreground space-y-2 text-left">
-                    <li>• Freight spend categorization by mode</li>
-                    <li>• Lane analysis and optimization opportunities</li>
-                    <li>• Current rate benchmarking</li>
-                    <li>• Service level evaluation</li>
-                  </ul>
                 </CardContent>
               </Card>
               
@@ -86,18 +71,12 @@ const TransportationProcurement = () => {
                   <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                     <Shield className="h-8 w-8 text-primary" />
                   </div>
-                  <CardTitle>Phase 2: Strategic Sourcing</CardTitle>
+                  <CardTitle>Phase 2: Engage & Evaluate</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    RFQ management and expert negotiation across carrier network
+                    Janio canvasses qualified 3PLs, clarifies requirements, and runs multi-stage screening. We present you with the best-fit vendors and competitive solutions.
                   </p>
-                  <ul className="text-sm text-muted-foreground space-y-2 text-left">
-                    <li>• Carrier pre-qualification process</li>
-                    <li>• Structured RFQ development</li>
-                    <li>• Multi-round negotiation strategy</li>
-                    <li>• Service level guarantee inclusion</li>
-                  </ul>
                 </CardContent>
               </Card>
               
@@ -106,18 +85,12 @@ const TransportationProcurement = () => {
                   <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                     <CheckCircle className="h-8 w-8 text-primary" />
                   </div>
-                  <CardTitle>Phase 3: Implementation</CardTitle>
+                  <CardTitle>Phase 3: Finalize & Onboard</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Contract execution and ongoing performance management
+                    We negotiate final contracts, secure the best terms, and oversee onboarding of your chosen 3PL. Smooth transition, guaranteed compliance.
                   </p>
-                  <ul className="text-sm text-muted-foreground space-y-2 text-left">
-                    <li>• Contract finalization and execution</li>
-                    <li>• Carrier onboarding and integration</li>
-                    <li>• Performance monitoring setup</li>
-                    <li>• Continuous optimization planning</li>
-                  </ul>
                 </CardContent>
               </Card>
             </div>
@@ -126,95 +99,62 @@ const TransportationProcurement = () => {
       </section>
 
       {/* Service Offerings by Mode */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="py-20 md:py-14 sm:py-10 bg-muted/30">
+        <div className="container mx-auto max-w-[1200px] px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold font-display text-center text-foreground mb-12">
-              Specialized Procurement by Transportation Mode
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-center text-foreground mb-3 leading-tight tracking-tight sm:text-2xl md:text-3xl">
+              Procurement Across Every Transportation Mode
             </h2>
+            <p className="text-lg md:text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-6">
+              From first mile to last mile, Janio optimizes cost, service, and reliability.
+            </p>
             
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card className="flex flex-col justify-start min-h-[220px] rounded-2xl border shadow-sm p-6 sm:p-4 hover:shadow-md hover:-translate-y-0.5 transition">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                       <Truck className="h-6 w-6 text-primary" />
                     </div>
-                    <CardTitle>Land Transportation</CardTitle>
+                    <h3 className="text-lg font-semibold leading-tight">Road Freight & Warehousing</h3>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-foreground">Services Include:</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• LTL & FTL optimization</li>
-                      <li>• Regional carrier network development</li>
-                      <li>• Last-mile delivery solutions</li>
-                      <li>• Dedicated fleet alternatives</li>
-                    </ul>
-                  </div>
-                  <div className="pt-4 border-t">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium">Typical Savings:</span>
-                      <span className="font-bold text-primary">12-18%</span>
-                    </div>
-                  </div>
+                  <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                    Optimize domestic trucking, warehousing, and distribution with data-driven procurement.
+                  </p>
                 </CardContent>
               </Card>
               
-              <Card>
+              <Card className="flex flex-col justify-start min-h-[220px] rounded-2xl border shadow-sm p-6 sm:p-4 hover:shadow-md hover:-translate-y-0.5 transition">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                       <Plane className="h-6 w-6 text-primary" />
                     </div>
-                    <CardTitle>Air Freight</CardTitle>
+                    <h3 className="text-lg font-semibold leading-tight">International Freight</h3>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-foreground">Services Include:</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Express & standard air services</li>
-                      <li>• International air cargo optimization</li>
-                      <li>• Charter and expedited solutions</li>
-                      <li>• Fuel surcharge management</li>
-                    </ul>
-                  </div>
-                  <div className="pt-4 border-t">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium">Typical Savings:</span>
-                      <span className="font-bold text-primary">8-15%</span>
-                    </div>
-                  </div>
+                  <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                    Secure competitive rates and reliable services for global air and ocean cargo.
+                  </p>
                 </CardContent>
               </Card>
               
-              <Card>
+              <Card className="flex flex-col justify-start min-h-[220px] rounded-2xl border shadow-sm p-6 sm:p-4 hover:shadow-md hover:-translate-y-0.5 transition">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                       <Ship className="h-6 w-6 text-primary" />
                     </div>
-                    <CardTitle>Ocean Freight</CardTitle>
+                    <h3 className="text-lg font-semibold leading-tight">E-commerce & Express</h3>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-foreground">Services Include:</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• FCL & LCL optimization</li>
-                      <li>• Port-to-port and door-to-door</li>
-                      <li>• Contract logistics integration</li>
-                      <li>• Intermodal solutions</li>
-                    </ul>
-                  </div>
-                  <div className="pt-4 border-t">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium">Typical Savings:</span>
-                      <span className="font-bold text-primary">15-25%</span>
-                    </div>
-                  </div>
+                  <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                    Enhance customer experience with cost-efficient, high-speed last-mile delivery.
+                  </p>
                 </CardContent>
               </Card>
             </div>
@@ -223,112 +163,98 @@ const TransportationProcurement = () => {
       </section>
 
       {/* Market Advantages */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="py-20 md:py-14 sm:py-10">
+        <div className="container mx-auto max-w-[1200px] px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold font-display text-center text-foreground mb-12">
-              Our Market Advantages
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-center text-foreground mb-3 leading-tight tracking-tight sm:text-2xl md:text-3xl">
+              Why Enterprises Choose Janio
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <div className="flex items-start space-x-3">
-                  <BarChart3 className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-2">Market Intelligence</h3>
-                    <p className="text-muted-foreground">Real-time rate data and market trends across 10,000+ carrier relationships</p>
+            <p className="text-lg md:text-xl text-muted-foreground text-center max-w-[760px] mx-auto mb-10">
+              Unlock efficiency, savings, and transparency with Procurement-as-a-Service.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8">
+              <div className="flex items-start space-x-4">
+                <div className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                  <Clock className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-base md:text-lg font-semibold leading-tight mb-2">Cut Procurement Cycle Time by 60%</h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">Go live in 30–60 days vs. 6–12 months with traditional RFPs.</p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <DollarSign className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                <div className="flex items-start space-x-4">
+                  <div className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-2">Buying Power</h3>
-                    <p className="text-muted-foreground">$500M+ annual freight spend provides preferential pricing access</p>
+                    <h3 className="text-base md:text-lg font-semibold leading-tight mb-2">Access to 10,000+ Vetted 3PLs</h3>
+                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed">Tap into Janio’s pre-qualified network of reliable logistics providers.</p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <Clock className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                <div className="flex items-start space-x-4">
+                  <div className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                    <DollarSign className="h-5 w-5 text-primary" />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-2">Speed to Market</h3>
-                    <p className="text-muted-foreground">90-day procurement cycles vs. 6-12 months for traditional RFPs</p>
+                    <h3 className="text-base md:text-lg font-semibold leading-tight mb-2">Secure Better Rates & Terms</h3>
+                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed">Our negotiation expertise ensures optimal pricing and contract conditions.</p>
                   </div>
                 </div>
-              </div>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-3">
-                  <Shield className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-2">Risk Mitigation</h3>
-                    <p className="text-muted-foreground">Comprehensive carrier vetting and performance guarantees</p>
+                <div className="flex items-start space-x-4">
+                  <div className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                    <Shield className="h-5 w-5 text-primary" />
                   </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-2">Proven Methodology</h3>
-                    <p className="text-muted-foreground">Consistent 10-20% savings across 200+ procurement engagements</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <BarChart3 className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-2">Ongoing Optimization</h3>
-                    <p className="text-muted-foreground">Continuous rate monitoring and contract renegotiation</p>
+                    <h3 className="text-base md:text-lg font-semibold leading-tight mb-2">Transparent Process</h3>
+                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed">Scorecards, audit trails, and clear feedback at every stage.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* Results & ROI */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="py-20 md:py-14 sm:py-10 bg-muted/30">
+        <div className="container mx-auto max-w-[1200px] px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold font-display text-foreground mb-8">
-              Proven Results Across Transportation Modes
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground mb-3 leading-tight tracking-tight sm:text-2xl md:text-3xl">
+              Proven Procurement Outcomes
             </h2>
-            <div className="grid md:grid-cols-4 gap-6 mb-12">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">15%</div>
-                <p className="text-muted-foreground">Average Cost Reduction</p>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-[720px] mx-auto mb-8">
+              Our clients consistently realize measurable results with Janio.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <div className="flex flex-col items-center gap-1.5">
+                <div className="text-4xl md:text-3xl sm:text-2xl font-bold text-primary">12–20%</div>
+                <p className="text-sm md:text-base text-neutral-600 font-medium">Average Cost Savings</p>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">90</div>
-                <p className="text-muted-foreground">Days to Implementation</p>
+              <div className="flex flex-col items-center gap-1.5">
+                <div className="text-4xl md:text-3xl sm:text-2xl font-bold text-primary">30–60</div>
+                <p className="text-sm md:text-base text-neutral-600 font-medium">Days to Award</p>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">98%</div>
-                <p className="text-muted-foreground">Service Level Maintenance</p>
+              <div className="flex flex-col items-center gap-1.5">
+                <div className="text-4xl md:text-3xl sm:text-2xl font-bold text-primary">98%</div>
+                <p className="text-sm md:text-base text-neutral-600 font-medium">Service-Level Maintenance</p>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">8x</div>
-                <p className="text-muted-foreground">Average ROI</p>
+              <div className="flex flex-col items-center gap-1.5">
+                <div className="text-4xl md:text-3xl sm:text-2xl font-bold text-primary">200+</div>
+                <p className="text-sm md:text-base text-neutral-600 font-medium">3PLs Onboarded Annually</p>
               </div>
             </div>
             
-            <Card className="max-w-2xl mx-auto">
+            <Card className="mx-auto max-w-[720px] rounded-2xl border border-neutral-200 shadow-sm p-6 sm:p-4">
               <CardHeader>
-                <CardTitle>Typical Engagement Timeline</CardTitle>
+                <h3 className="text-xl font-bold text-center mb-3">Typical Engagement Timeline</h3>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground">Analysis & Strategy</span>
-                    <span className="font-semibold">Days 1-30</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground">RFQ & Negotiation</span>
-                    <span className="font-semibold">Days 31-60</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground">Implementation</span>
-                    <span className="font-semibold">Days 61-90</span>
-                  </div>
-                  <div className="flex justify-between items-center border-t pt-4">
-                    <span className="font-semibold text-foreground">First Savings Realized</span>
-                    <span className="font-bold text-primary">Day 91</span>
-                  </div>
+                <ul role="list" className="space-y-3">
+                  <li className="flex justify-between items-center border-b border-neutral-200 py-3"><span>Days 1–30: Requirements & RFP Drafting</span></li>
+                  <li className="flex justify-between items-center border-b border-neutral-200 py-3"><span>Days 31–60: RFQ & Vendor Evaluation</span></li>
+                  <li className="flex justify-between items-center py-3"><span>Days 61–90: Contracting & Onboarding</span></li>
+                </ul>
+                <div className="mt-4 pt-4 border-t border-neutral-200">
+                  <p className="font-semibold text-foreground">First Savings Realized: From Day 60</p>
                 </div>
               </CardContent>
             </Card>
@@ -337,61 +263,63 @@ const TransportationProcurement = () => {
       </section>
 
       {/* Engagement Models */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="py-20 md:py-14 sm:py-10">
+        <div className="container mx-auto max-w-[1200px] px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold font-display text-center text-foreground mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-center text-foreground mb-3 leading-tight tracking-tight sm:text-2xl md:text-3xl">
               Flexible Engagement Models
             </h2>
+            <p className="text-lg md:text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-10">
+              Choose the partnership structure that fits your strategy.
+            </p>
             
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card className="flex flex-col h-full rounded-2xl border border-neutral-200 shadow-sm p-6 sm:p-4 hover:shadow-md hover:-translate-y-0.5 transition">
                 <CardHeader>
-                  <CardTitle className="text-xl">Performance-Based Model</CardTitle>
+                  <h3 className="text-lg font-semibold leading-tight">End-to-End Procurement</h3>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Pay only when we deliver savings - aligned incentives for maximum results
+                <CardContent className="flex flex-col flex-grow">
+                  <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                    Full outsourcing of your RFQ lifecycle, from requirements to contracts.
                   </p>
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-foreground">Includes:</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Complete procurement process management</li>
-                      <li>• 12-month savings guarantee</li>
-                      <li>• Ongoing rate monitoring</li>
-                      <li>• Quarterly optimization reviews</li>
-                    </ul>
-                  </div>
-                  <div className="pt-4 border-t">
+                  <div className="border-t border-neutral-200 mt-auto pt-3">
                     <div className="flex justify-between items-center">
                       <span className="font-medium">Fee Structure:</span>
-                      <span className="font-bold text-primary">% of savings achieved</span>
+                      <span className="font-bold text-primary">% of verified savings</span>
                     </div>
                   </div>
                 </CardContent>
               </Card>
               
-              <Card>
+              <Card className="flex flex-col h-full rounded-2xl border border-neutral-200 shadow-sm p-6 sm:p-4 hover:shadow-md hover:-translate-y-0.5 transition">
                 <CardHeader>
-                  <CardTitle className="text-xl">Retainer Model</CardTitle>
+                  <h3 className="text-lg font-semibold leading-tight">Co-Pilot Model</h3>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Fixed-fee engagement for ongoing procurement and optimization support
+                <CardContent className="flex flex-col flex-grow">
+                  <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                    We complement your team in specific procurement stages with our expertise.
                   </p>
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-foreground">Includes:</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Annual procurement strategy development</li>
-                      <li>• Continuous market intelligence</li>
-                      <li>• Emergency procurement support</li>
-                      <li>• Strategic advisory services</li>
-                    </ul>
-                  </div>
-                  <div className="pt-4 border-t">
+                  <div className="border-t border-neutral-200 mt-auto pt-3">
                     <div className="flex justify-between items-center">
                       <span className="font-medium">Fee Structure:</span>
-                      <span className="font-bold text-primary">Monthly retainer</span>
+                      <span className="font-bold text-primary">Shared savings or retainer</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="flex flex-col h-full rounded-2xl border border-neutral-200 shadow-sm p-6 sm:p-4 hover:shadow-md hover:-translate-y-0.5 transition">
+                <CardHeader>
+                  <h3 className="text-lg font-semibold leading-tight">Event-Based RFQ</h3>
+                </CardHeader>
+                <CardContent className="flex flex-col flex-grow">
+                  <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                    Engage Janio for one-off or urgent procurement projects.
+                  </p>
+                  <div className="border-t border-neutral-200 mt-auto pt-3">
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium">Fee Structure:</span>
+                      <span className="font-bold text-primary">Project-based pricing</span>
                     </div>
                   </div>
                 </CardContent>
@@ -407,22 +335,15 @@ const TransportationProcurement = () => {
         <div className="relative container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-display font-bold text-white mb-8 leading-tight">
-              Ready to Optimize Your 
-              <span className="block text-white">Freight Spend?</span>
+              Ready to Optimize Your Freight Procurement?
             </h2>
             <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
-              Get a free freight spend analysis and see your savings potential.
+              Request your free RFQ plan and see how much time and cost you can save with Janio.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/contact">
                 <button className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center">
-                  Get Free Analysis
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </button>
-              </Link>
-              <Link to="/contact">
-                <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-10 py-4 rounded-full font-medium transition-all duration-200 inline-flex items-center">
-                  Speak with Procurement Expert
+                  Request My Free RFQ Plan
                 </button>
               </Link>
             </div>

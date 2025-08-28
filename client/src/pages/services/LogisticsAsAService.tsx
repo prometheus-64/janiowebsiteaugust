@@ -105,11 +105,7 @@ const LogisticsAsAService = () => {
                 Book LaaS Consultation <ArrowRight className="ml-2 w-5 h-5 inline" />
               </button>
             </Link>
-            <Link to="/resources/calculators">
-              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
-                Calculate ROI
-              </button>
-            </Link>
+            
           </div>
         </div>
       </section>
@@ -287,11 +283,7 @@ const LogisticsAsAService = () => {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </button>
               </Link>
-              <Link to="/contact">
-                <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-10 py-4 rounded-full font-medium transition-all duration-200 inline-flex items-center">
-                  Talk to an Expert
-                </button>
-              </Link>
+              
             </div>
           </div>
         </div>
