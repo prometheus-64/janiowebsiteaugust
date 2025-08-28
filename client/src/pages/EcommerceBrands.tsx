@@ -29,15 +29,10 @@ export default function EcommerceBrands() {
           Beyond shipping: we optimize your complete logistics ecosystem. Compare market rates, manage multiple carriers and 3PLs, and gain full supply chain visibility through one unified platform.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
+          <div className="flex justify-center items-center mb-16 animate-scale-in">
             <Link to="/contact">
               <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                 Get Your Free Logistics Cost Analysis <ArrowRight className="ml-2 w-5 h-5 inline" />
-              </button>
-            </Link>
-            <Link to="/services">
-              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
-                Explore Services
               </button>
             </Link>
           </div>
@@ -56,7 +51,7 @@ export default function EcommerceBrands() {
                 <span className="text-white/80 font-medium text-sm">International Luxury Brand</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <span className="text-white/80 font-medium text-sm">SOC2 & ISO27001 Certified</span>
+                <span className="text-white/80 font-medium text-sm">SOC2 & ISO27001 Compliant</span>
               </div>
             </div>
           </div>
@@ -351,50 +346,30 @@ export default function EcommerceBrands() {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Trusted by Leading Brands Across Asia Pacific</h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-              <Card className="text-center border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-primary">Disney</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm italic">
-                    "Global entertainment brand leveraging Janio for seamless Asia Pacific expansion and localized fulfillment strategies."
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-primary">GOAT</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm italic">
-                    "Fashion marketplace achieving operational efficiency and cost optimization at scale across multiple Asian markets."
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-primary">Swarovski</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm italic">
-                    "Luxury brand maintaining premium service quality while reducing logistics complexity and overhead costs."
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-primary">Beyond The Vines</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm italic">
-                    "Growing eCommerce brand scaling rapidly across new geographies with flexible, cost-effective logistics solutions."
-                  </p>
-                </CardContent>
-              </Card>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+              <div className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="w-32 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">Disney</span>
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="w-32 h-16 bg-gradient-to-r from-black to-gray-800 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">GOAT</span>
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="w-32 h-16 bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">Swarovski</span>
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="w-32 h-16 bg-gradient-to-r from-green-600 to-green-700 rounded-lg flex items-center justify-center text-center">
+                  <span className="text-white font-bold text-xs leading-tight">Beyond<br />The Vines</span>
+                </div>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-4 gap-8 text-center">
@@ -420,57 +395,45 @@ export default function EcommerceBrands() {
       </section>
       {/* Final CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary via-primary/90 to-secondary relative">
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-secondary/95" />
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-primary-foreground relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Focus on Growing Your Business Instead of Managing Logistics?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="text-xl mb-8 text-white/90">
               Stop overspending on logistics complexity. Join Disney, GOAT, Swarovski, and other leading brands who've already made the switch to 4PL.
             </p>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8">
-              <h3 className="text-xl font-semibold mb-4">Get immediate access to:</h3>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8 border border-white/20">
+              <h3 className="text-xl font-semibold mb-4 text-white">Get immediate access to:</h3>
               <ul className="grid md:grid-cols-2 gap-4 text-left">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-accent" />
-                  <span>500+ vetted 3PLs across Asia Pacific</span>
+                  <CheckCircle className="h-5 w-5 text-white" />
+                  <span className="text-white/90">500+ vetted 3PLs across Asia Pacific</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-accent" />
-                  <span>20-50% cost savings with zero overhead</span>
+                  <CheckCircle className="h-5 w-5 text-white" />
+                  <span className="text-white/90">20-50% cost savings with zero overhead</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-accent" />
-                  <span>2-week deployment vs. months</span>
+                  <CheckCircle className="h-5 w-5 text-white" />
+                  <span className="text-white/90">2-week deployment vs. months</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-accent" />
-                  <span>Enterprise-grade security and compliance</span>
+                  <CheckCircle className="h-5 w-5 text-white" />
+                  <span className="text-white/90">Enterprise-grade security and compliance</span>
                 </li>
               </ul>
             </div>
 
             <div className="space-y-4">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-4" asChild>
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-4 shadow-lg" asChild>
                 <Link to="/contact">
                   Get Your Free Logistics Cost Analysis
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <div>
-                <Button variant="outline" size="lg" className="border-white hover:bg-white/10 text-[#142d70]" asChild>
-                  <Link to="/use-cases">
-                    See How We Work
-                  </Link>
-                </Button>
-              </div>
-            </div>
-
-            <div className="mt-12 space-y-2 text-sm opacity-80">
-              <p><strong>Email:</strong> hello@janio.asia | <strong>Phone:</strong> +65 XXXX XXXX</p>
-              <p><strong>Office:</strong> Singapore • Hong Kong • Bangkok • Jakarta</p>
             </div>
           </div>
         </div>
