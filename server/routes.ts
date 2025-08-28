@@ -70,19 +70,32 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Always respond with success first
       res.json({ success: true, message: "Form submitted successfully" });
       
+      // Debug webhook configuration
+      console.log('🔍 Webhook Debug Info:');
+      console.log('  - Is webhook configured?', webhookService.isConfigured());
+      console.log('  - DISABLE_WEBHOOK env?', process.env.DISABLE_WEBHOOK);
+      console.log('  - WEBHOOK_URL env?', process.env.WEBHOOK_URL ? 'SET' : 'NOT SET');
+      console.log('  - WEBHOOK_USERNAME env?', process.env.WEBHOOK_USERNAME ? 'SET' : 'NOT SET');
+      console.log('  - WEBHOOK_PASSWORD env?', process.env.WEBHOOK_PASSWORD ? 'SET' : 'NOT SET');
+      
       // Send to webhook if configured (completely non-blocking)
       if (webhookService.isConfigured() && !process.env.DISABLE_WEBHOOK) {
+        console.log('📤 Attempting to send webhook...');
         // Fire and forget - webhook failures won't affect form submission
         webhookService.send({
           ...sanitizedData,
           submissionId: `web_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
           serverTimestamp: new Date().toISOString(),
+        }).then(result => {
+          console.log('✅ Webhook send result:', result);
         }).catch(error => {
-          console.error('Webhook delivery failed (non-blocking):', error);
+          console.error('❌ Webhook delivery failed (non-blocking):', error);
           // Form submission already succeeded, this is just a notification failure
         });
       } else {
         console.log('⚠️ Webhook not configured - form submission completed without external storage');
+        console.log('  - Configured:', webhookService.isConfigured());
+        console.log('  - Disabled:', !!process.env.DISABLE_WEBHOOK);
       }
     } catch (error) {
       console.error("Contact submission error:", error);
@@ -146,6 +159,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.json({
       success: true,
       configured: webhookService.isConfigured(),
+      environment: {
+        WEBHOOK_URL: process.env.WEBHOOK_URL ? 'SET' : 'NOT SET',
+        WEBHOOK_USERNAME: process.env.WEBHOOK_USERNAME ? 'SET' : 'NOT SET', 
+        WEBHOOK_PASSWORD: process.env.WEBHOOK_PASSWORD ? 'SET' : 'NOT SET',
+        WEBHOOK_TIMEOUT: process.env.WEBHOOK_TIMEOUT || 'NOT SET',
+        DISABLE_WEBHOOK: process.env.DISABLE_WEBHOOK || 'NOT SET',
+      }
     });
   });
 
