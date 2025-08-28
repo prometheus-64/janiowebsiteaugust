@@ -78,8 +78,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log('  - WEBHOOK_USERNAME env?', process.env.WEBHOOK_USERNAME ? 'SET' : 'NOT SET');
       console.log('  - WEBHOOK_PASSWORD env?', process.env.WEBHOOK_PASSWORD ? 'SET' : 'NOT SET');
       
-      // Send to webhook if configured (completely non-blocking)
-      if (webhookService.isConfigured() && !process.env.DISABLE_WEBHOOK) {
+      // Send to webhook if configured (completely non-blocking)  
+      const webhookDisabled = process.env.DISABLE_WEBHOOK === 'true';
+      if (webhookService.isConfigured() && !webhookDisabled) {
         console.log('📤 Attempting to send webhook...');
         // Fire and forget - webhook failures won't affect form submission
         webhookService.send({
@@ -95,7 +96,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else {
         console.log('⚠️ Webhook not configured - form submission completed without external storage');
         console.log('  - Configured:', webhookService.isConfigured());
-        console.log('  - Disabled:', !!process.env.DISABLE_WEBHOOK);
+        console.log('  - Disabled:', webhookDisabled);
+        console.log('  - DISABLE_WEBHOOK value:', process.env.DISABLE_WEBHOOK);
       }
     } catch (error) {
       console.error("Contact submission error:", error);
