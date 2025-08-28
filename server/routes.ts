@@ -75,7 +75,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
     } catch (error) {
       console.error("Contact submission error:", error);
-      res.status(400).json({ success: false, error: "Invalid submission data" });
+      
+      // Provide more detailed error information for debugging
+      let errorMessage = "Invalid submission data";
+      if (error instanceof Error) {
+        console.error("Detailed error:", error.message);
+        errorMessage = error.message;
+      }
+      
+      res.status(400).json({ 
+        success: false, 
+        error: errorMessage,
+        details: process.env.NODE_ENV === 'development' ? error : undefined
+      });
     }
   });
 

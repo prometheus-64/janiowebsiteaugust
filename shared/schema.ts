@@ -36,6 +36,17 @@ export const insertContactSubmissionSchema = createInsertSchema(contactSubmissio
   id: true,
   status: true,
   submittedAt: true,
+}).extend({
+  // Make new fields optional and handle empty strings
+  phone: z.string().optional().or(z.literal('')),
+  serviceInterest: z.string().optional().or(z.literal('')),
+  companySize: z.string().optional().or(z.literal('')),
+  message: z.string().optional().or(z.literal('')),
+  referrerPage: z.string().optional().or(z.literal('')),
+  referrerUrl: z.string().optional().or(z.literal('')),
+  ctaSourceUrl: z.string().optional().or(z.literal('')),
+  userAgent: z.string().optional().or(z.literal('')),
+  submissionTimestamp: z.string().optional().or(z.literal('')),
 });
 
 
