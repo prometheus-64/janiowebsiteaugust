@@ -18,6 +18,7 @@ import LogisticsAsAService from "./pages/services/LogisticsAsAService";
 import TransportationProcurement from "./pages/services/TransportationProcurement";
 import ControlTower from "./pages/services/ControlTower";
 import InvoiceAudit from "./pages/services/InvoiceAudit";
+import MCPMS from "./pages/services/MCPMS";
 import EcommerceScaling from "./pages/use-cases/EcommerceScaling";
 import InternationalExpansion from "./pages/use-cases/InternationalExpansion";
 import PeakSeason from "./pages/use-cases/PeakSeason";
@@ -96,6 +97,7 @@ const App = () => (
           <Route path="/services/transportation-procurement" element={<TransportationProcurement />} />
           <Route path="/services/control-tower" element={<ControlTower />} />
           <Route path="/services/invoice-audit" element={<InvoiceAudit />} />
+          <Route path="/services/mcpms" element={<MCPMS />} />
           
           {/* Use Cases Routes */}
           <Route path="/use-cases/ecommerce-scaling" element={<EcommerceScaling />} />
