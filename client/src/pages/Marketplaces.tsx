@@ -20,26 +20,17 @@ export default function Marketplaces() {
             <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-4">For Marketplaces</span>
           </div>
           <h1 className="text-5xl lg:text-7xl font-display font-bold mb-6 animate-fade-in leading-tight tracking-tight">
-            Complete Cross-Border Orchestration
-            <span className="block text-white">for Marketplace Scaling</span>
+            Cut Cross-Border Freight Costs by 15% While Improving Delivery Speed
           </h1>
-          <h2 className="text-2xl lg:text-3xl font-semibold mb-8 text-white/90 animate-fade-in">
-            Beyond Traditional Freight Forwarders - Unified 4PL Network
-          </h2>
           <p className="text-lg lg:text-xl text-white/80 mb-12 leading-loose max-w-4xl mx-auto animate-slide-up font-light">
-            As your 4PL partner, we orchestrate your entire cross-border logistics ecosystem. Work with any partner combination, procure aggressive rates, and maintain complete visibility across 500+ vetted providers - all through one unified platform built for marketplace operations.
+            Stop overpaying for fragmented logistics. Our warehouse-to-warehouse service delivers faster clearance, guaranteed capacity, and complete visibility—saving marketplace operators millions annually.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
             <Link to="/contact">
-              <button className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                Map Your Cross-Border Routes <ArrowRight className="ml-2 w-5 h-5 inline" />
-              </button>
-            </Link>
-            <Link to="/services">
-              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
-                Explore Services
-              </button>
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 text-lg px-12 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                Get Free Freight Audit
+              </Button>
             </Link>
           </div>
 
@@ -48,16 +39,13 @@ export default function Marketplaces() {
             <p className="text-white/60 text-sm mb-4">Trusted by industry leaders</p>
             <div className="flex flex-wrap justify-center items-center gap-6 opacity-70">
               <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <span className="text-white/80 font-medium text-sm">Leading SEA Marketplace</span>
+                <span className="text-white/80 font-medium text-sm">All leading SEA marketplaces</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <span className="text-white/80 font-medium text-sm">Regional E-commerce Platform</span>
+                <span className="text-white/80 font-medium text-sm">6000+ tonnes shipped monthly</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <span className="text-white/80 font-medium text-sm">Global Fashion Brand</span>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <span className="text-white/80 font-medium text-sm">6,000+ Tonnes Monthly</span>
+                <span className="text-white/80 font-medium text-sm">Single platform</span>
               </div>
             </div>
           </div>
@@ -335,70 +323,7 @@ export default function Marketplaces() {
           </div>
         </div>
       </section>
-      {/* Social Proof Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Trusted by Leading Marketplaces Across Asia</h2>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <Card className="text-center border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-primary">Leading SEA Marketplace</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm italic">
-                    "Streamlined cross-border operations across multiple Asian markets with consistent service levels and reduced complexity."
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-primary">Regional E-commerce Platform</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm italic">
-                    "Achieved operational efficiency and cost optimization while maintaining rapid expansion across Southeast Asia."
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-primary">Shein</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm italic">
-                    "Scaled cross-border logistics operations to support explosive growth across Asian markets with reliable service quality."
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="grid md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">20-30%</div>
-                <div className="text-sm text-muted-foreground">Faster Transit Times</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">99%+</div>
-                <div className="text-sm text-muted-foreground">First-time Clearance</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">6,000+</div>
-                <div className="text-sm text-muted-foreground">Tonnes Monthly</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">500+</div>
-                <div className="text-sm text-muted-foreground">Vetted Providers</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       {/* Technical Integration Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -491,22 +416,9 @@ export default function Marketplaces() {
             <div className="space-y-4">
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-4" asChild>
                 <Link to="/contact">
-                  Map Your Cross-Border Routes
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Get Free Freight Audit
                 </Link>
               </Button>
-              <div>
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10" asChild>
-                  <Link to="/use-cases">
-                    See Our Network in Action
-                  </Link>
-                </Button>
-              </div>
-            </div>
-
-            <div className="mt-12 space-y-2 text-sm opacity-80">
-              <p><strong>Email:</strong> marketplace@janio.asia | <strong>Phone:</strong> +65 XXXX XXXX</p>
-              <p><strong>Office:</strong> Singapore • Hong Kong • Bangkok • Jakarta</p>
             </div>
           </div>
         </div>

@@ -36,11 +36,7 @@ export default function LogisticsPartners() {
                 Explore Partnership Opportunities <ArrowRight className="ml-2 w-5 h-5 inline" />
               </button>
             </Link>
-            <Link to="/services">
-              <button className="bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-12 py-4 rounded-full font-medium transition-all duration-200">
-                View Platform
-              </button>
-            </Link>
+            
           </div>
 
           {/* Trust Bar */}
@@ -57,7 +53,7 @@ export default function LogisticsPartners() {
                 <span className="text-white/80 font-medium text-sm">Revenue from Day One</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <span className="text-white/80 font-medium text-sm">SOC2 Certified</span>
+                <span className="text-white/80 font-medium text-sm">SOC2 and ISO27001 Compliant</span>
               </div>
             </div>
           </div>
@@ -532,19 +528,6 @@ export default function LogisticsPartners() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <div>
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10" asChild>
-                  <Link to="/use-cases">
-                    See the Platform in Action
-                  </Link>
-                </Button>
-              </div>
-            </div>
-
-            <div className="mt-12 space-y-2 text-sm opacity-80">
-              <p><strong>Partner Development Team</strong></p>
-              <p><strong>Email:</strong> partners@janio.asia | <strong>Phone:</strong> +65 XXXX XXXX</p>
-              <p><strong>Office:</strong> Singapore • Hong Kong • Bangkok • Jakarta</p>
             </div>
           </div>
         </div>
