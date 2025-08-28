@@ -56,6 +56,7 @@ class WebhookService {
   
   async send(rawData: any): Promise<{ success: boolean; error?: string }> {
     if (!this.config) {
+      console.warn('Webhook not configured - skipping webhook delivery');
       return { success: false, error: 'Webhook not configured' };
     }
     
@@ -69,7 +70,10 @@ class WebhookService {
       // Create Basic Auth header
       const credentials = Buffer.from(`${this.config.username}:${this.config.password}`).toString('base64');
       
-      // Send webhook request
+      // Send webhook request with better error handling
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), this.config.timeout!);
+      
       const response = await fetch(this.config.url, {
         method: 'POST',
         headers: {
@@ -78,19 +82,32 @@ class WebhookService {
           'User-Agent': 'Janio-Webhook/1.0',
         },
         body: JSON.stringify(validatedData),
-        signal: AbortSignal.timeout(this.config.timeout!),
+        signal: controller.signal,
       });
       
+      clearTimeout(timeoutId);
+      
       if (!response.ok) {
-        throw new Error(`Webhook request failed: ${response.status} ${response.statusText}`);
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
       
-      console.log(`Webhook sent successfully to ${this.config.url}`);
+      console.log(`✅ Webhook delivered successfully to ${this.config.url}`);
       return { success: true };
       
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown webhook error';
-      console.error('Webhook error:', errorMessage);
+      let errorMessage = 'Unknown webhook error';
+      
+      if (error instanceof Error) {
+        if (error.name === 'AbortError') {
+          errorMessage = `Timeout after ${this.config.timeout}ms`;
+        } else if (error.message.includes('fetch')) {
+          errorMessage = `Network error: ${error.message}`;
+        } else {
+          errorMessage = error.message;
+        }
+      }
+      
+      console.error(`❌ Webhook delivery failed: ${errorMessage}`);
       return { success: false, error: errorMessage };
     }
   }

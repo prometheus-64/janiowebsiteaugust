@@ -11,17 +11,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // use storage to perform CRUD operations on the storage interface
   // e.g. storage.insertUser(user) or storage.getUserByUsername(username)
 
-  // Auto-configure webhook on server start
-  try {
-    webhookService.configure({
-      url: 'https://janio.app.n8n.cloud/webhook/ddf4a9ce-40ef-462c-8264-c582a28e3ae2',
-      username: 'janiowebsiteleadform',
-      password: 'kyNpen-wijmy0-cibhug',
-      timeout: 10000,
-    });
-    console.log('✅ Webhook configured successfully on server start');
-  } catch (error) {
-    console.error('❌ Failed to configure webhook on startup:', error);
+  // Auto-configure webhook on server start (only if environment variables are set)
+  const webhookUrl = process.env.WEBHOOK_URL || 'https://janio.app.n8n.cloud/webhook/ddf4a9ce-40ef-462c-8264-c582a28e3ae2';
+  const webhookUsername = process.env.WEBHOOK_USERNAME || 'janiowebsiteleadform';
+  const webhookPassword = process.env.WEBHOOK_PASSWORD || 'kyNpen-wijmy0-cibhug';
+  
+  if (webhookUrl && webhookUsername && webhookPassword) {
+    try {
+      webhookService.configure({
+        url: webhookUrl,
+        username: webhookUsername,
+        password: webhookPassword,
+        timeout: parseInt(process.env.WEBHOOK_TIMEOUT || '10000'),
+      });
+      console.log('✅ Webhook configured successfully on server start');
+      console.log(`   URL: ${webhookUrl}`);
+    } catch (error) {
+      console.error('❌ Failed to configure webhook on startup:', error);
+    }
+  } else {
+    console.log('⚠️ Webhook not configured - missing environment variables');
   }
 
   // Contact form submission endpoint
@@ -56,8 +65,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
           serverTimestamp: new Date().toISOString(),
         }).catch(error => {
           console.error('Webhook delivery failed:', error);
-          // Could implement retry logic or dead letter queue here
+          // In production, consider implementing retry logic or dead letter queue
         });
+      } else {
+        console.log('⚠️ Webhook not configured - form submission saved but not sent to webhook');
       }
       
       res.json({ success: true, data: submission });
