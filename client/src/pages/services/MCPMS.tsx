@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, ArrowRight, BarChart3, Settings, TrendingUp, DollarSign, Shield, Zap, Globe, Monitor, AlertTriangle, Target } from "lucide-react";
 import { Link } from "react-router-dom";
-import { MEDIA_CONFIG, getMediaUrl } from "@/config/media";
+import { MEDIA_CONFIG, getMediaUrl, getStandardImageProps } from "@/config/media";
 
 export default function MCPMS() {
   return (
@@ -97,16 +97,7 @@ export default function MCPMS() {
                   <img 
                     src={getMediaUrl(MEDIA_CONFIG.MCPMS.DASHBOARD_OPERATIONS, true)} 
                     alt="MCPMS Operations Dashboard showing network-wide performance metrics including 5 active lanes, $23.34 average cost per shipment, 85.1% on-time rate, and real-time exception tracking with top partners by spend"
-                    loading="lazy"
-                    className="w-full h-auto max-w-none"
-                    width="1920"
-                    height="968"
-                    style={{
-                      imageRendering: 'high-quality',
-                      WebkitImageSmoothing: 'high-quality',
-                      maxWidth: '100%',
-                      height: 'auto'
-                    }}
+                    {...getStandardImageProps(1920, 968)}
                   />
                 </div>
               </div>

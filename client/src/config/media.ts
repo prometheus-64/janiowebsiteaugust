@@ -4,6 +4,14 @@
  * All media assets are served from Cloudflare R2 bucket with CDN optimization
  * Base URL: https://assets.janio.com/
  * 
+ * STANDARD MEDIA IMPLEMENTATION (use for ALL future media):
+ * - Use getMediaUrl(asset, true) to bypass optimization for quality
+ * - Include explicit width/height attributes matching native resolution
+ * - Add imageRendering: 'high-quality' CSS properties
+ * - Use larger containers: max-w-[1600px] instead of max-w-7xl
+ * - Implement responsive grid layouts: [1fr_1.2fr] for content+image
+ * - Maintain responsive behavior with maxWidth: '100%', height: 'auto'
+ * 
  * File naming convention: [feature]-[description]-[variant].[ext]
  * Examples:
  * - mcpms-dashboard-operations.png
@@ -101,3 +109,38 @@ export const getResponsiveSrcSet = (assetPath: string): string => {
     `${getOptimizedImageUrl(assetPath, { width: 1920, format: 'webp' })} 1920w`,
   ].join(', ');
 };
+
+/**
+ * STANDARD HIGH-QUALITY IMAGE PROPS
+ * Use this object spread for all images to ensure consistent quality
+ * 
+ * Usage:
+ * <img 
+ *   src={getMediaUrl(MEDIA_CONFIG.MCPMS.DASHBOARD, true)}
+ *   {...getStandardImageProps(1920, 968)}
+ *   alt="Description"
+ * />
+ */
+export const getStandardImageProps = (width: number, height: number) => ({
+  width,
+  height,
+  loading: 'lazy' as const,
+  className: 'w-full h-auto max-w-none',
+  style: {
+    imageRendering: 'high-quality' as const,
+    WebkitImageSmoothing: 'high-quality' as const,
+    maxWidth: '100%',
+    height: 'auto'
+  }
+});
+
+/**
+ * STANDARD CONTAINER PROPS
+ * Use for containers that hold high-quality images
+ */
+export const getStandardContainerProps = () => ({
+  containerClass: 'container mx-auto px-4',
+  wrapperClass: 'max-w-[1600px] mx-auto',
+  gridClass: 'grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-16 items-center',
+  imageContainerClass: 'order-first lg:order-last'
+});
