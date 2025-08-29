@@ -94,7 +94,7 @@ export default function MCPMS() {
               <div className="order-first lg:order-last">
                 <div className="rounded-xl shadow-lg overflow-hidden bg-white">
                   <img 
-                    src="/lovable-uploads/87ca3817-358a-4629-b56b-ecbef0dc7f67.png" 
+                    src="/lovable-uploads/8c68f958-3573-4ff2-9966-82fbfd805748.png" 
                     alt="MCPMS Operations Dashboard showing network-wide performance metrics including 5 active lanes, $23.34 average cost per shipment, 85.1% on-time rate, and real-time exception tracking with top partners by spend"
                     width="700"
                     height="500"
