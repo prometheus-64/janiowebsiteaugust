@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Package, ShoppingCart, Eye, FileText, ArrowRight, CheckCircle } from 'lucide-react';
+import { Package, ShoppingCart, Eye, FileText, ArrowRight, CheckCircle, Monitor } from 'lucide-react';
 
 const Services = () => {
   const servicesRef = React.useRef<HTMLDivElement>(null);
@@ -12,6 +12,20 @@ const Services = () => {
   };
 
   const services = [
+    {
+      title: "Multi-Carrier Platform (MCPMS)",
+      headline: "Complete logistics command center with AI-powered intelligence.",
+      description: "Transform your multi-carrier logistics operations with real-time visibility, predictive analytics, and automated workflows.",
+      icon: <Monitor className="w-12 h-12" />,
+      href: "/services/mcpms",
+      benefits: [
+        "Real-time operations dashboard",
+        "AI-powered exception management", 
+        "Automated allocation rules",
+        "Unified financial control"
+      ],
+      bgClass: "bg-gradient-to-br from-cyan-50 to-blue-100"
+    },
     {
       title: "Logistics as a Service (LaaS)",
       headline: "Your complete logistics department, outsourced.",

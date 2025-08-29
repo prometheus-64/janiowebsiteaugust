@@ -26,6 +26,10 @@ const Navigation = () => {
   }];
 
   const servicesItems = [{
+    title: "Multi-Carrier Platform (MCPMS)",
+    href: "/services/mcpms",
+    description: "AI-powered logistics command center with real-time visibility"
+  }, {
     title: "Logistics as a Service (LaaS)",
     href: "/services/logistics-as-a-service",
     description: "Complete logistics department, outsourced"
