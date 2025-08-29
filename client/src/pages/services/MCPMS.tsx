@@ -4,8 +4,30 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, ArrowRight, BarChart3, Settings, TrendingUp, DollarSign, Shield, Zap, Globe, Monitor, AlertTriangle, Target } from "lucide-react";
 import { Link } from "react-router-dom";
 import { MEDIA_CONFIG, getMediaUrl, getStandardImageProps } from "@/config/media";
+import { MediaModal } from "@/components/ui/MediaModal";
+import { useState } from "react";
 
 export default function MCPMS() {
+  const [modalState, setModalState] = useState<{
+    isOpen: boolean;
+    src: string;
+    alt: string;
+    type: 'image' | 'video';
+  }>({
+    isOpen: false,
+    src: '',
+    alt: '',
+    type: 'image'
+  });
+
+  const openModal = (src: string, alt: string, type: 'image' | 'video') => {
+    setModalState({ isOpen: true, src, alt, type });
+  };
+
+  const closeModal = () => {
+    setModalState({ isOpen: false, src: '', alt: '', type: 'image' });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-primary/5">
       {/* Hero Section */}
@@ -93,12 +115,25 @@ export default function MCPMS() {
               
               {/* Right Dashboard Image */}
               <div className="order-first lg:order-last">
-                <div className="rounded-xl shadow-lg overflow-hidden bg-white">
+                <div 
+                  className="rounded-xl shadow-lg overflow-hidden bg-white cursor-pointer hover:shadow-xl transition-all duration-300 group relative"
+                  onClick={() => openModal(
+                    getMediaUrl(MEDIA_CONFIG.MCPMS.DASHBOARD_OPERATIONS, true),
+                    "MCPMS Operations Dashboard showing network-wide performance metrics including 5 active lanes, $23.34 average cost per shipment, 85.1% on-time rate, and real-time exception tracking with top partners by spend",
+                    'image'
+                  )}
+                >
                   <img 
                     src={getMediaUrl(MEDIA_CONFIG.MCPMS.DASHBOARD_OPERATIONS, true)} 
                     alt="MCPMS Operations Dashboard showing network-wide performance metrics including 5 active lanes, $23.34 average cost per shipment, 85.1% on-time rate, and real-time exception tracking with top partners by spend"
                     {...getStandardImageProps(1920, 968)}
+                    className="w-full h-auto max-w-none group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20 backdrop-blur-[1px]">
+                    <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-primary font-semibold text-sm">
+                      Click to expand
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -267,22 +302,6 @@ export default function MCPMS() {
                   <Badge variant="destructive" className="w-fit">Complex & Inefficient</Badge>
                 </CardHeader>
                 <CardContent>
-                  <div className="mb-6">
-                    <div className="relative rounded-lg shadow-lg border overflow-hidden bg-gray-100">
-                      <img 
-                        src="/lovable-uploads/90af5ba6-2f58-47ed-9a1f-f422fb3af390.png" 
-                        alt="Exception management showing 6 active exceptions with automated SLA tracking, priority assignment, and resolution workflows compared to unified MCPMS automation"
-                        width="500"
-                        height="300"
-                        loading="lazy"
-                        className="w-full h-auto opacity-50"
-                        style={{
-                          filter: "grayscale(100%) contrast(0.5)",
-                        }}
-                      />
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-2 text-center">Current state: Manual exception tracking across disconnected carrier platforms</p>
-                  </div>
                   <div className="space-y-3">
                     <div className="flex items-start gap-2">
                       <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
@@ -504,19 +523,6 @@ export default function MCPMS() {
                   <p className="text-muted-foreground text-sm mb-4">
                     Connect with carriers, e-commerce platforms, WMS systems, and business tools for seamless data flow.
                   </p>
-                  <div className="mb-6">
-                    <div className="relative rounded-lg shadow-lg border overflow-hidden bg-gray-50">
-                      <img 
-                        src="/lovable-uploads/cab9476a-d981-41fa-83db-fbf15c6bb9d7.png" 
-                        alt="Integration hub showing 25+ carrier connections including DHL, FedEx, UPS with real-time status monitoring and API synchronization"
-                        width="500"
-                        height="300"
-                        loading="lazy"
-                        className="w-full h-auto"
-                      />
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-2 text-center">Live view: Seamless integration with 50+ carriers, e-commerce platforms, and business systems</p>
-                  </div>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-center gap-2">
                       <div className="w-1 h-1 bg-primary rounded-full"></div>
@@ -604,15 +610,29 @@ export default function MCPMS() {
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-center">Automated Allocation Rules</h3>
-                <div className="relative rounded-xl shadow-lg border overflow-hidden bg-white">
-                  <img 
-                    src="/lovable-uploads/8c68f958-3573-4ff2-9966-82fbfd805748.png" 
+                <div 
+                  className="relative rounded-xl shadow-lg border overflow-hidden bg-white cursor-pointer hover:shadow-xl transition-all duration-300 group"
+                  onClick={() => openModal(
+                    getMediaUrl(MEDIA_CONFIG.MCPMS.ALLOCATION_RULES, true),
+                    "Allocation rules configuration showing multi-source rules for MY/ID Express with destination-based routing and cheapest allocation strategy across DHL Express, FedEx, and MyDHL accounts",
+                    'video'
+                  )}
+                >
+                  <video 
+                    src={getMediaUrl(MEDIA_CONFIG.MCPMS.ALLOCATION_RULES, true)}
                     alt="Allocation rules configuration showing multi-source rules for MY/ID Express with destination-based routing and cheapest allocation strategy across DHL Express, FedEx, and MyDHL accounts"
-                    width="600"
-                    height="400"
-                    loading="lazy"
-                    className="w-full h-auto"
+                    {...getStandardImageProps(1200, 800)}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-auto max-w-none group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20 backdrop-blur-[1px]">
+                    <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-primary font-semibold text-sm">
+                      Click to expand
+                    </div>
+                  </div>
                 </div>
                 <p className="text-sm text-muted-foreground mt-3 text-center">
                   Smart carrier assignment based on destination, service type, and cost optimization
@@ -620,19 +640,33 @@ export default function MCPMS() {
               </div>
               
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-center">Exception Workflow Automation</h3>
-                <div className="relative rounded-xl shadow-lg border overflow-hidden bg-white">
-                  <img 
-                    src="/lovable-uploads/90af5ba6-2f58-47ed-9a1f-f422fb3af390.png" 
-                    alt="Exception workflow automation showing active SLA rules with P1/P2/P3 priority levels, resolution time targets, and automated workflows for delivery failure, customs hold, and damage claims"
-                    width="600"
-                    height="400"
-                    loading="lazy"
-                    className="w-full h-auto"
+                <h3 className="text-xl font-semibold mb-4 text-center">Exception Management Overview</h3>
+                <div 
+                  className="relative rounded-xl shadow-lg border overflow-hidden bg-white cursor-pointer hover:shadow-xl transition-all duration-300 group"
+                  onClick={() => openModal(
+                    getMediaUrl(MEDIA_CONFIG.MCPMS.EXCEPTIONS_OVERVIEW, true),
+                    "Quick overview of MCPMS exception management system showing real-time exception detection and automated resolution workflows",
+                    'video'
+                  )}
+                >
+                  <video 
+                    src={getMediaUrl(MEDIA_CONFIG.MCPMS.EXCEPTIONS_OVERVIEW, true)}
+                    alt="Quick overview of MCPMS exception management system showing real-time exception detection and automated resolution workflows"
+                    {...getStandardImageProps(1200, 800)}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-auto max-w-none group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20 backdrop-blur-[1px]">
+                    <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-primary font-semibold text-sm">
+                      Click to expand
+                    </div>
+                  </div>
                 </div>
                 <p className="text-sm text-muted-foreground mt-3 text-center">
-                  Automated SLA enforcement with escalation paths and workflow triggers
+                  Real-time exception detection with automated resolution workflows (3-5 second overview)
                 </p>
               </div>
             </div>
@@ -651,16 +685,6 @@ export default function MCPMS() {
               </p>
             </div>
             
-            <div className="relative rounded-xl shadow-2xl border overflow-hidden bg-white mb-12">
-              <img 
-                src="/lovable-uploads/9331332b-78d2-48fb-b565-5a2c834df46c.png" 
-                alt="Advanced lane analytics showing 5 active lanes with 86% on-time performance, cost breakdown analysis, carrier distribution, and risk assessment with monthly $49k spend tracking"
-                width="1200"
-                height="800"
-                loading="lazy"
-                className="w-full h-auto"
-              />
-            </div>
             <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-16">
               <strong>Lane Analysis & Preview:</strong> Compare carrier strategies, identify exception hotspots, and leverage 90-day performance forecasting to make data-driven logistics decisions that optimize costs and improve service levels.
             </p>
@@ -745,6 +769,15 @@ export default function MCPMS() {
           </div>
         </div>
       </section>
+
+      {/* Media Modal */}
+      <MediaModal 
+        isOpen={modalState.isOpen}
+        onClose={closeModal}
+        src={modalState.src}
+        alt={modalState.alt}
+        type={modalState.type}
+      />
     </div>
   );
 }

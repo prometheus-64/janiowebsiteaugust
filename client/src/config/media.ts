@@ -27,6 +27,8 @@ export const MEDIA_CONFIG = {
     DASHBOARD_OPERATIONS: 'mcpms-dashboard-operations.png',
     DASHBOARD_ANALYTICS: 'mcpms-dashboard-analytics.png',
     EXCEPTION_MANAGEMENT: 'mcpms-exception-management.png',
+    EXCEPTIONS_OVERVIEW: 'mcpms-exceptions-deepdive_loop.mov',
+    ALLOCATION_RULES: 'mcpms-allocation-rules_vid.mov',
     INTEGRATION_HUB: 'mcpms-integration-hub.png',
     LANE_ANALYTICS: 'mcpms-lane-analytics.png',
     WORKFLOW_AUTOMATION: 'mcpms-workflow-automation.png',
