@@ -64,7 +64,7 @@ export default function MCPMS() {
       <section className="py-20 bg-gradient-to-b from-primary/5 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Left Content */}
               <div className="space-y-6 lg:pr-8">
                 <div>
@@ -91,8 +91,8 @@ export default function MCPMS() {
               </div>
               
               {/* Right Dashboard Image */}
-              <div className="relative order-first lg:order-last">
-                <div className="relative rounded-xl shadow-2xl border overflow-hidden bg-white transform hover:scale-[1.02] transition-transform duration-300">
+              <div className="order-first lg:order-last">
+                <div className="rounded-xl shadow-lg overflow-hidden bg-white">
                   <img 
                     src="/lovable-uploads/87ca3817-358a-4629-b56b-ecbef0dc7f67.png" 
                     alt="MCPMS Operations Dashboard showing network-wide performance metrics including 5 active lanes, $23.34 average cost per shipment, 85.1% on-time rate, and real-time exception tracking with top partners by spend"
@@ -101,17 +101,6 @@ export default function MCPMS() {
                     loading="lazy"
                     className="w-full h-auto"
                   />
-                </div>
-                
-                {/* Floating metrics cards for visual interest */}
-                <div className="absolute -top-4 -left-4 bg-white rounded-lg shadow-lg p-3 border hidden lg:block">
-                  <div className="text-xs text-muted-foreground">Live Updates</div>
-                  <div className="text-sm font-semibold text-green-600">Real-time</div>
-                </div>
-                
-                <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 border hidden lg:block">
-                  <div className="text-xs text-muted-foreground">Exception Rate</div>
-                  <div className="text-sm font-semibold text-orange-600">8.9%</div>
                 </div>
               </div>
             </div>
