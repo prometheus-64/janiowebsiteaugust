@@ -60,27 +60,63 @@ export default function MCPMS() {
         </div>
       </section>
 
-      {/* Live Dashboard Preview Section */}
-      <section className="py-16 bg-gradient-to-b from-primary/5 to-white">
+      {/* Your Logistics at a Glance Section */}
+      <section className="py-20 bg-gradient-to-b from-primary/5 to-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center">
-            <p className="text-sm text-muted-foreground mb-6">Live MCPMS Operations Dashboard</p>
-            <div className="relative rounded-xl shadow-2xl border overflow-hidden bg-white">
-              <img 
-                src="/lovable-uploads/8c68f958-3573-4ff2-9966-82fbfd805748.png" 
-                alt="Real-time MCPMS operations dashboard showing network-wide KPIs, active lanes, carrier performance, and exception management with AI-powered insights"
-                width="1200"
-                height="800"
-                loading="lazy"
-                className="w-full h-auto"
-              />
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left Content */}
+              <div className="space-y-6 lg:pr-8">
+                <div>
+                  <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-gray-900 leading-tight">
+                    Your Logistics at a Glance
+                  </h2>
+                  <p className="text-xl lg:text-2xl text-muted-foreground font-medium">
+                    From costs to performance, track every KPI in real time across your entire network.
+                  </p>
+                </div>
+                
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  The Operations Dashboard gives you instant visibility into active lanes, top partners by spend, and exception trends. Identify issues early, optimize costs, and hold carriers accountable with actionable insights—all in one unified view.
+                </p>
+                
+                <div className="pt-4">
+                  <Link to="/contact">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-200">
+                      Explore the Dashboard
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              
+              {/* Right Dashboard Image */}
+              <div className="relative order-first lg:order-last">
+                <div className="relative rounded-xl shadow-2xl border overflow-hidden bg-white transform hover:scale-[1.02] transition-transform duration-300">
+                  <img 
+                    src="/lovable-uploads/87ca3817-358a-4629-b56b-ecbef0dc7f67.png" 
+                    alt="MCPMS Operations Dashboard showing network-wide performance metrics including 5 active lanes, $23.34 average cost per shipment, 85.1% on-time rate, and real-time exception tracking with top partners by spend"
+                    width="700"
+                    height="500"
+                    loading="lazy"
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                {/* Floating metrics cards for visual interest */}
+                <div className="absolute -top-4 -left-4 bg-white rounded-lg shadow-lg p-3 border hidden lg:block">
+                  <div className="text-xs text-muted-foreground">Live Updates</div>
+                  <div className="text-sm font-semibold text-green-600">Real-time</div>
+                </div>
+                
+                <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 border hidden lg:block">
+                  <div className="text-xs text-muted-foreground">Exception Rate</div>
+                  <div className="text-sm font-semibold text-orange-600">8.9%</div>
+                </div>
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Monitor all carriers, track KPIs, and manage exceptions from one unified command center with AI-powered insights and real-time alerts.
-            </p>
           </div>
         </div>
-        
       </section>
 
       {/* Problem Awareness Section */}
