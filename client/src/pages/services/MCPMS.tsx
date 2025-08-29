@@ -95,10 +95,14 @@ export default function MCPMS() {
               <div className="order-first lg:order-last">
                 <div className="rounded-xl shadow-lg overflow-hidden bg-white">
                   <img 
-                    src={getMediaUrl(MEDIA_CONFIG.MCPMS.DASHBOARD_OPERATIONS)} 
+                    src={getMediaUrl(MEDIA_CONFIG.MCPMS.DASHBOARD_OPERATIONS, true)} 
                     alt="MCPMS Operations Dashboard showing network-wide performance metrics including 5 active lanes, $23.34 average cost per shipment, 85.1% on-time rate, and real-time exception tracking with top partners by spend"
                     loading="lazy"
                     className="w-full h-auto max-w-none"
+                    style={{
+                      imageRendering: 'high-quality',
+                      WebkitImageSmoothing: 'high-quality'
+                    }}
                   />
                 </div>
               </div>

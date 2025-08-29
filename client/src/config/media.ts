@@ -48,8 +48,15 @@ export const MEDIA_CONFIG = {
 /**
  * Helper function to get full media URL
  */
-export const getMediaUrl = (assetPath: string): string => {
-  return `${MEDIA_CONFIG.BASE_URL}/${assetPath}`;
+export const getMediaUrl = (assetPath: string, bypassOptimization: boolean = false): string => {
+  const url = `${MEDIA_CONFIG.BASE_URL}/${assetPath}`;
+  
+  // Add query parameter to bypass Cloudflare optimization for high-quality images
+  if (bypassOptimization) {
+    return `${url}?original=true`;
+  }
+  
+  return url;
 };
 
 /**
