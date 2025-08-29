@@ -64,8 +64,8 @@ export default function MCPMS() {
       {/* Your Logistics at a Glance Section */}
       <section className="py-20 bg-gradient-to-b from-primary/5 to-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="max-w-[1600px] mx-auto">
+            <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-16 items-center">
               {/* Left Content */}
               <div className="space-y-6 lg:pr-8">
                 <div>
@@ -99,9 +99,13 @@ export default function MCPMS() {
                     alt="MCPMS Operations Dashboard showing network-wide performance metrics including 5 active lanes, $23.34 average cost per shipment, 85.1% on-time rate, and real-time exception tracking with top partners by spend"
                     loading="lazy"
                     className="w-full h-auto max-w-none"
+                    width="1920"
+                    height="968"
                     style={{
                       imageRendering: 'high-quality',
-                      WebkitImageSmoothing: 'high-quality'
+                      WebkitImageSmoothing: 'high-quality',
+                      maxWidth: '100%',
+                      height: 'auto'
                     }}
                   />
                 </div>
