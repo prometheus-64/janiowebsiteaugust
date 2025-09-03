@@ -1,0 +1,92 @@
+Solutions:
+
+Core Value Prop for Brands: 
+
+https://janiowebsitejuly-23-k7bnc4n4kt.replit.app/solutions/ecommerce-brands
+
+Weave in the following messages:
+
+* Ability to easily compare existing rates against market benchmarks and even BYOR
+* Onboarding and integrate w/ new vendors easily, eliminate switching costs
+* Accurate invoicing / billing recon completely managed 
+* Build and manage new supply chains customized to your requirements
+* Managing Delay and Exceptions
+
+
+
+Core Value Prop for LSPs: 
+
+https://janiowebsitejuly-23-k7bnc4n4kt.replit.app/solutions/logistics-partners
+
+Weave in the following messgaes:
+
+* Capabilities Expansion w/ out any cannibalization of capabilities
+    * Forwarders expansion into Customs / Courier Services 
+    * Warehousing/ Fulfilment Providers to provide e2e ecomm services
+    * Upgrading/ Implementation technical stack
+* New market expansion w/ out any complexity
+    * Inbound into SEA 
+* Partnerships - cross company collaboration. 
+    * List core capabilities - use as a sales channel
+
+
+
+Core Value Prop for Marketplace:
+
+https://janiowebsitejuly-23-k7bnc4n4kt.replit.app/solutions/marketplaces
+
+* Work with any combination of partners without any technical limitations
+* Procure specific capabilities and aggressive rate for an already well-oiled machine
+
+
+
+Services:
+
+(1) Supply Chain Control Tower:
+
+https://janiowebsitejuly-23-k7bnc4n4kt.replit.app/services/control-tower
+
+Weave in the following messages:
+
+* Gain Immediate Access to a comprehensive portfolio of vendors w/ out any technical work
+* BYOR
+* View and evaluate supply chain decisions on how it directly impact your P&L and Customer Experience 
+* Identify inefficiencies quickly and recover money lost 
+* eliminate switching cost and operational downtime 
+* Exceptions and Delays
+
+
+Functions: Procurement, Operations, Customer Service, Management Team
+
+(2) LaaS: complete logistics department outsourced
+
+https://janiowebsitejuly-23-k7bnc4n4kt.replit.app/services/logistics-as-a-service
+
+Weave in the following messages:
+
+* Having your own in-house operations/technical/finance team (change up the message) - free up resources to move your business forward.
+    * Procurement
+    * Partner Onboarding
+    * Operations team
+    * Technical team 
+    * Finance Recon
+* Add Courier Services
+* Add Customs Clearance
+
+
+Functions: Operations, Management Team
+
+(3) Strategic Procurement: 
+
+https://janiowebsitejuly-23-k7bnc4n4kt.replit.app/services/transportation-procurement
+
+Weave in the following messages:
+
+* Add Courier and Customs 
+* Gain Immediate Access to a comprehensive portfolio of vendors w/ out any technical work
+* View and evaluate supply chain decisions on how it directly impact your P&L and Customer Experience 
+* Save time onboarding vendors in a streamlined and structured fashion
+* Eliminate switching costs - Make core operational decisions without any technical constraints; Outsource technical expertise
+
+
+Functions: Procurement, Operations, Customer Service, Management Team

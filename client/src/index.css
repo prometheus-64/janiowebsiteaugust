@@ -1,0 +1,283 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Janio Brand Design System - Squarespace Style
+Professional blue color palette with clean aesthetics
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* Pure white */
+    --foreground: 223 100% 15%; /* Janio secondary blue */
+
+    --card: 0 0% 100%; /* Pure white */
+    --card-foreground: 223 100% 15%; /* Janio secondary blue */
+
+    --popover: 0 0% 100%; /* Pure white */
+    --popover-foreground: 223 100% 15%; /* Janio secondary blue */
+
+    /* Janio Brand Colors */
+    --primary: 223 100% 25%; /* Janio primary blue #002581 */
+    --primary-foreground: 0 0% 100%; /* Pure white */
+
+    --secondary: 223 100% 15%; /* Janio secondary blue #00164e */
+    --secondary-foreground: 0 0% 100%; /* Pure white */
+
+    --accent: 223 100% 30%; /* Lighter Janio blue for accents */
+    --accent-foreground: 0 0% 100%; /* Pure white */
+
+    /* Neutrals */
+    --muted: 0 0% 90%; /* Light gray #e6e6e6 */
+    --muted-foreground: 223 100% 15%; /* Janio secondary blue */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%; /* Light gray border */
+    --input: 0 0% 96%; /* Light input background */
+    --ring: 223 100% 25%; /* Janio primary blue focus ring */
+
+    --radius: 0.75rem;
+
+    /* Janio Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(223 100% 25%), hsl(223 100% 30%));
+    --gradient-hero: linear-gradient(135deg, hsl(223 100% 25%) 0%, hsl(223 100% 15%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    --gradient-accent: linear-gradient(135deg, hsl(223 100% 25%), hsl(223 100% 30%));
+
+    /* Janio Shadows */
+    --shadow-soft: 0 1px 3px hsl(223 100% 15% / 0.04), 0 1px 2px hsl(223 100% 15% / 0.06);
+    --shadow-medium: 0 4px 6px hsl(223 100% 15% / 0.07), 0 2px 4px hsl(223 100% 15% / 0.06);
+    --shadow-large: 0 10px 15px hsl(223 100% 15% / 0.1), 0 4px 6px hsl(223 100% 15% / 0.05);
+    --shadow-elegant: 0 20px 25px hsl(223 100% 15% / 0.1), 0 10px 10px hsl(223 100% 15% / 0.04);
+
+    /* Smooth Animations */
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Sidebar */
+    --sidebar-background: 220 14% 98%;
+    --sidebar-foreground: 220 13% 18%;
+    --sidebar-primary: 220 13% 18%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 13% 18%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 220 13% 18%;
+  }
+
+  .dark {
+    --background: 219 79% 15%; /* Dark blue background */
+    --foreground: 0 0% 100%; /* Pure white text */
+
+    --card: 219 79% 15%; /* Dark blue card */
+    --card-foreground: 0 0% 100%; /* Pure white text */
+
+    --popover: 219 79% 15%; /* Dark blue popover */
+    --popover-foreground: 0 0% 100%; /* Pure white text */
+
+    --primary: 219 79% 35%; /* Lighter blue for dark mode */
+    --primary-foreground: 0 0% 100%; /* Pure white */
+
+    --secondary: 219 79% 20%; /* Slightly lighter than background */
+    --secondary-foreground: 0 0% 100%; /* Pure white */
+
+    --muted: 0 0% 96%; /* Light gray for contrast */
+    --muted-foreground: 219 79% 15%; /* Dark blue */
+
+    --accent: 219 79% 35%; /* Lighter accent for dark mode */
+    --accent-foreground: 0 0% 100%; /* Pure white */
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%; /* Light gray border */
+    --input: 0 0% 96%; /* Light gray input */
+    --ring: 219 79% 35%; /* Lighter ring for dark mode */
+    
+    /* Dark Sidebar */
+    --sidebar-background: 219 79% 12%; /* Very dark blue */
+    --sidebar-foreground: 0 0% 90%; /* Light gray */
+    --sidebar-primary: 219 79% 35%; /* Lighter blue */
+    --sidebar-primary-foreground: 0 0% 100%; /* Pure white */
+    --sidebar-accent: 219 79% 18%; /* Darker blue */
+    --sidebar-accent-foreground: 0 0% 90%; /* Light gray */
+    --sidebar-border: 219 79% 18%; /* Darker blue border */
+    --sidebar-ring: 219 79% 35%; /* Lighter blue ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .font-display {
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+}
+
+/* Squarespace-style Custom Components */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-full font-medium transition-all duration-200 shadow-medium hover:shadow-large;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full font-medium transition-all duration-200;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-3 rounded-full font-medium transition-all duration-200 shadow-medium hover:shadow-large;
+  }
+
+  .btn-cta {
+    @apply bg-white text-primary hover:bg-gray-100 text-lg px-10 py-4 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  .btn-ghost-dark {
+    @apply bg-transparent border-2 border-white/70 text-white hover:bg-white/10 hover:border-white text-lg px-10 py-4 rounded-full font-medium transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-elegant hover:-translate-y-1;
+  }
+
+  .section-padding {
+    @apply py-20 lg:py-32;
+  }
+
+  .container-narrow {
+    @apply container mx-auto px-4 max-w-4xl;
+  }
+
+  .container-wide {
+    @apply container mx-auto px-4 max-w-7xl;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, 
+      hsl(219 79% 27%) 0%, 
+      hsl(219 79% 25%) 30%, 
+      hsl(219 79% 30%) 70%, 
+      hsl(219 79% 22%) 100%);
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl;
+  }
+
+  .nav-link {
+    @apply text-gray-900 hover:text-primary transition-colors duration-200 font-medium;
+  }
+
+  .nav-dropdown {
+    @apply bg-white border border-border rounded-2xl shadow-lg;
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, 
+      hsl(223 100% 25%) 0%, 
+      hsl(223 100% 15%) 100%);
+  }
+
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, 
+      hsl(223 100% 25%), 
+      hsl(223 100% 30%));
+  }
+
+  .bg-gradient-subtle {
+    background: linear-gradient(180deg, 
+      hsl(0 0% 100%), 
+      hsl(0 0% 98%));
+  }
+}
+
+/* Squarespace-style Animations */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-large {
+    box-shadow: var(--shadow-large);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+}
