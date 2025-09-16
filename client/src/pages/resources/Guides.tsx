@@ -6,8 +6,7 @@ import { ArrowRight, Download, BookOpen, Clock, Users, Target, TrendingUp, X } f
 import { Link } from 'react-router-dom';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
-import SEO from '@/components/SEO';
-import { generateOrganizationSchema, generateWebPageSchema } from '@/utils/seo';
+import PageSEO from '@/components/PageSEO';
 
 const Guides = () => {
   const guides = [
@@ -37,22 +36,9 @@ const Guides = () => {
     // Navigate to guide detail page where lead capture will be handled
     window.location.href = `/resources/guides/${guide.slug}`;
   };
-
-  const pageSchema = generateWebPageSchema({
-    title: 'Expert Logistics Guides & Implementation Resources | Janio',
-    description: 'Access comprehensive logistics guides covering freight negotiation, cost management, and supply chain optimization. Expert implementation resources for supply chain leaders.',
-    url: 'https://janio.com/resources/guides'
-  });
-
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="Expert Logistics Guides & Implementation Resources"
-        description="Access comprehensive logistics guides covering freight negotiation, cost management, and supply chain optimization. Expert implementation resources for supply chain leaders."
-        keywords="logistics guides, freight negotiation, supply chain guides, cost management, logistics implementation, 4PL resources, transportation procurement"
-        url="/resources/guides"
-        structuredData={[generateOrganizationSchema(), pageSchema]}
-      />
+      <PageSEO page="resourcesGuides" />
       
       {/* Hero Section - Matching Home Page Format */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">

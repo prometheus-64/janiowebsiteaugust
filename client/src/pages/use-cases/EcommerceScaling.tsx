@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PageSEO from '@/components/PageSEO';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -8,7 +9,7 @@ import { TrendingUp, Package, Zap, Globe, CheckCircle, ArrowRight } from 'lucide
 const EcommerceScaling = () => {
   return (
     <div className="min-h-screen bg-background">
-      
+      <PageSEO page="useCaseEcommerceScaling" />
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-subtle">
         <div className="container mx-auto px-4">

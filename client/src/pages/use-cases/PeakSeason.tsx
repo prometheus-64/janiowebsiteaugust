@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+import PageSEO from '@/components/PageSEO';
 import { ArrowRight, TrendingUp, Package, Users, AlertTriangle, CheckCircle, Clock, Target } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -62,7 +63,7 @@ const PeakSeason = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      
+      <PageSEO page="useCasePeakSeason" />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-secondary/95" />

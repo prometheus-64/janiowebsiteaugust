@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-interface SEOProps {
+export interface SEOProps {
   title: string;
   description: string;
   keywords?: string;
@@ -14,22 +14,30 @@ interface SEOProps {
     section?: string;
     tags?: string[];
   };
-  structuredData?: object;
+  structuredData?: object | object[];
 }
+
+const siteUrl = 'https://janio.com';
+const defaultImage = '/og-image.jpg';
 
 const SEO: React.FC<SEOProps> = ({
   title,
   description,
   keywords,
-  image = '/og-image.jpg',
-  url = 'https://janio.com',
+  image = defaultImage,
+  url = siteUrl,
   type = 'website',
   article,
   structuredData
 }) => {
   const fullTitle = title.includes('Janio') ? title : `${title} | Janio`;
-  const fullUrl = url.startsWith('http') ? url : `https://janio.com${url}`;
-  const fullImage = image.startsWith('http') ? image : `https://janio.com${image}`;
+  const fullUrl = url.startsWith('http') ? url : `${siteUrl}${url}`;
+  const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+  const structuredDataItems = structuredData
+    ? Array.isArray(structuredData)
+      ? structuredData
+      : [structuredData]
+    : [];
 
   return (
     <Helmet>
@@ -39,6 +47,7 @@ const SEO: React.FC<SEOProps> = ({
       {keywords && <meta name="keywords" content={keywords} />}
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href={fullUrl} />
+      <meta name="author" content="Janio" />
 
       {/* Open Graph Tags */}
       <meta property="og:title" content={fullTitle} />
@@ -48,12 +57,17 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:image" content={fullImage} />
       <meta property="og:image:alt" content={title} />
       <meta property="og:site_name" content="Janio" />
+      <meta property="og:locale" content="en_US" />
+
+      {/* Basic alternate representation for social crawlers */}
+      <meta name="twitter:creator" content="@janioasia" />
 
       {/* Twitter Card Tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullImage} />
+      <meta name="twitter:site" content="@janioasia" />
 
       {/* Article-specific meta tags */}
       {article && type === 'article' && (
@@ -77,11 +91,11 @@ const SEO: React.FC<SEOProps> = ({
       )}
 
       {/* Structured Data */}
-      {structuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
+      {structuredDataItems.map((item, index) => (
+        <script key={index} type="application/ld+json">
+          {JSON.stringify(item)}
         </script>
-      )}
+      ))}
     </Helmet>
   );
 };

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import PageSEO from '@/components/PageSEO';
 import { ArrowRight, Calculator, DollarSign, TrendingUp, Package, Truck, BarChart3, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -112,7 +113,7 @@ const Calculators = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      
+      <PageSEO page="resourcesCalculators" />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground py-20">
         <div className="container mx-auto px-4">

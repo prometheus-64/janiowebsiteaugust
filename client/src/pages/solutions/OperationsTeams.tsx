@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PageSEO from '@/components/PageSEO';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -24,7 +25,7 @@ const OperationsTeams = () => {
   }];
   const challenges = ["Logistics complexity outpacing team capabilities", "Peak season capacity nightmares", "Team burnout from firefighting mode", "Scaling roadblocks limiting growth", "Unexpected cost surprises"];
   return <div className="min-h-screen bg-background">
-      
+      <PageSEO page="operationsTeams" />
       {/* Hero Section */}
       <section className="py-20 lg:py-32 bg-gradient-to-br from-primary via-primary/90 to-secondary relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />

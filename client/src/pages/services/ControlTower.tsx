@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PageSEO from '@/components/PageSEO';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -8,7 +9,7 @@ import { Eye, Zap, Network, Brain, Shield, CheckCircle, Clock, BarChart3, ArrowR
 const ControlTower = () => {
   return (
     <div className="min-h-screen bg-background">
-      
+      <PageSEO page="controlTower" />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
         {/* Enhanced Background with Subtle Pattern */}

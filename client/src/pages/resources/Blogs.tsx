@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PageSEO from '@/components/PageSEO';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, User, ArrowRight, TrendingUp, Users, BookOpen, Target } from 'lucide-react';
-import SEO from '@/components/SEO';
-import { generateOrganizationSchema, generateWebPageSchema } from '@/utils/seo';
 
 const Blogs = () => {
   const blogPosts = [
@@ -42,21 +41,9 @@ const Blogs = () => {
     ? blogPosts 
     : blogPosts.filter(post => post.category === selectedCategory);
 
-  const pageSchema = generateWebPageSchema({
-    title: 'Logistics Industry Insights & Best Practices | Janio Blog',
-    description: 'Expert insights for supply chain leaders. Read our latest articles on 4PL strategy, operations optimization, cost management, and logistics technology.',
-    url: 'https://janio.com/resources/blogs'
-  });
-
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="Logistics Industry Insights & Best Practices"
-        description="Expert insights for supply chain leaders. Read our latest articles on 4PL strategy, operations optimization, cost management, and logistics technology across Southeast Asia."
-        keywords="logistics blog, supply chain insights, 4PL strategy, operations optimization, Southeast Asia logistics, transportation procurement"
-        url="/resources/blogs"
-        structuredData={[generateOrganizationSchema(), pageSchema]}
-      />
+      <PageSEO page="resourcesBlogs" />
       
       {/* Hero Section - Matching Home Page Format */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">

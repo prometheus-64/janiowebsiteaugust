@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import PageSEO from '@/components/PageSEO';
 import { ArrowRight, Download, TrendingUp, Clock, Users, Target, Building, DollarSign, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -160,7 +161,7 @@ const CaseStudies = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      
+      <PageSEO page="resourcesCaseStudies" />
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground">
         <div className="container mx-auto px-4">

@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 
+import PageSEO from '@/components/PageSEO';
 import { ArrowRight, CheckCircle, Clock, BarChart3, Target, Users, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -90,7 +91,7 @@ const Consultations = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      
+      <PageSEO page="resourcesAssessments" />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground py-20">
         <div className="container mx-auto px-4">
