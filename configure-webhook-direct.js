@@ -7,7 +7,7 @@ try {
   webhookService.configure({
     url: 'https://janio.app.n8n.cloud/webhook/ddf4a9ce-40ef-462c-8264-c582a28e3ae2',
     username: 'janiowebsiteleadform',
-    password: 'kyNpen-wijmy0-cibhug',
+    password: 'your-password',
     timeout: 10000
   });
   

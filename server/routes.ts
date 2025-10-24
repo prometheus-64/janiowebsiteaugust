@@ -12,7 +12,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Auto-configure webhook on server start (only if environment variables are set)
   const webhookUrl = process.env.WEBHOOK_URL || 'https://janio.app.n8n.cloud/webhook/ddf4a9ce-40ef-462c-8264-c582a28e3ae2';
   const webhookUsername = process.env.WEBHOOK_USERNAME || 'janiowebsiteleadform';
-  const webhookPassword = process.env.WEBHOOK_PASSWORD || 'kyNpen-wijmy0-cibhug';
+  const webhookPassword = process.env.WEBHOOK_PASSWORD;
   
   if (webhookUrl && webhookUsername && webhookPassword) {
     try {

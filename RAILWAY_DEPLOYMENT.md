@@ -9,8 +9,7 @@ To properly configure the webhook integration on Railway, you need to set the fo
 ```bash
 WEBHOOK_URL=https://janio.app.n8n.cloud/webhook/ddf4a9ce-40ef-462c-8264-c582a28e3ae2
 WEBHOOK_USERNAME=janiowebsiteleadform
-WEBHOOK_PASSWORD=kyNpen-wijmy0-cibhug
-WEBHOOK_TIMEOUT=10000
+WEBHOOK_PASSWORD=your-passwordWEBHOOK_TIMEOUT=10000
 ```
 
 ## Setting Environment Variables on Railway
@@ -22,14 +21,14 @@ WEBHOOK_TIMEOUT=10000
 4. Add each environment variable:
    - `WEBHOOK_URL`: `https://janio.app.n8n.cloud/webhook/ddf4a9ce-40ef-462c-8264-c582a28e3ae2`
    - `WEBHOOK_USERNAME`: `janiowebsiteleadform`
-   - `WEBHOOK_PASSWORD`: `kyNpen-wijmy0-cibhug`
+   - `WEBHOOK_PASSWORD`: `your-password`
    - `WEBHOOK_TIMEOUT`: `10000`
 
 ### Method 2: Railway CLI
 ```bash
 railway variables set WEBHOOK_URL=https://janio.app.n8n.cloud/webhook/ddf4a9ce-40ef-462c-8264-c582a28e3ae2
 railway variables set WEBHOOK_USERNAME=janiowebsiteleadform
-railway variables set WEBHOOK_PASSWORD=kyNpen-wijmy0-cibhug
+railway variables set WEBHOOK_PASSWORD=your-password
 railway variables set WEBHOOK_TIMEOUT=10000
 ```
 
@@ -96,7 +95,7 @@ curl -X POST "https://your-railway-app.railway.app/api/webhook/configure" \
   -d '{
     "url": "https://janio.app.n8n.cloud/webhook/ddf4a9ce-40ef-462c-8264-c582a28e3ae2",
     "username": "janiowebsiteleadform",
-    "password": "kyNpen-wijmy0-cibhug",
+    "password": "your-password",
     "timeout": 10000
   }'
 ```

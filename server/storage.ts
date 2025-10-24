@@ -1,6 +1,7 @@
 import { users, contactSubmissions, type User, type InsertUser, type ContactSubmission, type InsertContactSubmission } from "@shared/schema";
 import { eq } from "drizzle-orm";
 import crypto from "node:crypto";
+import bcrypt from "bcrypt";
 
 // modify the interface with any CRUD methods
 // you might need
@@ -9,6 +10,7 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  comparePassword(password: string, hash: string): Promise<boolean>;
   createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission>;
 }
 
@@ -33,8 +35,13 @@ class DatabaseStorage implements IStorage {
 
   async createUser(insertUser: InsertUser): Promise<User> {
     const db = await getDb();
-    const result = await db.insert(users).values(insertUser).returning();
+    const hashedPassword = await bcrypt.hash(insertUser.password, 10);
+    const result = await db.insert(users).values({ ...insertUser, password: hashedPassword }).returning();
     return result[0];
+  }
+
+  async comparePassword(password: string, hash: string): Promise<boolean> {
+    return await bcrypt.compare(password, hash);
   }
 
   async createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission> {
@@ -59,13 +66,18 @@ class InMemoryStorage implements IStorage {
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
+    const hashedPassword = await bcrypt.hash(insertUser.password, 10);
     const newUser: User = {
       id: this.inMemoryUsers.length + 1,
       username: insertUser.username,
-      password: insertUser.password,
+      password: hashedPassword,
     } as User;
     this.inMemoryUsers.push(newUser);
     return newUser;
+  }
+
+  async comparePassword(password: string, hash: string): Promise<boolean> {
+    return await bcrypt.compare(password, hash);
   }
 
   async createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission> {

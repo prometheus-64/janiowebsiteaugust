@@ -56,7 +56,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
   // Initialize or restore chat session
   useEffect(() => {
     const initializeSession = () => {
-      const stored = localStorage.getItem(CHAT_CONFIG.sessionStorageKey);
+      const stored = sessionStorage.getItem(CHAT_CONFIG.sessionStorageKey);
       
       if (stored) {
         try {
@@ -102,7 +102,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
   // Save session to localStorage whenever it changes
   useEffect(() => {
     if (session) {
-      localStorage.setItem(CHAT_CONFIG.sessionStorageKey, JSON.stringify(session));
+      sessionStorage(CHAT_CONFIG.sessionStorageKey, JSON.stringify(session));
     }
   }, [session]);
 
