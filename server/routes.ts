@@ -1,6 +1,9 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { webhookService, sanitizeString } from "./webhook";
+import passport from "passport";
+import { requireAuth, requireMFA, MFA } from "./auth";
+import { storage } from "./storage";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here
@@ -191,12 +194,424 @@ export async function registerRoutes(app: Express): Promise<Server> {
       configured: webhookService.isConfigured(),
       environment: {
         WEBHOOK_URL: process.env.WEBHOOK_URL ? 'SET' : 'NOT SET',
-        WEBHOOK_USERNAME: process.env.WEBHOOK_USERNAME ? 'SET' : 'NOT SET', 
+        WEBHOOK_USERNAME: process.env.WEBHOOK_USERNAME ? 'SET' : 'NOT SET',
         WEBHOOK_PASSWORD: process.env.WEBHOOK_PASSWORD ? 'SET' : 'NOT SET',
         WEBHOOK_TIMEOUT: process.env.WEBHOOK_TIMEOUT || 'NOT SET',
         DISABLE_WEBHOOK: process.env.DISABLE_WEBHOOK || 'NOT SET',
       }
     });
+  });
+
+  // ===== AUTHENTICATION ROUTES =====
+
+  // Google OAuth login
+  app.get("/api/auth/google",
+    passport.authenticate("google", {
+      scope: ["profile", "email"]
+    })
+  );
+
+  // Google OAuth callback
+  app.get("/api/auth/google/callback",
+    passport.authenticate("google", { failureRedirect: "/admin/login?error=auth_failed" }),
+    (req, res) => {
+      const user = req.user as any;
+      // If MFA is enabled, redirect to MFA verification
+      if (user?.mfaEnabled) {
+        res.redirect("/admin/mfa-verify");
+      } else {
+        res.redirect("/admin/dashboard");
+      }
+    }
+  );
+
+  // Check auth status
+  app.get("/api/auth/status", (req, res) => {
+    if (req.isAuthenticated?.()) {
+      const user = req.user as any;
+      res.json({
+        authenticated: true,
+        mfaRequired: user.mfaEnabled && !(req.session as any)?.mfaVerified,
+        user: {
+          id: user.id,
+          email: user.email,
+          name: user.name,
+          profilePicture: user.profilePicture,
+          mfaEnabled: user.mfaEnabled,
+        }
+      });
+    } else {
+      res.json({ authenticated: false });
+    }
+  });
+
+  // Logout
+  app.post("/api/auth/logout", (req, res) => {
+    req.logout((err) => {
+      if (err) {
+        return res.status(500).json({ error: "Logout failed" });
+      }
+      req.session?.destroy(() => {
+        res.json({ success: true });
+      });
+    });
+  });
+
+  // ===== MFA ROUTES =====
+
+  // Setup MFA - generate secret and QR code
+  app.post("/api/auth/mfa/setup", requireAuth, async (req, res) => {
+    try {
+      const user = req.user as any;
+
+      if (user.mfaEnabled) {
+        return res.status(400).json({ error: "MFA already enabled" });
+      }
+
+      const secret = MFA.generateSecret();
+      const qrCode = await MFA.generateQRCode(user.email, secret);
+
+      // Store secret temporarily in session until verified
+      (req.session as any).tempMfaSecret = secret;
+
+      res.json({
+        secret,
+        qrCode,
+        email: user.email,
+      });
+    } catch (error) {
+      console.error("MFA setup error:", error);
+      res.status(500).json({ error: "Failed to setup MFA" });
+    }
+  });
+
+  // Enable MFA - verify token and enable
+  app.post("/api/auth/mfa/enable", requireAuth, async (req, res) => {
+    try {
+      const user = req.user as any;
+      const { token } = req.body;
+      const tempSecret = (req.session as any).tempMfaSecret;
+
+      if (!tempSecret) {
+        return res.status(400).json({ error: "No MFA setup in progress" });
+      }
+
+      if (!token) {
+        return res.status(400).json({ error: "Token required" });
+      }
+
+      const isValid = MFA.verifyToken(token, tempSecret);
+
+      if (!isValid) {
+        return res.status(400).json({ error: "Invalid token" });
+      }
+
+      // Save MFA secret to user
+      await storage.updateAdminUser(user.id, {
+        mfaSecret: tempSecret,
+        mfaEnabled: true,
+      });
+
+      // Clear temporary secret
+      delete (req.session as any).tempMfaSecret;
+      (req.session as any).mfaVerified = true;
+
+      res.json({ success: true, message: "MFA enabled successfully" });
+    } catch (error) {
+      console.error("MFA enable error:", error);
+      res.status(500).json({ error: "Failed to enable MFA" });
+    }
+  });
+
+  // Verify MFA token during login
+  app.post("/api/auth/mfa/verify", requireAuth, async (req, res) => {
+    try {
+      const user = req.user as any;
+      const { token } = req.body;
+
+      if (!user.mfaEnabled || !user.mfaSecret) {
+        return res.status(400).json({ error: "MFA not enabled" });
+      }
+
+      if (!token) {
+        return res.status(400).json({ error: "Token required" });
+      }
+
+      const isValid = MFA.verifyToken(token, user.mfaSecret);
+
+      if (!isValid) {
+        return res.status(400).json({ error: "Invalid token" });
+      }
+
+      // Mark MFA as verified in session
+      (req.session as any).mfaVerified = true;
+
+      res.json({ success: true });
+    } catch (error) {
+      console.error("MFA verify error:", error);
+      res.status(500).json({ error: "Failed to verify MFA" });
+    }
+  });
+
+  // Disable MFA
+  app.post("/api/auth/mfa/disable", requireAuth, requireMFA, async (req, res) => {
+    try {
+      const user = req.user as any;
+      const { token } = req.body;
+
+      if (!user.mfaEnabled || !user.mfaSecret) {
+        return res.status(400).json({ error: "MFA not enabled" });
+      }
+
+      // Verify token before disabling
+      const isValid = MFA.verifyToken(token, user.mfaSecret);
+
+      if (!isValid) {
+        return res.status(400).json({ error: "Invalid token" });
+      }
+
+      await storage.updateAdminUser(user.id, {
+        mfaSecret: null,
+        mfaEnabled: false,
+      });
+
+      delete (req.session as any).mfaVerified;
+
+      res.json({ success: true, message: "MFA disabled successfully" });
+    } catch (error) {
+      console.error("MFA disable error:", error);
+      res.status(500).json({ error: "Failed to disable MFA" });
+    }
+  });
+
+  // ===== BLOG CRUD ROUTES =====
+
+  // Get all blogs (public - published only, admin - all)
+  app.get("/api/blogs", async (req, res) => {
+    try {
+      const isAdmin = req.isAuthenticated?.();
+      const blogs = await storage.getAllBlogs(!isAdmin);
+      res.json(blogs);
+    } catch (error) {
+      console.error("Get blogs error:", error);
+      res.status(500).json({ error: "Failed to fetch blogs" });
+    }
+  });
+
+  // Get blog by ID or slug
+  app.get("/api/blogs/:idOrSlug", async (req, res) => {
+    try {
+      const { idOrSlug } = req.params;
+      let blog = await storage.getBlogById(idOrSlug);
+
+      if (!blog) {
+        blog = await storage.getBlogBySlug(idOrSlug);
+      }
+
+      if (!blog) {
+        return res.status(404).json({ error: "Blog not found" });
+      }
+
+      // Check if published or user is admin
+      if (!blog.isPublished && !req.isAuthenticated?.()) {
+        return res.status(404).json({ error: "Blog not found" });
+      }
+
+      res.json(blog);
+    } catch (error) {
+      console.error("Get blog error:", error);
+      res.status(500).json({ error: "Failed to fetch blog" });
+    }
+  });
+
+  // Create blog (admin only)
+  app.post("/api/blogs", requireAuth, requireMFA, async (req, res) => {
+    try {
+      const user = req.user as any;
+      const blogData = {
+        ...req.body,
+        authorId: user.id,
+        author: req.body.author || user.name,
+      };
+
+      const blog = await storage.createBlog(blogData);
+      res.json(blog);
+    } catch (error) {
+      console.error("Create blog error:", error);
+      res.status(500).json({ error: "Failed to create blog" });
+    }
+  });
+
+  // Update blog (admin only)
+  app.put("/api/blogs/:id", requireAuth, requireMFA, async (req, res) => {
+    try {
+      const { id } = req.params;
+      const blog = await storage.updateBlog(id, req.body);
+      res.json(blog);
+    } catch (error) {
+      console.error("Update blog error:", error);
+      res.status(500).json({ error: "Failed to update blog" });
+    }
+  });
+
+  // Delete blog (admin only)
+  app.delete("/api/blogs/:id", requireAuth, requireMFA, async (req, res) => {
+    try {
+      const { id } = req.params;
+      await storage.deleteBlog(id);
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Delete blog error:", error);
+      res.status(500).json({ error: "Failed to delete blog" });
+    }
+  });
+
+  // ===== CASE STUDY CRUD ROUTES =====
+
+  // Get all case studies
+  app.get("/api/case-studies", async (req, res) => {
+    try {
+      const isAdmin = req.isAuthenticated?.();
+      const caseStudies = await storage.getAllCaseStudies(!isAdmin);
+      res.json(caseStudies);
+    } catch (error) {
+      console.error("Get case studies error:", error);
+      res.status(500).json({ error: "Failed to fetch case studies" });
+    }
+  });
+
+  // Get case study by ID or slug
+  app.get("/api/case-studies/:idOrSlug", async (req, res) => {
+    try {
+      const { idOrSlug } = req.params;
+      let caseStudy = await storage.getCaseStudyById(idOrSlug);
+
+      if (!caseStudy) {
+        caseStudy = await storage.getCaseStudyBySlug(idOrSlug);
+      }
+
+      if (!caseStudy) {
+        return res.status(404).json({ error: "Case study not found" });
+      }
+
+      if (!caseStudy.isPublished && !req.isAuthenticated?.()) {
+        return res.status(404).json({ error: "Case study not found" });
+      }
+
+      res.json(caseStudy);
+    } catch (error) {
+      console.error("Get case study error:", error);
+      res.status(500).json({ error: "Failed to fetch case study" });
+    }
+  });
+
+  // Create case study (admin only)
+  app.post("/api/case-studies", requireAuth, requireMFA, async (req, res) => {
+    try {
+      const caseStudy = await storage.createCaseStudy(req.body);
+      res.json(caseStudy);
+    } catch (error) {
+      console.error("Create case study error:", error);
+      res.status(500).json({ error: "Failed to create case study" });
+    }
+  });
+
+  // Update case study (admin only)
+  app.put("/api/case-studies/:id", requireAuth, requireMFA, async (req, res) => {
+    try {
+      const { id } = req.params;
+      const caseStudy = await storage.updateCaseStudy(id, req.body);
+      res.json(caseStudy);
+    } catch (error) {
+      console.error("Update case study error:", error);
+      res.status(500).json({ error: "Failed to update case study" });
+    }
+  });
+
+  // Delete case study (admin only)
+  app.delete("/api/case-studies/:id", requireAuth, requireMFA, async (req, res) => {
+    try {
+      const { id } = req.params;
+      await storage.deleteCaseStudy(id);
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Delete case study error:", error);
+      res.status(500).json({ error: "Failed to delete case study" });
+    }
+  });
+
+  // ===== GUIDE CRUD ROUTES =====
+
+  // Get all guides
+  app.get("/api/guides", async (req, res) => {
+    try {
+      const isAdmin = req.isAuthenticated?.();
+      const guides = await storage.getAllGuides(!isAdmin);
+      res.json(guides);
+    } catch (error) {
+      console.error("Get guides error:", error);
+      res.status(500).json({ error: "Failed to fetch guides" });
+    }
+  });
+
+  // Get guide by ID or slug
+  app.get("/api/guides/:idOrSlug", async (req, res) => {
+    try {
+      const { idOrSlug } = req.params;
+      let guide = await storage.getGuideById(idOrSlug);
+
+      if (!guide) {
+        guide = await storage.getGuideBySlug(idOrSlug);
+      }
+
+      if (!guide) {
+        return res.status(404).json({ error: "Guide not found" });
+      }
+
+      if (!guide.isPublished && !req.isAuthenticated?.()) {
+        return res.status(404).json({ error: "Guide not found" });
+      }
+
+      res.json(guide);
+    } catch (error) {
+      console.error("Get guide error:", error);
+      res.status(500).json({ error: "Failed to fetch guide" });
+    }
+  });
+
+  // Create guide (admin only)
+  app.post("/api/guides", requireAuth, requireMFA, async (req, res) => {
+    try {
+      const guide = await storage.createGuide(req.body);
+      res.json(guide);
+    } catch (error) {
+      console.error("Create guide error:", error);
+      res.status(500).json({ error: "Failed to create guide" });
+    }
+  });
+
+  // Update guide (admin only)
+  app.put("/api/guides/:id", requireAuth, requireMFA, async (req, res) => {
+    try {
+      const { id } = req.params;
+      const guide = await storage.updateGuide(id, req.body);
+      res.json(guide);
+    } catch (error) {
+      console.error("Update guide error:", error);
+      res.status(500).json({ error: "Failed to update guide" });
+    }
+  });
+
+  // Delete guide (admin only)
+  app.delete("/api/guides/:id", requireAuth, requireMFA, async (req, res) => {
+    try {
+      const { id } = req.params;
+      await storage.deleteGuide(id);
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Delete guide error:", error);
+      res.status(500).json({ error: "Failed to delete guide" });
+    }
   });
 
   const httpServer = createServer(app);
