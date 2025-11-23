@@ -48,6 +48,11 @@ import EcommerceBrands from "./pages/EcommerceBrands";
 import Marketplaces from "./pages/Marketplaces";
 import LogisticsPartners from "./pages/LogisticsPartners";
 import B2CImportGrowth from "./pages/B2CImportGrowth";
+import AdminLogin from "./pages/admin/Login";
+import AdminMFAVerify from "./pages/admin/MFAVerify";
+import AdminDashboard from "./pages/admin/Dashboard";
+import BlogsList from "./pages/admin/BlogsList";
+import BlogForm from "./pages/admin/BlogForm";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
@@ -137,8 +142,16 @@ const App = () => (
           
           {/* New Persona-Specific Landing Pages */}
           <Route path="/b2c-import-growth" element={<B2CImportGrowth />} />
-          
-          
+
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/mfa-verify" element={<AdminMFAVerify />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/blogs" element={<BlogsList />} />
+          <Route path="/admin/blogs/:id" element={<BlogForm />} />
+          <Route path="/admin/case-studies" element={<BlogsList />} />
+          <Route path="/admin/guides" element={<BlogsList />} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
