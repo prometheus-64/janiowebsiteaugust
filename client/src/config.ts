@@ -1,1 +1,1 @@
-export const FEATURE_HIDE_RESOURCES = true;
+export const FEATURE_HIDE_RESOURCES = false;
